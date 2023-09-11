@@ -11,12 +11,14 @@ import { ThemeProviderWrapper } from "./components/ThemeContext";
 import "./App.css";
 import Forms from "./pages/Forms";
 import Footer from "./components/Footer";
+import { ScrollProvider } from "./components/ScrollContext";
 
 import ImageCard from "./components/ImageCard";
 
 export default function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const hydrationMenuRef = useRef(null);
+  const homeMenuRef = useRef(null);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -49,7 +51,7 @@ export default function App() {
       buttonText: "Click Me",
     },
     {
-      title: "Coivd, Cold, and Flu",
+      title: "Covid, Cold, and Flu",
       price: "$250",
       content: "This is the content of Card 3.",
       buttonText: "Click Me",
@@ -93,65 +95,68 @@ export default function App() {
   ];
 
   return (
-    <Router>
-      <ThemeProviderWrapper>
-        <CssBaseline />
+    <ScrollProvider>
+      <Router>
+        <ThemeProviderWrapper>
+          <CssBaseline />
 
-        <div className="App">
-          <NavBar
-            hydrationMenuRef={hydrationMenuRef}
-            isOpen={isNavOpen}
-            onClose={toggleNav}
-          />
-          <div className="main-content">
-            <Container
-              className="divlogo"
-              sx={{
-                p: 10,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            ></Container>
+          <div className="App">
+            <NavBar
+              hydrationMenuRef={hydrationMenuRef}
+              isOpen={isNavOpen}
+              onClose={toggleNav}
+            />
+            <div className="main-content">
+              <Container
+                className="divlogo"
+                sx={{
+                  p: 10,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              ></Container>
 
-            <ImageCard />
-            <Container sx={{ p: 4 }}>
-              <Routes>
-                <Route
-                  path="/menu"
-                  element={
-                    <Menu
-                      hydrationMenuRef={hydrationMenuRef}
-                      dataArray={data}
-                    />
-                  }
-                />
-                <Route
-                  path="/"
-                  element={<Home />}
-                />
-                <Route
-                  path="/forms"
-                  element={<Forms />}
-                />
-                <Route
-                  path="/about"
-                  element={<About />}
-                />
-                <Route
-                  path="/locations"
-                  element={<Locations />}
-                />
-                <Route
-                  path="/contact"
-                  element={<Contact dataArray={data} />}
-                />
-              </Routes>
-            </Container>
+              <ImageCard hydrationMenuRef={hydrationMenuRef} />
+
+              <Container sx={{ p: 4 }}>
+                <Routes>
+                  <Route
+                    path="/menu"
+                    element={
+                      <Menu
+                        hydrationMenuRef={hydrationMenuRef}
+                        dataArray={data}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/"
+                    element={<Home />}
+                  />
+                  <Route
+                    path="/forms"
+                    element={<Forms />}
+                  />
+                  <Route
+                    path="/about"
+                    element={<About />}
+                  />
+                  <Route
+                    path="/locations"
+                    element={<Locations />}
+                  />
+                  <Route
+                    path="/contact"
+                    element={<Contact dataArray={data} />}
+                  />
+                </Routes>
+              </Container>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </ThemeProviderWrapper>
-    </Router>
+        </ThemeProviderWrapper>
+      </Router>
+    </ScrollProvider>
   );
 }

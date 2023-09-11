@@ -5,8 +5,19 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo"; // Import your logo component
 import styles from "./Footer.module.css"; // Import the CSS module
 import IvIcon from "../components/IvIcon";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useScroll } from "./ScrollContext";
+import PhoneIcon from "@mui/icons-material/Phone";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 export default function Footer() {
+  const navigate = useNavigate();
+
+  const handleTypographyClick = (route) => {
+    navigate(route, { state: { shouldScroll: true } });
+  };
+
   const navLinksStyle = {
     display: "flex",
     flexDirection: "column", // Stacks items vertically
@@ -56,33 +67,54 @@ export default function Footer() {
                   variant="h6"
                   gutterBottom
                   sx={contactStyles}
+                  style={{ paddingLeft: "45px" }}
                 >
                   Contact Us
                 </Typography>
-                <Typography
-                  variant="body1"
-                  sx={contactStyles}
-                  color="inherit"
-                  style={{ textAlign: "left" }}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginBottom: "10px",
+                  }}
                 >
-                  Phone: (123) 456-7890
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={contactStyles}
-                  color="inherit"
-                  style={{ textAlign: "left" }}
+                  <PhoneIcon style={{ marginRight: "10px" }} />
+                  <Typography
+                    variant="body1"
+                    sx={contactStyles}
+                    color="inherit"
+                  >
+                    (123) 456-7890
+                  </Typography>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginBottom: "10px",
+                  }}
                 >
-                  Email: info@example.com
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={contactStyles}
-                  color="inherit"
-                  style={{ textAlign: "left" }}
-                >
-                  Address: 123 IV St, Hydration City, 12345
-                </Typography>
+                  <MailOutlineIcon style={{ marginRight: "10px" }} />
+                  <Typography
+                    variant="body1"
+                    sx={contactStyles}
+                    color="inherit"
+                  >
+                    info@example.com
+                  </Typography>
+                </div>
+
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <LocationOnIcon style={{ marginRight: "10px" }} />
+                  <Typography
+                    variant="body1"
+                    sx={contactStyles}
+                    color="inherit"
+                  >
+                    Address: 123 IV St, Hydration City, 12345
+                  </Typography>
+                </div>
               </div>
               <div style={{ marginTop: "20px" }}>
                 <IvIcon />
@@ -100,64 +132,62 @@ export default function Footer() {
                 direction="column"
                 // className={styles["links-container"]}
               >
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={typographyStyle}
-                >
-                  Useful Links
-                </Typography>
-                <div style={navLinksStyle}>
+                <div style={{ paddingLeft: "35px" }}>
                   <Typography
-                    variant="body1"
-                    component={Link}
-                    to="/Menu"
-                    color="inherit"
-                    sx={typographyStyle}
-                    style={{ textAlign: "left" }}
+                    variant="h6"
+                    gutterBottom
+                    sx={contactStyles}
                   >
-                    Hydration Menu
+                    Useful Links
                   </Typography>
-                  <Typography
-                    variant="body1"
-                    component={Link}
-                    to="/"
-                    color="inherit"
-                    sx={typographyStyle}
-                    style={{ textAlign: "left" }}
-                  >
-                    IV Specialists
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    component={Link}
-                    to="/locations"
-                    color="inherit"
-                    sx={typographyStyle}
-                    style={{ textAlign: "left" }}
-                  >
-                    Locations
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    component={Link}
-                    to="/about"
-                    color="inherit"
-                    sx={typographyStyle}
-                    style={{ textAlign: "left" }}
-                  >
-                    About Us
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    component={Link}
-                    to="/contact"
-                    color="inherit"
-                    sx={typographyStyle}
-                    style={{ textAlign: "left" }}
-                  >
-                    Contact
-                  </Typography>
+                  <div style={navLinksStyle}>
+                    <Typography
+                      variant="body1"
+                      component={Link}
+                      to="/Menu"
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                    >
+                      Hydration Menu
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                      onClick={() => handleTypographyClick("/")}
+                    >
+                      IV Specialists
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      onClick={() => handleTypographyClick("/locations")}
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                    >
+                      Locations
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      onClick={() => handleTypographyClick("/about")}
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                    >
+                      About Us
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      onClick={() => handleTypographyClick("/contact")}
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                    >
+                      Contact
+                    </Typography>
+                  </div>
                 </div>
               </Grid>
             </Grid>
