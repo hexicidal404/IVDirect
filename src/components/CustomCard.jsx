@@ -17,7 +17,7 @@ function CustomCard({
   onButtonClick,
 }) {
   const cloudinaryImageUrl =
-    "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1694215164/bag_npihlz.webp";
+    "https://res.cloudinary.com/dcgh3ljwk/image/upload/e_blur:725/c_scale,l_IVDirect_oed1qg,w_274,y_125/v1694215164/bag_npihlz.webp";
 
   return (
     <>
