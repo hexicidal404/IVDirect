@@ -123,12 +123,7 @@ export default function App() {
                 <Routes>
                   <Route
                     path="/menu"
-                    element={
-                      <Menu
-                        hydrationMenuRef={hydrationMenuRef}
-                        dataArray={data}
-                      />
-                    }
+                    element={<Menu dataArray={data} />}
                   />
                   <Route
                     path="/"

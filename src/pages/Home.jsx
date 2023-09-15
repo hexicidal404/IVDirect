@@ -32,7 +32,10 @@ function Home() {
     }
   }, [location]);
   return (
-    <div ref={homeMenuRef}>
+    <div
+      ref={homeMenuRef}
+      style={{ padding: "70px" }}
+    >
       <Box p={3}>
         <Typography
           variant="h4"

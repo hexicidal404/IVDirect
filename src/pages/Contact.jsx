@@ -159,7 +159,10 @@ function Forms({ dataArray }) {
   };
 
   return (
-    <div ref={contactMenuRef}>
+    <div
+      ref={contactMenuRef}
+      style={{ padding: "70px" }}
+    >
       <Container maxWidth="sm">
         <form onSubmit={onSubmit}>
           <Box mb={2}>

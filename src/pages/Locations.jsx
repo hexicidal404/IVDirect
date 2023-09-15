@@ -25,7 +25,10 @@ function Locations() {
     }
   }, [location]);
   return (
-    <div ref={locationsRef}>
+    <div
+      ref={locationsRef}
+      style={{ padding: "70px" }}
+    >
       <Box p={3}>
         <Typography
           variant="h4"
@@ -121,7 +124,12 @@ function Locations() {
         >
           <MailOutlineIcon />
           <Typography variant="body1">
-            <Link href="mailto:nyc@ivspecialists.com">nyc@ivdirect.com</Link>
+            <Link
+              sx={{ color: "black" }}
+              href="mailto:nyc@ivspecialists.com"
+            >
+              nyc@ivdirect.com
+            </Link>
           </Typography>
         </Box>
 

@@ -143,11 +143,10 @@ export default function Footer() {
                   <div style={navLinksStyle}>
                     <Typography
                       variant="body1"
-                      component={Link}
-                      to="/Menu"
                       color="inherit"
                       sx={typographyStyle}
                       style={{ textAlign: "left" }}
+                      onClick={() => handleTypographyClick("/menu")}
                     >
                       Hydration Menu
                     </Typography>

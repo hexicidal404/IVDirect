@@ -25,7 +25,10 @@ function Menu({ dataArray }) {
 
   return (
     <>
-      <div ref={hydrationMenuRef}>
+      <div
+        ref={hydrationMenuRef}
+        style={{ padding: "70px" }}
+      >
         {/* <Typography
           variant="h6"
           gutterBottom
