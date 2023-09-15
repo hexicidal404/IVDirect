@@ -107,10 +107,14 @@ function CustomCard({
       }}
     >
       <CardMedia
-        height="180" // Adjusted height to better proportion the image
-        image={cloudinaryImageUrl}
+        sx={{
+          height: 240,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundImage: `url(${cloudinaryImageUrl})`,
+        }}
         title="IV Bag"
-        component="img"
       />
       <CardContent sx={{ padding: "24px" }}>
         <Typography
