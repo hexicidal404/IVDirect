@@ -1,19 +1,27 @@
 import { useState, useRef } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Container, CssBaseline } from "@mui/material";
+
 import Menu from "./pages/Menu";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Locations from "./pages/Locations";
 import Contact from "./pages/Contact";
 import NavBar from "./components/NavBar";
+
 import { ThemeProviderWrapper } from "./components/ThemeContext";
+
 import "./App.css";
+
 import Forms from "./pages/Forms";
 import Footer from "./components/Footer";
+import ImageCard from "./components/ImageCard";
+
 import { ScrollProvider } from "./components/ScrollContext";
 
-import ImageCard from "./components/ImageCard";
+import NewYork from "./pages/locations/NewYork";
+import California from "./pages/locations/California";
+import Florida from "./pages/locations/Florida";
 
 export default function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -140,7 +148,22 @@ export default function App() {
                   <Route
                     path="/locations"
                     element={<Locations />}
-                  />
+                  >
+                    <Route
+                      path="newyork"
+                      element={<NewYork />}
+                    />
+                    <Route
+                      path="california"
+                      element={<California />}
+                    />
+                    <Route
+                      path="florida"
+                      element={<Florida />}
+                    />
+                    {/* ... any other location routes you'd like to add ... */}
+                  </Route>
+
                   <Route
                     path="/contact"
                     element={<Contact dataArray={data} />}
