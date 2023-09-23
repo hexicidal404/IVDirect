@@ -174,6 +174,7 @@ function Locations() {
       locationsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [location]);
+
   return (
     <div
       ref={locationsRef}

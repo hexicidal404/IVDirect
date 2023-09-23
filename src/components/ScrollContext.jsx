@@ -12,6 +12,7 @@ export const ScrollProvider = ({ children }) => {
   const contactMenuRef = useRef(null);
   const aboutUsRef = useRef(null);
   const locationsRef = useRef(null);
+  const AllLocationsRef = useRef(null);
 
   const value = {
     hydrationMenuRef,
@@ -19,6 +20,7 @@ export const ScrollProvider = ({ children }) => {
     contactMenuRef,
     aboutUsRef,
     locationsRef,
+    AllLocationsRef,
   };
 
   return (

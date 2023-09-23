@@ -2,20 +2,23 @@ import React from "react";
 import { Grid } from "@mui/material";
 import CustomCard from "./CustomCard";
 
-function CardGrid({ cards }) {
+function CardGrid({ cards, onButtonClick }) {
   return (
     <Grid
       container
       spacing={2}
     >
-      {cards.map((card, index) => (
+      {cards.map((item) => (
         <Grid
           item
-          key={index}
+          key={item.key}
           xs={12}
           sm={4}
         >
-          <CustomCard {...card} />
+          <CustomCard
+            {...item}
+            onButtonClick={() => onButtonClick(item.key)}
+          />
         </Grid>
       ))}
     </Grid>

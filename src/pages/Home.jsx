@@ -34,7 +34,7 @@ function Home() {
   return (
     <div
       ref={homeMenuRef}
-      style={{ padding: "70px" }}
+      style={{ paddingTop: "100px" }}
     >
       <Box p={3}>
         <Typography

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import CardGrid from "../components/CardGrid";
 import { Container } from "@mui/material";
 import { useScroll } from "../components/ScrollContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Typography,
   Divider,
@@ -23,11 +23,17 @@ function Menu({ dataArray }) {
     }
   }, [location]);
 
+  const navigate = useNavigate();
+
+  const handleButtonClick = (itemKey) => {
+    navigate(`/contact/${itemKey}`);
+  };
+
   return (
     <>
       <div
         ref={hydrationMenuRef}
-        style={{ padding: "70px" }}
+        style={{ paddingTop: "100px" }}
       >
         {/* <Typography
           variant="h6"
@@ -68,7 +74,10 @@ function Menu({ dataArray }) {
           </ListItem>
         </List> */}
         <Container sx={{ p: 2 }}>
-          <CardGrid cards={dataArray} />
+          <CardGrid
+            cards={dataArray}
+            onButtonClick={handleButtonClick}
+          />
         </Container>
       </div>
     </>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -9,17 +9,27 @@ import {
   Container,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Menu, MenuItem } from "@mui/material";
 
 import IvIcon from "./IvIcon";
 import ResponsiveNavigation from "./ResponsiveNavigation";
-import { useNavigate } from "react-router-dom";
 
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
-function NavBar() {
+function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
+  const [anchorEl, setAnchorEl] = useState(null);
   const [isTop, setIsTop] = useState(true);
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Default value
+
+  const navigate = useNavigate();
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const top = window.scrollY < 100; // Adjust the value as needed
@@ -36,23 +46,6 @@ function NavBar() {
     };
   }, [isTop]);
 
-  //
-
-  const navigate = useNavigate();
-
-  const handleTypographyClick = (route) => {
-    navigate(route, { state: { shouldScroll: true } });
-  };
-
-  const scrollToHydrationMenu = () => {
-    if (hydrationMenuRef.current) {
-      hydrationMenuRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Default value
-
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -66,8 +59,34 @@ function NavBar() {
     };
   }, []);
 
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
+  const scrollToHydrationMenu = () => {
+    if (hydrationMenuRef.current) {
+      hydrationMenuRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleTypographyClick = (route) => {
+    navigate(route, { state: { shouldScroll: true } });
+  };
+
+  const handleHover = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLocationClick = (path) => {
+    if (path === "/locations/AllLocations") {
+      navigate(path, { state: { shouldScroll: true } });
+    } else {
+      navigate(path);
+    }
+    handleClose();
+  };
+  const handleOpenMenu = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
   // Styles
@@ -157,12 +176,20 @@ function NavBar() {
               </Typography>
               <Typography
                 variant="body1"
-                onClick={() => handleTypographyClick("/locations")}
                 color="inherit"
                 sx={{ ...typographyStyle, color: typographyColor }}
-                style={{ textAlign: "left" }}
+                style={{
+                  textAlign: "left",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                }} // Flex display to align text and icon
+                onClick={handleOpenMenu}
               >
-                Locations
+                Locations{" "}
+                <ArrowDropDownIcon
+                  style={{ fontSize: "1rem", marginLeft: "5px" }}
+                />
               </Typography>
               <Typography
                 variant="body1"
@@ -194,6 +221,32 @@ function NavBar() {
             </IconButton>
           </Toolbar>
         </div>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+          onMouseLeave={handleClose} // Close the menu when mouse leaves
+        >
+          <MenuItem onClick={() => handleLocationClick("/locations")}>
+            All Locations
+          </MenuItem>
+          <MenuItem onClick={() => handleLocationClick("/locations/newyork")}>
+            New York
+          </MenuItem>
+          <MenuItem
+            onClick={() => handleLocationClick("/locations/california")}
+          >
+            California
+          </MenuItem>
+          <MenuItem onClick={() => handleLocationClick("/locations/florida")}>
+            Florida
+          </MenuItem>
+          <MenuItem
+            onClick={() => handleLocationClick("/locations/AllLocations")}
+          >
+            Additional Locations
+          </MenuItem>
+        </Menu>
       </AppBar>
 
       <ResponsiveNavigation
