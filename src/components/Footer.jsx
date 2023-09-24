@@ -19,19 +19,20 @@ export default function Footer() {
   };
 
   const navLinksStyle = {
-    display: "flex",
+    display: "inline-block",
     flexDirection: "column", // Stacks items vertically
     gap: "10px",
   };
 
   const typographyStyle = {
+    marginBottom: "15px",
     color: "white",
     textDecoration: "none",
     borderRadius: "30px", // Adjust as needed
     padding: "2px 10px", // Padding to give space for the rounded effect
     transition: "background-color 0.3s", // Smooth transition for hover effect
     "&:hover": {
-      backgroundColor: "rgba(25, 31, 35, 0.10)", // Slight white background on hover, adjust as needed
+      backgroundColor: "#a1a3c1", // Slight white background on hover, adjust as needed
     },
   };
   const contactStyles = {
@@ -140,7 +141,7 @@ export default function Footer() {
                   >
                     Useful Links
                   </Typography>
-                  <div style={navLinksStyle}>
+                  <div style={{ ...navLinksStyle, textAlign: "left" }}>
                     <Typography
                       variant="body1"
                       color="inherit"
@@ -161,7 +162,9 @@ export default function Footer() {
                     </Typography>
                     <Typography
                       variant="body1"
-                      onClick={() => handleTypographyClick("/locations")}
+                      onClick={() =>
+                        handleTypographyClick("/locations/AllLocations")
+                      }
                       color="inherit"
                       sx={typographyStyle}
                       style={{ textAlign: "left" }}

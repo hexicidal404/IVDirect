@@ -1,9 +1,31 @@
 // ResponsiveNavigation.js
 import React from "react";
-import { Drawer, List, ListItemButton, ListItemText } from "@mui/material";
+import {
+  Drawer,
+  List,
+  ListItemButton,
+  ListItemText,
+  Collapse,
+  ListItemIcon,
+} from "@mui/material";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { Link } from "react-router-dom";
 
 function ResponsiveNavigation({ isOpen, onClose }) {
+  const [locationsOpen, setLocationsOpen] = React.useState(false);
+
+  const toggleLocations = () => {
+    setLocationsOpen(!locationsOpen);
+  };
+
+  const handleLocationClick = (path) => {
+    onClose();
+    navigate(path, {
+      state: { shouldScroll: path === "/locations/AllLocations" },
+    });
+  };
+
   return (
     <Drawer
       anchor="right"
@@ -43,6 +65,33 @@ function ResponsiveNavigation({ isOpen, onClose }) {
             <ListItemText primary="Contact" />
           </ListItemButton>
         </Link>
+        <ListItemButton onClick={toggleLocations}>
+          <ListItemText primary="Locations" />
+          <ListItemIcon>
+            {locationsOpen ? <ArrowDropDownIcon /> : <ArrowRightIcon />}
+          </ListItemIcon>
+        </ListItemButton>
+        <Collapse
+          in={locationsOpen}
+          timeout="auto"
+          unmountOnExit
+        >
+          <List
+            component="div"
+            disablePadding
+          >
+            <Link
+              to="/locations"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <ListItemButton onClick={() => handleLocationClick("/locations")}>
+                <ListItemText primary="All Locations" />
+              </ListItemButton>
+            </Link>
+            {/* ... other location links like New York, California, etc ... */}
+          </List>
+        </Collapse>
+        {/* ... other links ... */}
       </List>
     </Drawer>
   );

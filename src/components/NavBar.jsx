@@ -97,7 +97,7 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
     padding: "5px 10px", // Padding to give space for the rounded effect
     transition: "background-color 0.3s", // Smooth transition for hover effect
     "&:hover": {
-      backgroundColor: "rgba(25, 31, 35, 0.10)", // Slight white background on hover, adjust as needed
+      backgroundColor: "#a1a3c1", // Slight white background on hover, adjust as needed
     },
   };
 
@@ -126,8 +126,9 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
     right: 0, // Stretches to the right edge of the window
     zIndex: 1100, // This ensures the AppBar stays above other elements; 1100 is the default zIndex value for AppBars in MUI
     transition: "background-color 1s",
-    background:
-      "linear-gradient(90deg, rgba(0,164,222,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)",
+    background: "#1a1c61",
+    // background:
+    //   "linear-gradient(90deg, rgba(0,164,222,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)",
   };
   const contentStyle = {
     paddingTop: 8, // Assuming AppBar's height is 64px, adjust as needed
@@ -217,7 +218,7 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
               aria-label="menu"
               onClick={toggleNav}
             >
-              <MenuIcon />
+              <MenuIcon sx={{ color: "white" }} />
             </IconButton>
           </Toolbar>
         </div>
