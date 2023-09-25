@@ -1,15 +1,19 @@
 import React from "react";
 import { Container, CssBaseline, Grid, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import Logo from "./Logo"; // Import your logo component
-import styles from "./Footer.module.css"; // Import the CSS module
-import IvIcon from "../components/IvIcon";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useScroll } from "./ScrollContext";
+// Icons
 import PhoneIcon from "@mui/icons-material/Phone";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+
+// Custom components & hooks
+import Logo from "./Logo";
+import IvIcon from "../components/IvIcon";
+import { useScroll } from "./ScrollContext";
+
+// Styles
+import styles from "./Footer.module.css";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -18,9 +22,10 @@ export default function Footer() {
     navigate(route, { state: { shouldScroll: true } });
   };
 
+  // Consider moving these to a separate styles.js or include in your CSS modules
   const navLinksStyle = {
     display: "inline-block",
-    flexDirection: "column", // Stacks items vertically
+    flexDirection: "column",
     gap: "10px",
   };
 
@@ -28,26 +33,36 @@ export default function Footer() {
     marginBottom: "15px",
     color: "white",
     textDecoration: "none",
-    borderRadius: "30px", // Adjust as needed
-    padding: "2px 10px", // Padding to give space for the rounded effect
-    transition: "background-color 0.3s", // Smooth transition for hover effect
+    borderRadius: "30px",
+    padding: "2px 10px",
+    transition: "background-color 0.3s",
     "&:hover": {
-      backgroundColor: "#a1a3c1", // Slight white background on hover, adjust as needed
+      backgroundColor: "#a1a3c1",
     },
   };
+
   const contactStyles = {
     color: "white",
     textDecoration: "none",
-    borderRadius: "20px", // Adjust as needed
-    padding: "5px 10px", // Padding to give space for the rounded effect
+    borderRadius: "20px",
+    padding: "5px 10px",
   };
+
+  const contactInfo = [
+    { icon: <PhoneIcon />, text: "(123) 456-7890" },
+    { icon: <MailOutlineIcon />, text: "info@example.com" },
+    {
+      icon: <LocationOnIcon />,
+      text: "Address: 123 IV St, Hydration City, 12345",
+    },
+  ];
 
   return (
     <>
       <CssBaseline />
 
       <footer className={styles.footer}>
-        <Container maxWidth="false">
+        <Container>
           <Grid
             container
             spacing={3}
@@ -61,61 +76,35 @@ export default function Footer() {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
               <div>
                 <Typography
                   variant="h6"
                   gutterBottom
-                  sx={contactStyles}
-                  style={{ paddingLeft: "45px" }}
+                  style={{ ...contactStyles, paddingLeft: "45px" }}
                 >
                   Contact Us
                 </Typography>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <PhoneIcon style={{ marginRight: "10px" }} />
-                  <Typography
-                    variant="body1"
-                    sx={contactStyles}
-                    color="inherit"
+                {contactInfo.map((info, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginBottom: "10px",
+                    }}
                   >
-                    (123) 456-7890
-                  </Typography>
-                </div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <MailOutlineIcon style={{ marginRight: "10px" }} />
-                  <Typography
-                    variant="body1"
-                    sx={contactStyles}
-                    color="inherit"
-                  >
-                    info@example.com
-                  </Typography>
-                </div>
-
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <LocationOnIcon style={{ marginRight: "10px" }} />
-                  <Typography
-                    variant="body1"
-                    sx={contactStyles}
-                    color="inherit"
-                  >
-                    Address: 123 IV St, Hydration City, 12345
-                  </Typography>
-                </div>
+                    <div style={{ marginRight: "10px" }}>{info.icon}</div>
+                    <Typography
+                      variant="body1"
+                      style={contactStyles}
+                    >
+                      {info.text}
+                    </Typography>
+                  </div>
+                ))}
               </div>
               <div style={{ marginTop: "20px" }}>
                 <IvIcon />
@@ -127,10 +116,17 @@ export default function Footer() {
               item
               xs={12}
               sm={4}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
             >
               <Grid
                 container
                 direction="column"
+
                 // className={styles["links-container"]}
               >
                 <div style={{ paddingLeft: "35px" }}>

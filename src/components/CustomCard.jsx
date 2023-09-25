@@ -73,7 +73,8 @@ function CustomCard({
             sx={{
               backgroundColor: "white",
               ":hover": {
-                backgroundColor: "#007BFF", // You can choose any shade of blue or a custom color code.
+                backgroundColor: "#283891",
+                color: "white", // You can choose any shade of blue or a custom color code.
               },
             }}
           >
