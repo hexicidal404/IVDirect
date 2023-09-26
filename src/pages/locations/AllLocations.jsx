@@ -10,6 +10,7 @@ import {
   Box,
   Link,
   Grid,
+  Button,
 } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -42,10 +43,7 @@ function AllLocations() {
   ];
 
   return (
-    <div
-      ref={AllLocationsRef}
-      style={{ padding: "70px" }}
-    >
+    <div ref={AllLocationsRef}>
       <Box p={3}>
         <Typography
           variant="h4"
@@ -74,7 +72,14 @@ function AllLocations() {
             >
               <Typography variant="h6">{location.name}</Typography>
               <Typography paragraph>{location.description}</Typography>
-              <Link href={location.link}>Learn More</Link>
+              <Button sx={{ backgroundColor: "#283891" }}>
+                <Link
+                  href={location.link}
+                  sx={{ color: "white" }}
+                >
+                  Learn More
+                </Link>
+              </Button>
             </Grid>
           ))}
         </Grid>

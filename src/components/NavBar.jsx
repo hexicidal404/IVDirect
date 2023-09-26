@@ -65,6 +65,14 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   const handleTypographyClick = (route) => {
     navigate(route, { state: { shouldScroll: true } });
   };
@@ -153,7 +161,10 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
         <div style={overlayStyle}></div>
         <div style={contentStyle}>
           <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              onClick={scrollToTop}
+              style={{ display: "flex", alignItems: "center" }}
+            >
               <IvIcon style={logoStyle} />
             </div>
             <div style={navLinksStyle}>
@@ -218,7 +229,7 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
               aria-label="menu"
               onClick={toggleNav}
             >
-              <MenuIcon sx={{ color: "white" }} />
+              <MenuIcon sx={{ color: isTop ? "black" : "white" }} />
             </IconButton>
           </Toolbar>
         </div>

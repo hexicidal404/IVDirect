@@ -14,10 +14,7 @@ function About() {
     }
   }, [location]);
   return (
-    <div
-      ref={aboutUsRef}
-      style={{ padding: "70px" }}
-    >
+    <div ref={aboutUsRef}>
       <Container
         maxWidth="md"
         style={{ padding: "2rem", textAlign: "center" }}

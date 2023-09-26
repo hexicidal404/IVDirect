@@ -1,8 +1,6 @@
 import React from "react";
 import { Image } from "cloudinary-react";
 
-// import classes from "./Logo.module.css";
-
 function ImageComponent({ style }) {
   const cloudName = "dcgh3ljwk"; // put into a key
   const publicId = "IVDirect_oed1qg"; // Example: "folderName/IVLogo"
@@ -20,11 +18,3 @@ function ImageComponent({ style }) {
 }
 
 export default ImageComponent;
-
-/* <div className={classes["image-container"]}>
-<img
-  className={classes.logoimage}
-  src={myImage}
-  alt="IV Direct Image"
-/>
-</div> */

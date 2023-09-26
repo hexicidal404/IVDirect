@@ -9,7 +9,7 @@ const theme = createTheme({
   // Customize your theme here
   palette: {
     primary: {
-      main: "#f2f2f2", // Change this to your desired color
+      main: "#283891", // Change this to your desired color
     },
     spacing: 2,
   },

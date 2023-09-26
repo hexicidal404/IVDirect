@@ -1,8 +1,6 @@
 import React from "react";
 import { Image } from "cloudinary-react";
 
-// import classes from "./Logo.module.css";
-
 function IvIcon({ style }) {
   const cloudName = "dcgh3ljwk"; // put into a key
   const publicId = "IVLogo_jw5mks"; // Example: "folderName/IVLogo"
@@ -28,17 +26,3 @@ function IvIcon({ style }) {
 }
 
 export default IvIcon;
-
-// function IvIcon({ style }) {
-//   return (
-//     <img
-//       src={IvImg}
-//       alt="IV Icon Image"
-//       style={{
-//         ...style, // Apply custom styles passed via props
-//       }}
-//     />
-//   );
-// }
-
-// export default IvIcon;

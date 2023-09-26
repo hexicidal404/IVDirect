@@ -1,6 +1,5 @@
-import React from "react";
 import { Container, CssBaseline, Grid, Typography } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Icons
 import PhoneIcon from "@mui/icons-material/Phone";

@@ -16,8 +16,8 @@ import PhoneIcon from "@mui/icons-material/Phone";
 
 export default function NewYork() {
   return (
-    <div style={{ padding: "70px" }}>
-      <Box p={3}>
+    <div style={{ paddingTop: "70px" }}>
+      <Box>
         <Typography
           variant="h4"
           gutterBottom
@@ -116,7 +116,7 @@ export default function NewYork() {
               sx={{ color: "black" }}
               href="mailto:nyc@ivspecialists.com"
             >
-              nyc@ivdirect.com
+              nyc@iv.direct
             </Link>
           </Typography>
         </Box>

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import React from "react";
 import { useScroll } from "../components/ScrollContext";
 
 import {
@@ -13,15 +12,6 @@ import {
   Button,
 } from "@mui/material";
 
-// function Home({ homeMenuRef }) {
-//   const location = useLocation();
-
-//   useEffect(() => {
-//     if (homeMenuRef.current) {
-//       homeMenuRef.current.scrollIntoView({ behavior: "smooth" });
-//     }
-//   }, []);
-
 function Home() {
   const { homeMenuRef } = useScroll();
   const location = useLocation();
@@ -30,7 +20,7 @@ function Home() {
     if (location.state?.shouldScroll && homeMenuRef.current) {
       homeMenuRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [location]);
+  }, [homeMenuRef]);
   return (
     <div
       ref={homeMenuRef}

@@ -42,7 +42,7 @@ function ResponsiveNavigation({ isOpen, onClose }) {
           </ListItemButton>
         </Link>
         <Link
-          to="/iv-specialists"
+          to="/"
           style={{ textDecoration: "none", color: "inherit" }}
         >
           <ListItemButton onClick={onClose}>
@@ -50,7 +50,7 @@ function ResponsiveNavigation({ isOpen, onClose }) {
           </ListItemButton>
         </Link>
         <Link
-          to="/about-us"
+          to="/About"
           style={{ textDecoration: "none", color: "inherit" }}
         >
           <ListItemButton onClick={onClose}>
@@ -81,7 +81,7 @@ function ResponsiveNavigation({ isOpen, onClose }) {
             disablePadding
           >
             <Link
-              to="/locations"
+              to="/locations/AllLocations"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <ListItemButton onClick={() => handleLocationClick("/locations")}>
