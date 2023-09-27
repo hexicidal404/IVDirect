@@ -66,7 +66,7 @@ function AllLocations() {
 
   return (
     <div ref={AllLocationsRef}>
-      <Box p={4}>
+      <Box>
         <Typography
           variant="h4"
           gutterBottom

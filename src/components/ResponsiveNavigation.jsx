@@ -10,10 +10,11 @@ import {
 } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ResponsiveNavigation({ isOpen, onClose }) {
   const [locationsOpen, setLocationsOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const toggleLocations = () => {
     setLocationsOpen(!locationsOpen);
@@ -25,7 +26,6 @@ function ResponsiveNavigation({ isOpen, onClose }) {
       state: { shouldScroll: path === "/locations/AllLocations" },
     });
   };
-
   return (
     <Drawer
       anchor="right"
