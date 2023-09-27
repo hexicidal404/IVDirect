@@ -26,6 +26,7 @@ function ResponsiveNavigation({ isOpen, onClose }) {
       state: { shouldScroll: path === "/locations/AllLocations" },
     });
   };
+
   return (
     <Drawer
       anchor="right"

@@ -18,7 +18,7 @@ export default function Florida() {
           variant="h4"
           gutterBottom
         >
-          Welcome to IV Specialists in the Sunshine State!
+          Welcome to IV Direct in the Sunshine State!
         </Typography>
 
         <Typography paragraph>
