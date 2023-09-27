@@ -16,8 +16,8 @@ function Menu({ dataArray }) {
 
   const navigate = useNavigate();
 
-  const handleButtonClick = (itemKey) => {
-    navigate(`/contact/${itemKey}`);
+  const handleButtonClick = (route) => {
+    navigate(`/details/${route}`);
   };
 
   return (

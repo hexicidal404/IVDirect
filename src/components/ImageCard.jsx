@@ -9,10 +9,19 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useScroll } from "./ScrollContext";
+import { useState, useEffect } from "react";
 
 import Box from "@mui/material/Box";
 
 function ImageCard() {
+  const [isImageLoaded, setImageLoaded] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setImageLoaded(true);
+    }, 100); // a small delay to trigger the transition
+
+    return () => clearTimeout(timer); // cleanup the timeout
+  }, []);
   const navigate = useNavigate();
 
   const handleTypographyClick = (route) => {
@@ -80,10 +89,13 @@ function ImageCard() {
           <img
             src="https://iv.direct/wp-content/uploads/sites/12/2023/08/IVDirect_Logo_PNG.png"
             alt="Your Image"
+            onLoad={() => setImageLoaded(true)} // set image as loaded once it's loaded
             style={{
               width: "100%",
               height: "auto",
               borderRadius: "30px",
+              transform: isImageLoaded ? "translateX(0)" : "translateX(-100%)",
+              transition: "transform 1.2s ease-out",
             }}
           />
         </Box>

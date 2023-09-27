@@ -1,30 +1,36 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useScroll } from "../components/ScrollContext";
 
 import {
   Typography,
   Divider,
-  List,
-  ListItem,
-  ListItemText,
   Box,
   Button,
+  Paper,
+  Container,
 } from "@mui/material";
 
 function Home() {
   const { homeMenuRef } = useScroll();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (location.state?.shouldScroll && homeMenuRef.current) {
       homeMenuRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [homeMenuRef]);
+
+  const handleButtonClick = () => {
+    navigate("/menu");
+  };
+
   return (
-    <div
+    <Container
       ref={homeMenuRef}
-      style={{ paddingTop: "100px" }}
+      component="div"
+      sx={{ paddingTop: 8 }}
     >
       <Box p={3}>
         <Typography
@@ -54,53 +60,54 @@ function Home() {
           Our exclusive mobile IV hydration units ensure you get rejuvenated at
           home, the office, or even a hotel.
         </Typography>
-
-        <Button
-          variant="contained"
-          color="primary"
-        >
-          Learn More
-        </Button>
-        <Divider style={{ margin: "20px 0" }} />
+        <Box mb={3}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={handleButtonClick}
+          >
+            Learn More
+          </Button>
+        </Box>
+        <Divider sx={{ my: 3 }} />
         <Typography
           variant="h6"
           gutterBottom
         >
           Testimonials
         </Typography>
-        <Box mb={2}>
-          <Typography
-            variant="subtitle1"
-            gutterBottom
+        {[
+          {
+            text: "Ever since I started using IV Specialists, I've felt more energetic, rejuvenated, and at my best. The convenience of having it delivered to my home is just the icing on the cake!",
+            name: "John D., 32",
+          },
+          {
+            text: "The Migraine Magic is truly magical. I've never felt such quick relief from my migraines before. Kudos to the IV Specialists team!",
+            name: "Sophie R., 28",
+          },
+        ].map((testimonial, index) => (
+          <Paper
+            key={index}
+            elevation={3}
+            sx={{ p: 3, mb: 2 }}
           >
-            "Ever since I started using IV Specialists, I've felt more
-            energetic, rejuvenated, and at my best. The convenience of having it
-            delivered to my home is just the icing on the cake!"
-          </Typography>
-          <Typography
-            variant="subtitle2"
-            align="right"
-          >
-            John D., 32
-          </Typography>
-        </Box>
-        <Box mb={2}>
-          <Typography
-            variant="subtitle1"
-            gutterBottom
-          >
-            "The Migraine Magic is truly magical. I've never felt such quick
-            relief from my migraines before. Kudos to the IV Specialists team!"
-          </Typography>
-          <Typography
-            variant="subtitle2"
-            align="right"
-          >
-            Sophie R., 28
-          </Typography>
-        </Box>
+            <Typography
+              variant="subtitle1"
+              gutterBottom
+            >
+              "{testimonial.text}"
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              align="right"
+            >
+              {testimonial.name}
+            </Typography>
+          </Paper>
+        ))}
       </Box>
-    </div>
+    </Container>
   );
 }
 

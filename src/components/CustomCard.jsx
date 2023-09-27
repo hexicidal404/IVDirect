@@ -7,10 +7,17 @@ import {
   Button,
   CardMedia,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function CustomCard({ title, price, content, buttonText, onButtonClick }) {
   const cloudinaryImageUrl =
     "https://res.cloudinary.com/dcgh3ljwk/image/upload/e_blur:725/c_scale,l_IVDirect_oed1qg,w_274,y_125/v1694215164/bag_npihlz.webp";
+
+  const navigate = useNavigate();
+
+  const handleButtonClick = (route) => {
+    navigate(`/details/${route}`);
+  };
 
   return (
     <Card
@@ -25,6 +32,8 @@ function CustomCard({ title, price, content, buttonText, onButtonClick }) {
         background: "#ffffff",
         transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
         borderRadius: "12px",
+
+        height: "500px",
       }}
     >
       <CardMedia
@@ -37,7 +46,13 @@ function CustomCard({ title, price, content, buttonText, onButtonClick }) {
         }}
         title="IV Bag"
       />
-      <CardContent sx={{ padding: "24px" }}>
+      <CardContent
+        sx={{
+          padding: "24px",
+          height: "calc(400px - 240px)",
+          overflow: "hidden",
+        }}
+      >
         <Typography
           variant="h6"
           gutterBottom
@@ -53,7 +68,18 @@ function CustomCard({ title, price, content, buttonText, onButtonClick }) {
           {price}
         </Typography>
 
-        <Typography variant="body2">{content}</Typography>
+        <Typography
+          variant="body2"
+          sx={{
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            display: "-webkit-box",
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: "vertical",
+          }}
+        >
+          {content}
+        </Typography>
       </CardContent>
 
       {buttonText && onButtonClick && (
@@ -62,14 +88,7 @@ function CustomCard({ title, price, content, buttonText, onButtonClick }) {
             variant="contained"
             color="primary"
             fullWidth
-            onClick={onButtonClick}
-            sx={{
-              backgroundColor: "white",
-              ":hover": {
-                backgroundColor: "#283891",
-                color: "white", // You can choose any shade of blue or a custom color code.
-              },
-            }}
+            onClick={onButtonClick} // Directly use the prop here
           >
             {buttonText}
           </Button>
@@ -78,5 +97,4 @@ function CustomCard({ title, price, content, buttonText, onButtonClick }) {
     </Card>
   );
 }
-
 export default CustomCard;

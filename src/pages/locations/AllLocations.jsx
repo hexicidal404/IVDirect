@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useScroll } from "../../components/ScrollContext";
 import {
   Typography,
   Divider,
@@ -11,9 +9,12 @@ import {
   Link,
   Grid,
   Button,
+  Paper,
 } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
+import { useLocation } from "react-router-dom";
+import { useScroll } from "../../components/ScrollContext";
 
 function AllLocations() {
   const { AllLocationsRef } = useScroll();
@@ -28,34 +29,54 @@ function AllLocations() {
   const locations = [
     {
       name: "New York",
-      description: "Experience wellness in the city that never sleeps.",
-      link: "/locations/newyork", // this can be a link to the detailed New York page
+      description:
+        "Experience the epitome of wellness in the city that never sleeps. With New York's bustling lifestyle, ensure you're always on top of your game with our tailor-made IV hydration therapies.",
+      link: "/locations/NewYork",
     },
-    // ... Add more locations as needed
+    {
+      name: "California",
+      description:
+        "Discover optimal well-being from the sun-drenched coasts to the vibrant tech valleys. With California's diverse lifestyle, our IV hydration therapies are designed to match your Californian spirit.",
+      link: "/locations/California",
+    },
+    {
+      name: "Florida",
+      description:
+        "Elevate your wellness amid Florida's sun, sea, and sand. As you soak up the sunshine, our bespoke IV hydration therapies ensure you feel revitalized and refreshed.",
+      link: "/locations/Florida",
+    },
   ];
 
   const services = [
     {
-      title: "The City Energizer",
-      description: "Keep up with the pace of city life.",
+      title: "NAD+ IV",
+      description: "Cellular rejuvenation therapies",
+    },
+    {
+      title: "Fitness and Recovery",
+      description: "Optimizes workout performance and accelerates recovery.",
+    },
+    {
+      title: "Covid, Cold, and Flu",
+      description: "Bolster the immune system against infections",
     },
     // ... Add more services as needed
   ];
 
   return (
     <div ref={AllLocationsRef}>
-      <Box p={3}>
+      <Box p={4}>
         <Typography
           variant="h4"
           gutterBottom
         >
-          IV Specialists: Global Reach, Local Touch
+          IV Direct: Global Reach, Local Touch
         </Typography>
 
-        {/* Locations Overview */}
         <Typography
           variant="h5"
           gutterBottom
+          mt={4}
         >
           Our Locations
         </Typography>
@@ -72,9 +93,13 @@ function AllLocations() {
             >
               <Typography variant="h6">{location.name}</Typography>
               <Typography paragraph>{location.description}</Typography>
-              <Button sx={{ backgroundColor: "#283891" }}>
+              <Button
+                variant="contained"
+                color="primary"
+              >
                 <Link
                   href={location.link}
+                  underline="none"
                   sx={{ color: "white" }}
                 >
                   Learn More
@@ -84,29 +109,50 @@ function AllLocations() {
           ))}
         </Grid>
 
-        <Divider style={{ margin: "40px 0" }} />
+        <Divider sx={{ my: 5 }} />
 
-        {/* Services Highlights */}
         <Typography
           variant="h5"
           gutterBottom
+          sx={{ pb: 2 }}
         >
           Highlights of Our Services
         </Typography>
-        <List>
+        <Grid
+          container
+          spacing={3}
+        >
           {services.map((service, index) => (
-            <ListItem key={index}>
-              <ListItemText
-                primary={service.title}
-                secondary={service.description}
-              />
-            </ListItem>
+            <Grid
+              item
+              xs={12}
+              md={4}
+              key={index}
+            >
+              <Paper
+                elevation={3}
+                sx={{
+                  p: 3,
+                  minHeight: 150,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                >
+                  {service.title}
+                </Typography>
+                <Typography variant="body1">{service.description}</Typography>
+              </Paper>
+            </Grid>
           ))}
-        </List>
+        </Grid>
 
-        <Divider style={{ margin: "40px 0" }} />
+        <Divider sx={{ my: 5 }} />
 
-        {/* Contact Section */}
         <Typography
           variant="h5"
           gutterBottom
@@ -117,15 +163,15 @@ function AllLocations() {
           display="flex"
           alignItems="center"
           gap={2}
-          mb={1}
+          mb={2}
         >
-          <MailOutlineIcon />
+          <MailOutlineIcon color="primary" />
           <Typography variant="body1">
             <Link
-              sx={{ color: "black" }}
               href="mailto:info@ivspecialists.com"
+              color="primary"
             >
-              info@ivspecialists.com
+              info@iv.direct
             </Link>
           </Typography>
         </Box>
@@ -135,7 +181,7 @@ function AllLocations() {
           alignItems="center"
           gap={2}
         >
-          <PhoneIcon />
+          <PhoneIcon color="primary" />
           <Typography variant="body1">(XXX) XXX-XXXX</Typography>
         </Box>
       </Box>

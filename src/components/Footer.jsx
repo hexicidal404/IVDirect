@@ -1,4 +1,4 @@
-import { Container, CssBaseline, Grid, Typography } from "@mui/material";
+import { Container, CssBaseline, Grid, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 // Icons
@@ -37,6 +37,7 @@ export default function Footer() {
     transition: "background-color 0.3s",
     "&:hover": {
       backgroundColor: "#a1a3c1",
+      cursor: "pointer",
     },
   };
 
@@ -47,12 +48,27 @@ export default function Footer() {
     padding: "5px 10px",
   };
 
+  const hoverStyles = {
+    "&:hover": {
+      textDecoration: "underline",
+      cursor: "pointer",
+    },
+  };
   const contactInfo = [
-    { icon: <PhoneIcon />, text: "(123) 456-7890" },
-    { icon: <MailOutlineIcon />, text: "info@example.com" },
+    {
+      icon: <PhoneIcon />,
+      text: "(123) 456-7890",
+      link: "tel:(123) 456-7890",
+    },
+    {
+      icon: <MailOutlineIcon />,
+      text: "info@example.com",
+      link: "mailto:info@example.com",
+    },
     {
       icon: <LocationOnIcon />,
       text: "Address: 123 IV St, Hydration City, 12345",
+      link: "https://www.google.com/maps/search/?api=1&query=123+IV+St,+Hydration+City,+12345",
     },
   ];
 
@@ -96,12 +112,12 @@ export default function Footer() {
                     }}
                   >
                     <div style={{ marginRight: "10px" }}>{info.icon}</div>
-                    <Typography
-                      variant="body1"
-                      style={contactStyles}
+                    <Box
+                      component="span"
+                      sx={{ ...contactStyles, ...hoverStyles }}
                     >
-                      {info.text}
-                    </Typography>
+                      <Typography variant="body1">{info.text}</Typography>
+                    </Box>
                   </div>
                 ))}
               </div>

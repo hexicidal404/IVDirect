@@ -24,9 +24,6 @@ function Contact({ dataArray }) {
   let { id } = useParams();
   const contactItem = dataArray?.find((item) => item.key === Number(id));
 
-  const [selectedRole, setSelectedRole] = useState(
-    contactItem ? contactItem.title : ""
-  );
   const [status, setStatus] = useState("");
   const [result, setResult] = useState("");
 
@@ -34,7 +31,20 @@ function Contact({ dataArray }) {
   const [selectedTime, setSelectedTime] = useState(null);
 
   const { contactMenuRef } = useScroll();
+
   const location = useLocation();
+
+  let selectedPackageIdFromPreviousPage = location.state?.packageId;
+
+  let defaultSelectedRole = contactItem ? contactItem.title : "";
+
+  if (selectedPackageIdFromPreviousPage) {
+    let packageItem = dataArray?.find(
+      (item) => item.key === Number(selectedPackageIdFromPreviousPage)
+    );
+    defaultSelectedRole = packageItem ? packageItem.title : defaultSelectedRole;
+  }
+  const [selectedRole, setSelectedRole] = useState(defaultSelectedRole);
 
   useEffect(() => {
     if (location.state?.shouldScroll && contactMenuRef.current) {

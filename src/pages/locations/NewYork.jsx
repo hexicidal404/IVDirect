@@ -22,7 +22,7 @@ export default function NewYork() {
           variant="h4"
           gutterBottom
         >
-          Welcome to IV Specialists in The Big Apple!
+          Welcome to IV Direct in The Big Apple!
         </Typography>
 
         <Typography paragraph>

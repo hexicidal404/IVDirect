@@ -106,6 +106,7 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
     transition: "background-color 0.3s", // Smooth transition for hover effect
     "&:hover": {
       backgroundColor: "#a1a3c1", // Slight white background on hover, adjust as needed
+      cursor: "pointer",
     },
   };
 
@@ -239,9 +240,6 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
           onClose={handleClose}
           onMouseLeave={handleClose} // Close the menu when mouse leaves
         >
-          <MenuItem onClick={() => handleLocationClick("/locations")}>
-            All Locations
-          </MenuItem>
           <MenuItem onClick={() => handleLocationClick("/locations/newyork")}>
             New York
           </MenuItem>

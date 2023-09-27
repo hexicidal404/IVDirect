@@ -18,7 +18,7 @@ export default function California() {
           variant="h4"
           gutterBottom
         >
-          Welcome to IV Specialists in the Golden State!
+          Welcome to IV Direct in the Golden State!
         </Typography>
 
         <Typography paragraph>
