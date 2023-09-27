@@ -15,6 +15,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { useLocation } from "react-router-dom";
 import { useScroll } from "../../components/ScrollContext";
+import { Link as RouterLink } from "react-router-dom"; // Rename to avoid conflict with MUI Link
 
 function AllLocations() {
   const { AllLocationsRef } = useScroll();
@@ -93,18 +94,17 @@ function AllLocations() {
             >
               <Typography variant="h6">{location.name}</Typography>
               <Typography paragraph>{location.description}</Typography>
-              <Button
-                variant="contained"
-                color="primary"
+              <RouterLink
+                to={location.link}
+                style={{ textDecoration: "none" }}
               >
-                <Link
-                  href={location.link}
-                  underline="none"
-                  sx={{ color: "white" }}
+                <Button
+                  variant="contained"
+                  color="primary"
                 >
                   Learn More
-                </Link>
-              </Button>
+                </Button>
+              </RouterLink>
             </Grid>
           ))}
         </Grid>
