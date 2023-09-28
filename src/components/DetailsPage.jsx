@@ -1,5 +1,13 @@
 import { useParams } from "react-router-dom";
-import { Container, Typography, Paper, Box, Button } from "@mui/material";
+import {
+  Container,
+  Typography,
+  Paper,
+  Box,
+  Button,
+  List,
+  ListItem,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 function DetailsPage({ dataArray }) {
@@ -48,11 +56,52 @@ function DetailsPage({ dataArray }) {
         >
           {item.expandedContent}
         </Typography>
-        <Box mt={4}>
+
+        <Typography
+          variant="h6"
+          gutterBottom
+          mt={2}
+        >
+          Benefits:
+        </Typography>
+        <List>
+          {item.benefits.map((benefit, index) => (
+            <ListItem key={index}>{benefit}</ListItem>
+          ))}
+        </List>
+
+        <Typography
+          variant="h6"
+          gutterBottom
+          mt={2}
+        >
+          {item.ingredients && item.ingredients.length > 0
+            ? "Ingredients:"
+            : null}
+        </Typography>
+        <List sx={{ pl: 1 }}>
+          {item.ingredients.map((ingredient, index) => (
+            <ListItem
+              key={index}
+              sx={{
+                fontSize: "0.8rem",
+                py: 0.5,
+              }}
+            >
+              {ingredient}
+            </ListItem>
+          ))}
+        </List>
+
+        <Box
+          mt={4}
+          display="flex"
+          flexDirection="row"
+          gap={2}
+        >
           <Button
             variant="outlined"
             color="primary"
-            sx={{ mr: 2 }}
             onClick={() => navigate("/menu")}
           >
             See Other Menu Items

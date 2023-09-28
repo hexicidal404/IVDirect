@@ -122,27 +122,31 @@ function ImageCard() {
               color="textSecondary"
               gutterBottom
             >
-              Mobile IV Medics
+              Hydration Specialists
             </Typography>
             <Typography
               variant="body1"
               sx={{ whiteSpace: "pre-line", my: 2 }}
             >
-              Our pharmacists meticulously formulate each IV drip treatment,
-              ensuring it's loaded with essential fluids, antioxidants,
-              vitamins, medicines, and nutrients. These treatments are designed
-              to address a range of common symptoms people face when they're not
-              at their best.
+              At IV Direct, we are fervently dedicated to extolling the
+              advantages of intravenous nutrient delivery over oral ingestion.
+              When vitamins and other essential nutrients undergo the digestive
+              process, their potency diminishes before they can enter the
+              bloodstream. Opting for intravenous administration ensures that
+              you receive the full impact of each dose precisely where it's
+              required.
             </Typography>
             <Typography
               variant="body1"
               sx={{ whiteSpace: "pre-line", my: 2 }}
             >
-              What's more, we bring our IV hydration therapy straight to your
-              doorstep! Our suite includes several IV drips tailored for various
-              conditions like migraines, dehydration, hangovers, and chronic
-              pain. Alternatively, you have the option to customize your own IV
-              drip.
+              Consequently, you're likely to experience more immediate and
+              sustained effects. Our skilled and patient-focused Hydration
+              Specialists will collaborate with you to understand and address
+              your specific needs. They will then tailor and provide
+              personalized IV therapy directly to you in the convenience and
+              confidentiality of your chosen location, whether it be your home,
+              workplace, or any other place of your preference.
             </Typography>
             <Button
               variant="contained"
