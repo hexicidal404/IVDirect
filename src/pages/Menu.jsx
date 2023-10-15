@@ -10,9 +10,11 @@ function Menu({ dataArray }) {
 
   useEffect(() => {
     if (location.state?.shouldScroll && hydrationMenuRef.current) {
-      hydrationMenuRef.current.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -120; // negative value for a 100px offset upwards
+      const y = hydrationMenuRef.current.getBoundingClientRect().top + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
-  }, [location]);
+  }, [location, hydrationMenuRef]);
 
   const navigate = useNavigate();
 
@@ -22,10 +24,7 @@ function Menu({ dataArray }) {
 
   return (
     <>
-      <div
-        ref={hydrationMenuRef}
-        style={{ paddingTop: "100px" }}
-      >
+      <div ref={hydrationMenuRef}>
         <Container sx={{ p: 2 }}>
           <CardGrid
             cards={dataArray}

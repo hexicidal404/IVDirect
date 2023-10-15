@@ -18,9 +18,11 @@ function Home() {
 
   useEffect(() => {
     if (location.state?.shouldScroll && homeMenuRef.current) {
-      homeMenuRef.current.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -100;
+      const y = homeMenuRef.current.getBoundingClientRect().top + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
-  }, [homeMenuRef]);
+  }, [location, homeMenuRef]);
 
   const handleButtonClick = () => {
     navigate("/menu");
@@ -30,7 +32,7 @@ function Home() {
     <Container
       ref={homeMenuRef}
       component="div"
-      sx={{ paddingTop: 8 }}
+      sx={{ paddingTop: 0 }}
     >
       <Box p={3}>
         <Typography

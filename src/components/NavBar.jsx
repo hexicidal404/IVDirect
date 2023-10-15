@@ -19,13 +19,16 @@ import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
-function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
-  const [anchorEl, setAnchorEl] = useState(null);
+function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
+  const [anchorElLocations, setAnchorElLocations] = useState(null);
+  const [anchorElHydration, setAnchorElHydration] = useState(null);
+
   const [isTop, setIsTop] = useState(true);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Default value
 
   const navigate = useNavigate();
+
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -59,10 +62,8 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
     };
   }, []);
 
-  const scrollToHydrationMenu = () => {
-    if (hydrationMenuRef.current) {
-      hydrationMenuRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+  const navigateToHydrationMenu = () => {
+    navigate("/menu");
   };
 
   const scrollToTop = () => {
@@ -93,8 +94,13 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
     }
     handleClose();
   };
-  const handleOpenMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+
+  const handleOpenMenu = (event, menuType) => {
+    if (menuType === "locations") {
+      setAnchorElLocations(event.currentTarget);
+    } else if (menuType === "hydration") {
+      setAnchorElHydration(event.currentTarget);
+    }
   };
 
   // Styles
@@ -173,10 +179,18 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
                 variant="body1"
                 color="inherit"
                 sx={{ ...typographyStyle, color: typographyColor }}
-                style={{ textAlign: "left" }}
-                onClick={() => handleTypographyClick("/menu")}
+                style={{
+                  textAlign: "left",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                onClick={(event) => handleOpenMenu(event, "hydration")}
               >
                 Hydration Menu
+                <ArrowDropDownIcon
+                  style={{ fontSize: "1rem", marginLeft: "5px" }}
+                />
               </Typography>
               <Typography
                 variant="body1"
@@ -197,9 +211,9 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
                   display: "flex",
                   alignItems: "center",
                 }} // Flex display to align text and icon
-                onClick={handleOpenMenu}
+                onClick={(event) => handleOpenMenu(event, "locations")}
               >
-                Locations{" "}
+                Locations
                 <ArrowDropDownIcon
                   style={{ fontSize: "1rem", marginLeft: "5px" }}
                 />
@@ -235,10 +249,32 @@ function NavBar({ hydrationMenuRef, allLocationsRef, isOpen, onClose }) {
           </Toolbar>
         </div>
         <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-          onMouseLeave={handleClose} // Close the menu when mouse leaves
+          anchorEl={anchorElHydration}
+          open={Boolean(anchorElHydration)}
+          onClose={() => setAnchorElHydration(null)}
+          onMouseLeave={() => setAnchorElHydration(null)}
+        >
+          {data.map((item) => (
+            <MenuItem
+              key={item.key}
+              onClick={() => {
+                navigate(`/details/${itemKey}`, {
+                  state: { shouldScrollToHydration: true },
+                });
+              }}
+            >
+              {item.title}
+            </MenuItem>
+          ))}
+
+          <MenuItem onClick={navigateToHydrationMenu}>See all IVs </MenuItem>
+        </Menu>
+
+        <Menu
+          anchorEl={anchorElLocations}
+          open={Boolean(anchorElLocations)}
+          onClose={() => setAnchorElLocations(null)}
+          onMouseLeave={() => setAnchorElLocations(null)}
         >
           <MenuItem onClick={() => handleLocationClick("/locations/newyork")}>
             New York

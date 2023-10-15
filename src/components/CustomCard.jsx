@@ -9,7 +9,14 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-function CustomCard({ title, price, content, buttonText, onButtonClick }) {
+function CustomCard({
+  title,
+  price,
+  content,
+  buttonText,
+  onButtonClick,
+  imgLink,
+}) {
   const cloudinaryImageUrl =
     "https://res.cloudinary.com/dcgh3ljwk/image/upload/e_blur:725/c_scale,l_IVDirect_oed1qg,w_274,y_125/v1694215164/bag_npihlz.webp";
 
@@ -33,16 +40,16 @@ function CustomCard({ title, price, content, buttonText, onButtonClick }) {
         transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
         borderRadius: "12px",
 
-        height: "500px",
+        height: "800px",
       }}
     >
       <CardMedia
         sx={{
-          height: 240,
-          backgroundSize: "cover",
+          height: 540,
+          backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          backgroundImage: `url(${cloudinaryImageUrl})`,
+          backgroundImage: `url(${imgLink})`,
         }}
         title="IV Bag"
       />

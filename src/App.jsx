@@ -51,6 +51,8 @@ export default function App({ children }) {
       title: "IV Deluxe",
       price: "$250",
       content: "A comprehensive boost for overall health and vitality.",
+      imgLink:
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335409/IV_DELUXE_nmgsfi.jpg",
       benefits: [
         "Improve mental sharpness",
         "Enhance energy levels",
@@ -80,6 +82,8 @@ export default function App({ children }) {
       title: "Myer's Cocktail",
       price: "$250",
       content: "Boosts immunity and aids chronic conditions.",
+      imgLink:
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/MYERS_COCKTAIL_uisxga.jpg",
       benefits: [
         "Combat fatigue",
         "Reduce stress and depression",
@@ -107,6 +111,9 @@ export default function App({ children }) {
       title: "Food Poisoning",
       price: "$250",
       content: "Combat dehydration and detoxify after food poisoning.",
+      imgLink:
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/FOOD_POISONING_uwotkv.jpg",
+
       benefits: [
         "Eliminate toxins",
         "Rebalance vitamin levels in your body",
@@ -129,15 +136,12 @@ export default function App({ children }) {
       title: "Covid, Cold, and Flu",
       price: "$250",
       content: "Bolster the immune system against infections.",
+      imgLink:
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/COLD_FLU_COVID_tpkchw.jpg",
       benefits: [
-        "Improve mental sharpness",
-        "Enhance energy levels",
-        "Eliminate stress",
-        "Boost immunity",
-        "Enhance cognitive strength",
-        "Improve muscle function and strength",
-        "Target anti-aging",
-        "Detox",
+        "Symptom Relief: pain, inflammation, headaches, body aches, nausea, vomiting, fatigue",
+        "Rehydration",
+        "Enhance Energy",
       ],
       ingredients: [
         "IV fluids",
@@ -159,6 +163,9 @@ export default function App({ children }) {
       title: "IV Hangover",
       price: "$250",
       content: "Recovery treatment for post-alcohol fatigue and dehydration.",
+      imgLink:
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/HANGOVER_IV_viwrlv.jpg",
+
       benefits: [
         "Alleviate headaches, nausea, and vomiting",
         "Rehydration",
@@ -186,6 +193,9 @@ export default function App({ children }) {
       title: "IV Beauty",
       price: "$250",
       content: "Rejuvenate skin from within for a youthful glow.",
+      imgLink:
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335409/IV_BEAUTY_qlmnse.jpg",
+
       benefits: [
         "Enhance collagen",
         "Illuminate skin",
@@ -210,6 +220,9 @@ export default function App({ children }) {
       title: "IV Weight Loss",
       price: "$250",
       content: "Supports weight management goals and boosts metabolism.",
+      imgLink:
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335407/IV_WEIGHT_LOSS_quhewr.jpg",
+
       benefits: [
         "Shed excess weight",
         "Boost energy",
@@ -236,6 +249,9 @@ export default function App({ children }) {
       title: "IV Fitness and Recovery",
       price: "$250",
       content: "Optimizes workout performance and accelerates recovery.",
+      imgLink:
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335407/IV_FITNESS_RECOVERY_euceug.jpg",
+
       benefits: [
         "Increase energy",
         "Relieve stress",
@@ -262,41 +278,44 @@ export default function App({ children }) {
       expandedContent:
         "IV Fitness and Recovery is a favorite among athletes and fitness enthusiasts. The infusion provides a potent mix of amino acids, electrolytes, and vitamins, designed to optimize workout performance and speed up post-exercise recovery. By improving muscle function, reducing inflammation, and replenishing lost nutrients, this treatment ensures you're always in peak condition.",
     },
-    {
-      key: 9,
-      title: "IV Prenatal",
-      price: "$250",
-      content: "Nutritional support tailored for expectant mothers.",
-      benefits: [
-        "Improve mental sharpness",
-        "Enhance energy levels",
-        "Eliminate stress",
-        "Boost immunity",
-        "Enhance cognitive strength",
-        "Improve muscle function and strength",
-        "Target anti-aging",
-        "Detox",
-      ],
-      ingredients: [
-        "Vitamin B Complex",
-        "Vitamin B12",
-        "Vitamin C",
-        "Glutathione",
-        "L-carnitine",
-        "Additional Vitamins",
-        "Anti-inflammatory",
-      ],
-      route: "iv-prenatal",
-      buttonText: "Learn More",
-      expandedContent:
-        "IV Prenatal has been carefully crafted to support expectant mothers during their pregnancy journey. Providing a balanced mix of vitamins and minerals, this infusion caters to the unique nutritional needs of pregnant women. It promotes optimal fetal development, reduces fatigue and nausea, and ensures the mother remains in optimal health. Safety and well-being are paramount, and this treatment offers both in abundance.",
-    },
+    // {
+    //   key: 9,
+    //   title: "IV Prenatal",
+    //   price: "$250",
+    //   content: "Nutritional support tailored for expectant mothers.",
+    //   benefits: [
+    //     "Improve mental sharpness",
+    //     "Enhance energy levels",
+    //     "Eliminate stress",
+    //     "Boost immunity",
+    //     "Enhance cognitive strength",
+    //     "Improve muscle function and strength",
+    //     "Target anti-aging",
+    //     "Detox",
+    //   ],
+    //   ingredients: [
+    //     "Vitamin B Complex",
+    //     "Vitamin B12",
+    //     "Vitamin C",
+    //     "Glutathione",
+    //     "L-carnitine",
+    //     "Additional Vitamins",
+    //     "Anti-inflammatory",
+    //   ],
+    //   route: "iv-prenatal",
+    //   buttonText: "Learn More",
+    //   expandedContent:
+    //     "IV Prenatal has been carefully crafted to support expectant mothers during their pregnancy journey. Providing a balanced mix of vitamins and minerals, this infusion caters to the unique nutritional needs of pregnant women. It promotes optimal fetal development, reduces fatigue and nausea, and ensures the mother remains in optimal health. Safety and well-being are paramount, and this treatment offers both in abundance.",
+    // },
     {
       key: 10,
       title: "NAD+",
       price: "$500",
       content:
         "NAD+ IV treatment stands at the forefront of cellular rejuvenation therapies.",
+      imgLink:
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/NAD_PLUS_xm5uqr.jpg",
+
       benefits: [
         "Prevent age-related and neurodegenerative disorders",
         "Reduce withdrawal symptoms and promote recovery from drug and alcohol abuse/addiction",
@@ -331,6 +350,7 @@ export default function App({ children }) {
 
             <div className="App">
               <NavBar
+                data={data}
                 hydrationMenuRef={hydrationMenuRef}
                 isOpen={isNavOpen}
                 onClose={toggleNav}
@@ -386,8 +406,6 @@ export default function App({ children }) {
                         path="alllocations"
                         element={<AllLocations />}
                       />
-
-                      {/* ... any other location routes you'd like to add ... */}
                     </Route>
                     <Route
                       path="/contact/:id"

@@ -28,9 +28,6 @@ function ImageCard() {
     navigate(route, { state: { shouldScroll: true } });
   };
 
-  const cloudName = "dcgh3ljwk"; // put into a key
-  const publicId = "water_pwid1l";
-
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); // 'sm' is for screen widths up to 768px
 

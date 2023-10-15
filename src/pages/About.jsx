@@ -10,9 +10,12 @@ function About() {
 
   useEffect(() => {
     if (location.state?.shouldScroll && aboutUsRef.current) {
-      aboutUsRef.current.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -100; // negative value for a 100px offset upwards
+      const y = aboutUsRef.current.getBoundingClientRect().top + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
-  }, [location]);
+  }, [location, aboutUsRef]);
+
   return (
     <div ref={aboutUsRef}>
       <Container

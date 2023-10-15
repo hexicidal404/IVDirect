@@ -8,13 +8,30 @@ import {
   List,
   ListItem,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useScroll } from "./ScrollContext";
 
 function DetailsPage({ dataArray }) {
   const navigate = useNavigate();
   const { id } = useParams();
   const itemId = parseInt(id, 10);
   const item = dataArray.find((item) => item.key === itemId);
+
+  const location = useLocation();
+  const { DetailsRef } = useScroll();
+
+  useEffect(() => {
+    console.log(
+      "Checking for scroll:",
+      location.state?.shouldScrollToHydration,
+      DetailsRef.current
+    );
+    if (location.state?.shouldScrollToHydration && DetailsRef.current) {
+      console.log("Scrolling into view...");
+      DetailsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location, DetailsRef]);
 
   if (!item) {
     return (
@@ -32,7 +49,10 @@ function DetailsPage({ dataArray }) {
   }
 
   return (
-    <Container maxWidth="sm">
+    <Container
+      maxWidth="sm"
+      ref={DetailsRef}
+    >
       <Paper
         elevation={3}
         sx={{ p: 4, borderRadius: 2 }}

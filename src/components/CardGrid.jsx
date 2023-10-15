@@ -6,7 +6,7 @@ function CardGrid({ cards, onButtonClick }) {
   return (
     <Grid
       container
-      spacing={2}
+      spacing={5}
     >
       {cards.map((item) => (
         <Grid
