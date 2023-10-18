@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
 import { useScroll } from "../components/ScrollContext";
+import { useTheme } from "@mui/material/styles";
 
 function Contact({ dataArray }) {
   let { id } = useParams();
@@ -108,6 +109,8 @@ function Contact({ dataArray }) {
         console.error("There was an error with the fetch operation:", error);
       });
   };
+
+  const theme = useTheme();
 
   return (
     <div
@@ -213,6 +216,12 @@ function Contact({ dataArray }) {
             variant="contained"
             color="primary"
             type="submit"
+            sx={{
+              backgroundColor: theme.palette.primary[800],
+              ":hover": {
+                backgroundColor: theme.palette.primary[900],
+              },
+            }}
           >
             Send
           </Button>

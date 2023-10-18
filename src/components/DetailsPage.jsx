@@ -122,7 +122,7 @@ function DetailsPage({ dataArray }) {
           <Button
             variant="outlined"
             color="primary"
-            onClick={() => navigate("/menu")}
+            onClick={() => navigate("/")}
           >
             See Other Menu Items
           </Button>

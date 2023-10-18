@@ -150,10 +150,14 @@ function ImageCard() {
               sx={{
                 mt: 3,
                 width: "100%",
-                backgroundColor: "#283891",
                 color: "white",
+
+                backgroundColor: theme.palette.primary[800],
+                ":hover": {
+                  backgroundColor: theme.palette.primary[900],
+                },
               }}
-              onClick={() => handleTypographyClick("/Menu")}
+              onClick={() => handleTypographyClick("/")}
             >
               Find Out More
             </Button>

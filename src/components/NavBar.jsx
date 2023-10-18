@@ -18,6 +18,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import { useTheme } from "@mui/material/styles";
 
 function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
   const [anchorElLocations, setAnchorElLocations] = useState(null);
@@ -63,7 +64,7 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
   }, []);
 
   const navigateToHydrationMenu = () => {
-    navigate("/menu");
+    navigate("/");
   };
 
   const scrollToTop = () => {
@@ -105,6 +106,8 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
 
   // Styles
 
+  const theme = useTheme();
+
   const typographyStyle = {
     textDecoration: "none",
     borderRadius: "20px", // Adjust as needed
@@ -141,7 +144,7 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
     right: 0, // Stretches to the right edge of the window
     zIndex: 1100, // This ensures the AppBar stays above other elements; 1100 is the default zIndex value for AppBars in MUI
     transition: "background-color 1s",
-    background: "#1a1c61",
+    background: theme.palette.primary[800],
     // background:
     //   "linear-gradient(90deg, rgba(0,164,222,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)",
   };
@@ -258,7 +261,7 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
             <MenuItem
               key={item.key}
               onClick={() => {
-                navigate(`/details/${itemKey}`, {
+                navigate(`/details/${item.key}`, {
                   state: { shouldScrollToHydration: true },
                 });
               }}
@@ -298,6 +301,7 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
       <ResponsiveNavigation
         isOpen={isNavOpen}
         onClose={toggleNav}
+        data={data}
       />
     </>
   );

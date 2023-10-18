@@ -318,6 +318,7 @@ export default function App({ children }) {
 
       benefits: [
         "Prevent age-related and neurodegenerative disorders",
+        "Enhance mental clarity",
         "Reduce withdrawal symptoms and promote recovery from drug and alcohol abuse/addiction",
         "Improve metabolic function",
         "Boost kidney function",
@@ -328,7 +329,6 @@ export default function App({ children }) {
         "Improve sleep",
         "Reduce Inflammation",
         "Clear brain fog",
-        "Enhance mental clarity (memory & concentration)",
         "Improve athletic performance",
       ],
       ingredients: [],
@@ -371,13 +371,10 @@ export default function App({ children }) {
                 <Container sx={{ p: 4 }}>
                   <Routes>
                     <Route
-                      path="/menu"
+                      path="/"
                       element={<Menu dataArray={data} />}
                     />
-                    <Route
-                      path="/"
-                      element={<Home />}
-                    />
+
                     <Route
                       path="/about"
                       element={<About />}

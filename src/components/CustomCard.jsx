@@ -8,6 +8,7 @@ import {
   CardMedia,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
 
 function CustomCard({
   title,
@@ -16,6 +17,7 @@ function CustomCard({
   buttonText,
   onButtonClick,
   imgLink,
+  benefits,
 }) {
   const cloudinaryImageUrl =
     "https://res.cloudinary.com/dcgh3ljwk/image/upload/e_blur:725/c_scale,l_IVDirect_oed1qg,w_274,y_125/v1694215164/bag_npihlz.webp";
@@ -25,6 +27,7 @@ function CustomCard({
   const handleButtonClick = (route) => {
     navigate(`/details/${route}`);
   };
+  const theme = useTheme();
 
   return (
     <Card
@@ -72,7 +75,7 @@ function CustomCard({
           color="textSecondary"
           sx={{ marginBottom: "16px", fontWeight: "500" }}
         >
-          {price}
+          {benefits[1]}
         </Typography>
 
         <Typography
@@ -94,6 +97,12 @@ function CustomCard({
           <Button
             variant="contained"
             color="primary"
+            sx={{
+              backgroundColor: theme.palette.primary[800],
+              ":hover": {
+                backgroundColor: theme.palette.primary[900],
+              },
+            }}
             fullWidth
             onClick={onButtonClick} // Directly use the prop here
           >

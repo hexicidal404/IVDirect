@@ -10,6 +10,7 @@ import {
   Paper,
   Container,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 function Home() {
   const { homeMenuRef } = useScroll();
@@ -28,9 +29,10 @@ function Home() {
     navigate("/menu");
   };
 
+  const theme = useTheme();
+
   return (
     <Container
-      ref={homeMenuRef}
       component="div"
       sx={{ paddingTop: 0 }}
     >
@@ -66,6 +68,12 @@ function Home() {
           <Button
             variant="contained"
             color="primary"
+            sx={{
+              backgroundColor: theme.palette.primary[800],
+              ":hover": {
+                backgroundColor: theme.palette.primary[900],
+              },
+            }}
             size="large"
             onClick={handleButtonClick}
           >
