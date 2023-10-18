@@ -7,6 +7,8 @@ import {
   ListItemText,
   Collapse,
   ListItemIcon,
+  Paper,
+  Box,
 } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
@@ -52,13 +54,20 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
     ...hydrationItemStyle, // spread the item styles here
   };
 
+  const drawerWidth = 250; // Fixed width for the drawer
+  const drawerStyle = {
+    width: `${drawerWidth}px`, // Apply the fixed width
+    maxWidth: `${drawerWidth}px`, // Ensure it doesn't exceed the fixed width
+  };
+
   return (
     <Drawer
       anchor="right"
       open={isOpen}
       onClose={onClose}
+      PaperProps={{ style: drawerStyle }}
     >
-      <List>
+      <List style={drawerStyle}>
         <ListItemButton onClick={toggleHydration}>
           <ListItemText primary="Hydration Menu" />
           <ListItemIcon>
@@ -70,34 +79,42 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
           timeout="auto"
           unmountOnExit
         >
-          <List
-            component="div"
-            disablePadding
+          <Paper
+            elevation={10}
+            style={{ margin: "10px", borderRadius: "8px" }}
           >
-            {data.map((item) => (
+            <Box>
+              {data.map((item) => (
+                <Link
+                  key={item.key}
+                  to={`/details/${item.key}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <ListItemButton
+                    onClick={() => handleHydrationClick(item.key)}
+                  >
+                    <ListItemText primary={item.title} />
+                  </ListItemButton>
+                </Link>
+              ))}
               <Link
-                key={item.key}
-                to={`/details/${item.key}`}
+                to="/"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <ListItemButton
-                  style={hydrationItemStyle}
-                  onClick={() => handleHydrationClick(item.key)}
+                  onClick={onClose}
+                  style={{ textDecoration: "none" }}
                 >
-                  <ListItemText primary={item.title} />
+                  <ListItemText
+                    primary="See all IVs"
+                    style={{ textDecoration: "none" }}
+                  />
                 </ListItemButton>
               </Link>
-            ))}
-            <Link to="/">
-              <ListItemButton
-                style={hydrationItemStyle}
-                onClick={onClose}
-              >
-                <ListItemText primary="See all IVs" />
-              </ListItemButton>
-            </Link>
-          </List>
+            </Box>
+          </Paper>
         </Collapse>
+
         <Link
           to="/"
           style={{ textDecoration: "none", color: "inherit" }}
@@ -133,20 +150,24 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
           timeout="auto"
           unmountOnExit
         >
-          <List
-            component="div"
-            disablePadding
+          <Paper
+            elevation={10}
+            style={{ margin: "10px", borderRadius: "8px" }}
           >
-            <Link
-              to="/locations/AllLocations"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <ListItemButton onClick={() => handleLocationClick("/locations")}>
-                <ListItemText primary="All Locations" />
-              </ListItemButton>
-            </Link>
-            {/* ... other location links like New York, California, etc ... */}
-          </List>
+            <Box>
+              <Link
+                to="/locations/AllLocations"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <ListItemButton
+                  onClick={() => handleLocationClick("/locations/AllLocations")}
+                >
+                  <ListItemText primary="All Locations" />
+                </ListItemButton>
+              </Link>
+              {/* ... other location links like New York, California, etc ... */}
+            </Box>
+          </Paper>
         </Collapse>
         {/* ... other links ... */}
       </List>
