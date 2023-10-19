@@ -11,6 +11,7 @@ import {
   MenuItem,
   Box,
   Alert,
+  Paper,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
@@ -115,124 +116,129 @@ function Contact({ dataArray }) {
   return (
     <div
       ref={contactMenuRef}
-      style={{ paddingTop: "100px" }}
+      sx={{ paddingTop: "100px" }}
     >
       <Container maxWidth="sm">
-        <form onSubmit={onSubmit}>
-          <input
-            type="hidden"
-            name="subject"
-            value="Contact Form"
-          />
-          <input
-            type="hidden"
-            name="from_name"
-            value="IV Direct"
-          />
-          <Box
-            mb={2}
-            name="date"
-            sx={{
-              display: "flex",
-              justifyContent: "space-between", // Updated to space-between
-            }}
-          >
-            <DatePicker
-              sx={{ flexGrow: 1 }}
-              label="Month/Date/Year"
-              value={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
-              /* other props here */
-            ></DatePicker>
-
-            <TimePicker
-              label="Requested Time"
-              value={selectedTime}
-              onChange={(time) => setSelectedTime(time)}
-              format="hh:mm a"
+        <Paper
+          elevation={3}
+          sx={{ padding: theme.spacing(3), borderRadius: "12px" }}
+        >
+          <form onSubmit={onSubmit}>
+            <input
+              type="hidden"
+              name="subject"
+              value="Contact Form"
+            />
+            <input
+              type="hidden"
+              name="from_name"
+              value="IV Direct"
+            />
+            <Box
+              mb={2}
+              name="date"
               sx={{
-                flexGrow: 1,
-                marginLeft: "16px", // Adjust this value based on your design preference
+                display: "flex",
+                justifyContent: "space-between", // Updated to space-between
               }}
-              minutesStep={30}
-            />
-          </Box>
-          <Box mb={2}>
-            <TextField
-              fullWidth
-              label="Your Name"
-              variant="outlined"
-              type="text"
-              name="name"
-            />
-          </Box>
-
-          <Box mb={2}>
-            <TextField
-              fullWidth
-              label="Your Email"
-              variant="outlined"
-              type="email"
-              name="email"
-            />
-          </Box>
-
-          <Box mb={2}>
-            <FormControl
-              fullWidth
-              variant="outlined"
             >
-              <InputLabel>Vitamin Package</InputLabel>
-              <Select
-                name="role" // Adjusted to a singular form
-                label="Vitamin Package"
-                value={selectedRole}
-                onChange={handleRoleChange}
+              <DatePicker
+                sx={{ flexGrow: 1 }}
+                label="Month/Date/Year"
+                value={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                /* other props here */
+              ></DatePicker>
+
+              <TimePicker
+                label="Requested Time"
+                value={selectedTime}
+                onChange={(time) => setSelectedTime(time)}
+                format="hh:mm a"
+                sx={{
+                  flexGrow: 1,
+                  marginLeft: "16px", // Adjust this value based on your design preference
+                }}
+                minutesStep={30}
+              />
+            </Box>
+            <Box mb={2}>
+              <TextField
+                fullWidth
+                label="Your Name"
+                variant="outlined"
+                type="text"
+                name="name"
+              />
+            </Box>
+
+            <Box mb={2}>
+              <TextField
+                fullWidth
+                label="Your Email"
+                variant="outlined"
+                type="email"
+                name="email"
+              />
+            </Box>
+
+            <Box mb={2}>
+              <FormControl
+                fullWidth
+                variant="outlined"
               >
-                {dataArray.map((data) => (
-                  <MenuItem
-                    key={data.title}
-                    value={data.title}
-                  >
-                    {data.title}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
+                <InputLabel>Vitamin Package</InputLabel>
+                <Select
+                  name="role" // Adjusted to a singular form
+                  label="Vitamin Package"
+                  value={selectedRole}
+                  onChange={handleRoleChange}
+                >
+                  {dataArray.map((data) => (
+                    <MenuItem
+                      key={data.title}
+                      value={data.title}
+                    >
+                      {data.title}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Box>
 
-          <Box mb={2}>
-            <TextField
-              fullWidth
-              label="Additional Messages or Comments"
-              variant="outlined"
-              multiline
-              rows={4}
-              name="message"
-            />
-          </Box>
+            <Box mb={2}>
+              <TextField
+                fullWidth
+                label="Additional Messages or Comments"
+                variant="outlined"
+                multiline
+                rows={4}
+                name="message"
+              />
+            </Box>
 
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            sx={{
-              backgroundColor: theme.palette.primary[800],
-              ":hover": {
-                backgroundColor: theme.palette.primary[900],
-              },
-            }}
-          >
-            Send
-          </Button>
-        </form>
-        <Box mt={2}>
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              sx={{
+                backgroundColor: theme.palette.primary[800],
+                ":hover": {
+                  backgroundColor: theme.palette.primary[900],
+                },
+              }}
+            >
+              Send
+            </Button>
+          </form>
           {status && (
-            <Alert severity={status === "success" ? "success" : "error"}>
-              {result}
-            </Alert>
+            <Box mt={2}>
+              <Alert severity={status === "success" ? "success" : "error"}>
+                {result}
+              </Alert>
+            </Box>
           )}
-        </Box>
+        </Paper>
       </Container>
     </div>
   );

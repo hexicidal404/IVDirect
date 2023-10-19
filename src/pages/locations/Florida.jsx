@@ -6,14 +6,15 @@ import {
   ListItemText,
   Box,
   Link,
+  Paper,
 } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
 
 export default function Florida() {
   return (
-    <div style={{}}>
-      <Box>
+    <div style={{ paddingTop: "70px", padding: "16px" }}>
+      <Paper style={{ padding: "32px", borderRadius: "12px" }}>
         <Typography
           variant="h4"
           gutterBottom
@@ -125,7 +126,7 @@ export default function Florida() {
           <PhoneIcon />
           <Typography variant="body1">(305) 123-4567</Typography>
         </Box>
-      </Box>
+      </Paper>
     </div>
   );
 }

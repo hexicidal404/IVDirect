@@ -65,15 +65,17 @@ function AllLocations() {
   ];
 
   return (
-    <div ref={AllLocationsRef}>
-      <Box>
+    <div
+      ref={AllLocationsRef}
+      style={{ padding: "16px" }}
+    >
+      <Paper style={{ padding: "32px", borderRadius: "12px" }}>
         <Typography
           variant="h4"
           gutterBottom
         >
           IV Direct: Global Reach, Local Touch
         </Typography>
-
         <Typography
           variant="h5"
           gutterBottom
@@ -159,6 +161,7 @@ function AllLocations() {
         >
           Get in Touch
         </Typography>
+
         <Box
           display="flex"
           alignItems="center"
@@ -184,9 +187,8 @@ function AllLocations() {
           <PhoneIcon color="primary" />
           <Typography variant="body1">(XXX) XXX-XXXX</Typography>
         </Box>
-      </Box>
+      </Paper>
     </div>
   );
 }
-
 export default AllLocations;

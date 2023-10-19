@@ -57,19 +57,31 @@ function DetailsPage({ dataArray }) {
       <Grid
         container
         spacing={4}
+        sx={{ display: "flex" }}
       >
         <Grid
           item
           md={6}
+          sx={{ display: "flex", flexDirection: "column" }}
         >
           {item.imgLink && (
-            <Box sx={{ width: "100%", textAlign: "center" }}>
+            <Box
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                flex: 1,
+                borderRadius: "12px",
+                overflow: "hidden",
+                backgroundColor: "white",
+              }}
+            >
               <img
                 src={item.imgLink}
                 alt={item.title}
                 style={{
-                  maxWidth: "80%",
-                  borderRadius: "8px",
+                  maxWidth: "100%",
+                  height: "100%", // Optional: Consider removing this if you don't want to stretch the image.
+                  objectFit: "contain",
                 }}
               />
             </Box>
@@ -78,10 +90,18 @@ function DetailsPage({ dataArray }) {
         <Grid
           item
           md={6}
+          sx={{ display: "flex", flexDirection: "column" }}
         >
           <Paper
             elevation={3}
-            sx={{ p: 4, borderRadius: 2 }}
+            sx={{
+              p: 4,
+              borderRadius: "12px",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
           >
             <Typography
               variant="h4"
@@ -89,13 +109,13 @@ function DetailsPage({ dataArray }) {
             >
               {item.title}
             </Typography>
-            <Typography
+            {/* <Typography
               variant="h6"
               color="primary"
               gutterBottom
             >
               {item.price}
-            </Typography>
+            </Typography> */}
             <Typography
               variant="body1"
               paragraph

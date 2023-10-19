@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -29,6 +29,10 @@ import Florida from "./pages/locations/Florida";
 import AllLocations from "./pages/locations/AllLocations";
 
 export default function App({ children }) {
+  const [hasSeenImageCard, markImageCardAsSeen] = useHasSeenImageCard();
+
+  const [backgroundImage, setBackgroundImage] = useState("");
+
   const [isNavOpen, setIsNavOpen] = useState(false);
   const hydrationMenuRef = useRef(null);
   const AllLocationsRef = useRef(null);
@@ -37,6 +41,43 @@ export default function App({ children }) {
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
+  function useHasSeenImageCard() {
+    const [hasSeen, setHasSeen] = useState(() => {
+      return localStorage.getItem("hasSeenImageCard") === "true";
+    });
+
+    const markAsSeen = () => {
+      localStorage.setItem("hasSeenImageCard", "true");
+      setHasSeen(true);
+    };
+
+    return [hasSeen, markAsSeen];
+  }
+
+  useEffect(() => {
+    function handleBeforeUnload() {
+      localStorage.clear();
+    }
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (hasSeenImageCard) {
+      setBackgroundImage(
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697703863/jeremy-bishop-1braZySlEKA-unsplash_humwju.jpg"
+
+        // "https://images.unsplash.com/photo-1511933801659-156d99ebea3e?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        // "https://res.cloudinary.com/dcgh3ljwk/image/upload/water_pwid1l.jpg"
+      );
+    }
+  }, [hasSeenImageCard]);
 
   const data = [
     // {
@@ -347,77 +388,87 @@ export default function App({ children }) {
         <Router>
           <ThemeProviderWrapper>
             <CssBaseline />
+            <div
+              onClick={markImageCardAsSeen}
+              style={{
+                backgroundImage: `url(${backgroundImage})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="App">
+                <NavBar
+                  data={data}
+                  hydrationMenuRef={hydrationMenuRef}
+                  isOpen={isNavOpen}
+                  onClose={toggleNav}
+                />
+                <div className="main-content">
+                  <Container
+                    className="divlogo"
+                    sx={{
+                      p: 10,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  ></Container>
 
-            <div className="App">
-              <NavBar
-                data={data}
-                hydrationMenuRef={hydrationMenuRef}
-                isOpen={isNavOpen}
-                onClose={toggleNav}
-              />
-              <div className="main-content">
-                <Container
-                  className="divlogo"
-                  sx={{
-                    p: 10,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                ></Container>
+                  {!hasSeenImageCard && (
+                    <ImageCard hydrationMenuRef={hydrationMenuRef} />
+                  )}
 
-                <ImageCard hydrationMenuRef={hydrationMenuRef} />
-
-                <Container sx={{ p: 4 }}>
-                  <Routes>
-                    <Route
-                      path="/"
-                      element={<Menu dataArray={data} />}
-                    />
-
-                    <Route
-                      path="/about"
-                      element={<About />}
-                    />
-                    <Route
-                      path="/contact"
-                      element={<Contact dataArray={data} />}
-                    />
-                    <Route
-                      path="/locations"
-                      element={<Locations />}
-                    >
+                  <Container sx={{ p: 4 }}>
+                    <Routes>
                       <Route
-                        path="newyork"
-                        element={<NewYork />}
+                        path="/"
+                        element={<Menu dataArray={data} />}
+                      />
+
+                      <Route
+                        path="/about"
+                        element={<About />}
                       />
                       <Route
-                        path="california"
-                        element={<California />}
+                        path="/contact"
+                        element={<Contact dataArray={data} />}
                       />
                       <Route
-                        path="florida"
-                        element={<Florida />}
+                        path="/locations"
+                        element={<Locations />}
+                      >
+                        <Route
+                          path="newyork"
+                          element={<NewYork />}
+                        />
+                        <Route
+                          path="california"
+                          element={<California />}
+                        />
+                        <Route
+                          path="florida"
+                          element={<Florida />}
+                        />
+                        <Route
+                          path="alllocations"
+                          element={<AllLocations />}
+                        />
+                      </Route>
+                      <Route
+                        path="/contact/:id"
+                        element={<Contact dataArray={data} />}
                       />
                       <Route
-                        path="alllocations"
-                        element={<AllLocations />}
+                        path="/details/:id"
+                        element={<DetailsPage dataArray={data} />}
                       />
-                    </Route>
-                    <Route
-                      path="/contact/:id"
-                      element={<Contact dataArray={data} />}
-                    />
-                    <Route
-                      path="/details/:id"
-                      element={<DetailsPage dataArray={data} />}
-                    />
-                  </Routes>
+                    </Routes>
 
-                  {/* other routes if any */}
-                </Container>
+                    {/* other routes if any */}
+                  </Container>
+                </div>
+                <Footer />
               </div>
-              <Footer />
             </div>
           </ThemeProviderWrapper>
         </Router>
