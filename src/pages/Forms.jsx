@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useScroll } from "../components/ScrollContext";
 import { useEffect } from "react";
+import { useTheme } from "@mui/material/styles";
 
 function Forms() {
   const { homeMenuRef } = useScroll();

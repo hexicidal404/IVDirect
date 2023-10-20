@@ -12,6 +12,7 @@ import {
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useScroll } from "./ScrollContext";
+import { useTheme } from "@mui/material/styles";
 
 function DetailsPage({ dataArray }) {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ function DetailsPage({ dataArray }) {
       DetailsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [location, DetailsRef]);
+  const theme = useTheme();
 
   if (!item) {
     return (

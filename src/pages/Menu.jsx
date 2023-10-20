@@ -3,6 +3,7 @@ import CardGrid from "../components/CardGrid";
 import { Container } from "@mui/material";
 import { useScroll } from "../components/ScrollContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
 
 function Menu({ dataArray }) {
   const { hydrationMenuRef } = useScroll();

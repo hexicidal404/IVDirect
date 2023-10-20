@@ -33,3 +33,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
 }
+.MuiBackdrop-root {
+  background-color: transparent !important;
+}

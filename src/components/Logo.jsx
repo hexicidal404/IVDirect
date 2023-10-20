@@ -9,9 +9,7 @@ function ImageComponent({ style }) {
       cloudName={cloudName}
       publicId={publicId}
       crop="scale"
-      style={{
-        ...style, // Apply custom styles passed via props
-      }}
+      style={style}
       alt="IV Direct Image"
     />
   );

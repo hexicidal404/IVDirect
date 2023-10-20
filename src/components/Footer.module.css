@@ -53,3 +53,32 @@ footer .warning-container {
     width: 100%;
   }
 }
+
+.scrollTopContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.scrollTopIcon {
+  font-size: 2rem;
+  color: white;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #a1a3c1;
+  }
+}
+/* Default: Hide icon */
+.scrollTopIcon {
+  display: none;
+}
+
+/* Show icon on devices with width less than or equal to 768px */
+@media (max-width: 768px) {
+  .scrollTopIcon {
+    display: block;
+  }
+}

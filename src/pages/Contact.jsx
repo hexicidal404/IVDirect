@@ -13,6 +13,7 @@ import {
   Alert,
   Paper,
 } from "@mui/material";
+import ImageComponent from "../components/Logo.jsx";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 
@@ -114,15 +115,17 @@ function Contact({ dataArray }) {
   const theme = useTheme();
 
   return (
-    <div
-      ref={contactMenuRef}
-      sx={{ paddingTop: "100px" }}
-    >
-      <Container maxWidth="sm">
+    <div ref={contactMenuRef}>
+      <Container
+        maxWidth="sm"
+        sx={{ padding: { xs: 2, sm: theme.spacing(3) } }}
+      >
         <Paper
           elevation={3}
-          sx={{ padding: theme.spacing(3), borderRadius: "12px" }}
+          sx={{ padding: theme.spacing(2), borderRadius: "12px" }}
         >
+          <ImageComponent style={{ maxWidth: "100%" }} />
+
           <form onSubmit={onSubmit}>
             <input
               type="hidden"

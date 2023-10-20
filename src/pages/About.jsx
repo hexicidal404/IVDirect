@@ -37,19 +37,19 @@ function About() {
   };
 
   return (
-    <div
-      ref={aboutUsRef}
-      style={{ padding: theme.spacing(3) }}
-    >
-      <Paper
-        elevation={3}
-        sx={{
-          overflow: "hidden",
-          borderRadius: "12px",
-          padding: theme.spacing(3),
-        }}
+    <div ref={aboutUsRef}>
+      <Container
+        maxWidth="lg"
+        sx={{ padding: { xs: 2, sm: theme.spacing(3) } }}
       >
-        <Container maxWidth="md">
+        <Paper
+          elevation={3}
+          sx={{
+            overflow: "hidden",
+            borderRadius: "12px",
+            padding: theme.spacing(2),
+          }}
+        >
           <Typography
             variant="h4"
             color="textPrimary"
@@ -200,7 +200,16 @@ function About() {
               <Card
                 key={index}
                 elevation={3}
-                sx={{ mb: 2, borderRadius: "8px", padding: theme.spacing(2) }}
+                sx={{
+                  mb: 3,
+                  borderRadius: "12px",
+                  padding: theme.spacing(2),
+                  transition: "0.3s",
+                  "&:hover": {
+                    transform: "scale(1.03)", // subtle grow effect on hover
+                    boxShadow: theme.shadows[5],
+                  },
+                }}
               >
                 <Box
                   display="flex"
@@ -208,22 +217,26 @@ function About() {
                 >
                   <Avatar
                     sx={{
-                      bgcolor: theme.palette.primary.main,
+                      width: theme.spacing(6),
+                      height: theme.spacing(6),
+                      bgcolor: theme.palette.primary.light,
                       marginRight: theme.spacing(2),
                     }}
                   >
-                    <StarIcon />
+                    <StarIcon color="primary" />
                   </Avatar>
                   <Box flexGrow={1}>
                     <Typography
                       variant="subtitle1"
                       gutterBottom
+                      sx={{ mb: theme.spacing(1) }}
                     >
                       "{testimonial.text}"
                     </Typography>
                     <Typography
                       variant="subtitle2"
                       align="right"
+                      sx={{ fontWeight: "bold" }}
                     >
                       {testimonial.name}
                     </Typography>
@@ -232,8 +245,8 @@ function About() {
               </Card>
             ))}
           </Box>
-        </Container>
-      </Paper>
+        </Paper>
+      </Container>
     </div>
   );
 }

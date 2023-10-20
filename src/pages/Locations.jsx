@@ -150,6 +150,7 @@
 
 import { useEffect } from "react";
 import { useLocation, Outlet } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
 
 import { useScroll } from "../components/ScrollContext";
 import {
@@ -178,11 +179,11 @@ function Locations() {
   return (
     <div
       ref={locationsRef}
-      style={{ padding: "70px" }}
+      style={{ padding: "12px" }}
     >
       <Outlet />
       {!location.pathname.includes("/locations/") && (
-        <Box p={3}>
+        <Box>
           {/* Default content for Locations, perhaps an overview or intro */}
         </Box>
       )}

@@ -55,123 +55,172 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
   };
 
   const drawerWidth = 250; // Fixed width for the drawer
+  // const drawerStyle = {
+  //   width: `${drawerWidth}px`, // Apply the fixed width
+  //   maxWidth: `${drawerWidth}px`, // Ensure it doesn't exceed the fixed width
+  // };
   const drawerStyle = {
-    width: `${drawerWidth}px`, // Apply the fixed width
-    maxWidth: `${drawerWidth}px`, // Ensure it doesn't exceed the fixed width
+    width: "100vw", // make it full viewport width
+    maxWidth: "100vw", // ensure it doesn't exceed the viewport width
+    top: "88px", // adjust this value depending on the height of your navbar
+    height: "calc(100% - 60px)", // subtracting navbar height
+    paddingBottom: "50vh", // push the contents up
+  };
+
+  const listItemStyle = {
+    justifyContent: "flex-start",
+    textAlign: "left",
+    margin: 0,
+    padding: "10px 20px 10px 10px", // Added padding on the right side
   };
 
   return (
-    <Drawer
-      anchor="right"
-      open={isOpen}
-      onClose={onClose}
-      PaperProps={{ style: drawerStyle }}
-    >
-      <List style={drawerStyle}>
-        <ListItemButton onClick={toggleHydration}>
-          <ListItemText primary="Hydration Menu" />
-          <ListItemIcon>
-            {hydrationOpen ? <ArrowDropDownIcon /> : <ArrowRightIcon />}
-          </ListItemIcon>
-        </ListItemButton>
-        <Collapse
-          in={hydrationOpen}
-          timeout="auto"
-          unmountOnExit
+    <>
+      <ArrowDropDownIcon onClick={onClose} />{" "}
+      {/* Replace your hamburger icon with this */}
+      <Drawer
+        anchor="right"
+        open={isOpen}
+        onClose={onClose} // Use toggleDrawer here as well
+        PaperProps={{ style: drawerStyle }}
+        ModalProps={{
+          BackdropProps: {
+            style: {
+              backgroundColor: "transparent",
+            },
+          },
+        }}
+      >
+        <List
+          style={{
+            ...drawerStyle,
+            backgroundColor: "transparent",
+            position: "static",
+            paddingRight: "25px", // added padding to the right
+          }}
         >
-          <Paper
-            elevation={10}
-            style={{ margin: "10px", borderRadius: "8px" }}
+          <ListItemButton
+            onClick={toggleHydration}
+            style={listItemStyle}
           >
-            <Box>
-              {data.map((item) => (
+            <ListItemText primary="Hydration Menu" />
+            <ListItemIcon>
+              {hydrationOpen ? <ArrowDropDownIcon /> : <ArrowRightIcon />}
+            </ListItemIcon>
+          </ListItemButton>
+          <Collapse
+            in={hydrationOpen}
+            timeout="auto"
+            unmountOnExit
+          >
+            <Paper
+              elevation={10}
+              style={{ margin: "10px", borderRadius: "8px" }}
+            >
+              <Box>
+                {data.map((item) => (
+                  <Link
+                    key={item.key}
+                    to={`/details/${item.key}`}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <ListItemButton
+                      onClick={() => handleHydrationClick(item.key)}
+                    >
+                      <ListItemText primary={item.title} />
+                    </ListItemButton>
+                  </Link>
+                ))}
                 <Link
-                  key={item.key}
-                  to={`/details/${item.key}`}
+                  to="/"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <ListItemButton
-                    onClick={() => handleHydrationClick(item.key)}
+                    onClick={onClose}
+                    style={{ textDecoration: "none" }}
                   >
-                    <ListItemText primary={item.title} />
+                    <ListItemText
+                      primary="See all IVs"
+                      style={{ textDecoration: "none" }}
+                    />
                   </ListItemButton>
                 </Link>
-              ))}
-              <Link
-                to="/"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <ListItemButton
-                  onClick={onClose}
-                  style={{ textDecoration: "none" }}
-                >
-                  <ListItemText
-                    primary="See all IVs"
-                    style={{ textDecoration: "none" }}
-                  />
-                </ListItemButton>
-              </Link>
-            </Box>
-          </Paper>
-        </Collapse>
+              </Box>
+            </Paper>
+          </Collapse>
 
-        <Link
-          to="/"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <ListItemButton onClick={onClose}>
-            <ListItemText primary="IV Specialists" />
-          </ListItemButton>
-        </Link>
-        <Link
-          to="/About"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <ListItemButton onClick={onClose}>
-            <ListItemText primary="About Us" />
-          </ListItemButton>
-        </Link>
-        <Link
-          to="/contact"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <ListItemButton onClick={onClose}>
-            <ListItemText primary="Contact" />
-          </ListItemButton>
-        </Link>
-        <ListItemButton onClick={toggleLocations}>
-          <ListItemText primary="Locations" />
-          <ListItemIcon>
-            {locationsOpen ? <ArrowDropDownIcon /> : <ArrowRightIcon />}
-          </ListItemIcon>
-        </ListItemButton>
-        <Collapse
-          in={locationsOpen}
-          timeout="auto"
-          unmountOnExit
-        >
-          <Paper
-            elevation={10}
-            style={{ margin: "10px", borderRadius: "8px" }}
+          <Link
+            to="/"
+            style={{ textDecoration: "none", color: "inherit" }}
           >
-            <Box>
-              <Link
-                to="/locations/AllLocations"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <ListItemButton
-                  onClick={() => handleLocationClick("/locations/AllLocations")}
+            <ListItemButton
+              onClick={onClose}
+              style={listItemStyle}
+            >
+              <ListItemText primary="IV Specialists" />
+            </ListItemButton>
+          </Link>
+          <Link
+            to="/About"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ListItemButton
+              onClick={onClose}
+              style={listItemStyle}
+            >
+              <ListItemText primary="About Us" />
+            </ListItemButton>
+          </Link>
+          <Link
+            to="/contact"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <ListItemButton
+              onClick={onClose}
+              style={listItemStyle}
+            >
+              <ListItemText primary="Contact" />
+            </ListItemButton>
+          </Link>
+          <ListItemButton
+            onClick={toggleLocations}
+            style={listItemStyle}
+          >
+            <ListItemText primary="Locations" />
+            <ListItemIcon>
+              {locationsOpen ? <ArrowDropDownIcon /> : <ArrowRightIcon />}
+            </ListItemIcon>
+          </ListItemButton>
+          <Collapse
+            in={locationsOpen}
+            timeout="auto"
+            unmountOnExit
+          >
+            <Paper
+              elevation={10}
+              style={{ margin: "10px", borderRadius: "8px" }}
+            >
+              <Box>
+                <Link
+                  to="/locations/AllLocations"
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <ListItemText primary="All Locations" />
-                </ListItemButton>
-              </Link>
-              {/* ... other location links like New York, California, etc ... */}
-            </Box>
-          </Paper>
-        </Collapse>
-        {/* ... other links ... */}
-      </List>
-    </Drawer>
+                  <ListItemButton
+                    onClick={() =>
+                      handleLocationClick("/locations/AllLocations")
+                    }
+                  >
+                    <ListItemText primary="All Locations" />
+                  </ListItemButton>
+                </Link>
+                {/* ... other location links like New York, California, etc ... */}
+              </Box>
+            </Paper>
+          </Collapse>
+          {/* ... other links ... */}
+        </List>
+      </Drawer>
+    </>
   );
 }
 

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import PhoneIcon from "@mui/icons-material/Phone";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 // Custom components & hooks
 import Logo from "./Logo";
@@ -20,6 +21,13 @@ export default function Footer() {
   const handleTypographyClick = (route) => {
     navigate(route, { state: { shouldScroll: true } });
   };
+
+  function scrollTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 
   // Consider moving these to a separate styles.js or include in your CSS modules
   const navLinksStyle = {
@@ -241,6 +249,12 @@ export default function Footer() {
             </Grid>
           </Grid>
         </Container>
+        <div className={styles.scrollTopContainer}>
+          <ArrowUpwardIcon
+            className={styles.scrollTopIcon}
+            onClick={scrollTop}
+          />
+        </div>
       </footer>
     </>
   );

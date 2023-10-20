@@ -418,54 +418,52 @@ export default function App({ children }) {
                     <ImageCard hydrationMenuRef={hydrationMenuRef} />
                   )}
 
-                  <Container sx={{ p: 4 }}>
-                    <Routes>
-                      <Route
-                        path="/"
-                        element={<Menu dataArray={data} />}
-                      />
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={<Menu dataArray={data} />}
+                    />
 
+                    <Route
+                      path="/about"
+                      element={<About />}
+                    />
+                    <Route
+                      path="/contact"
+                      element={<Contact dataArray={data} />}
+                    />
+                    <Route
+                      path="/locations"
+                      element={<Locations />}
+                    >
                       <Route
-                        path="/about"
-                        element={<About />}
+                        path="newyork"
+                        element={<NewYork />}
                       />
                       <Route
-                        path="/contact"
-                        element={<Contact dataArray={data} />}
+                        path="california"
+                        element={<California />}
                       />
                       <Route
-                        path="/locations"
-                        element={<Locations />}
-                      >
-                        <Route
-                          path="newyork"
-                          element={<NewYork />}
-                        />
-                        <Route
-                          path="california"
-                          element={<California />}
-                        />
-                        <Route
-                          path="florida"
-                          element={<Florida />}
-                        />
-                        <Route
-                          path="alllocations"
-                          element={<AllLocations />}
-                        />
-                      </Route>
-                      <Route
-                        path="/contact/:id"
-                        element={<Contact dataArray={data} />}
+                        path="florida"
+                        element={<Florida />}
                       />
                       <Route
-                        path="/details/:id"
-                        element={<DetailsPage dataArray={data} />}
+                        path="alllocations"
+                        element={<AllLocations />}
                       />
-                    </Routes>
+                    </Route>
+                    <Route
+                      path="/contact/:id"
+                      element={<Contact dataArray={data} />}
+                    />
+                    <Route
+                      path="/details/:id"
+                      element={<DetailsPage dataArray={data} />}
+                    />
+                  </Routes>
 
-                    {/* other routes if any */}
-                  </Container>
+                  {/* other routes if any */}
                 </div>
                 <Footer />
               </div>
