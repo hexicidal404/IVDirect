@@ -25,7 +25,16 @@ function AllLocations() {
 
   useEffect(() => {
     if (location.state?.shouldScroll && AllLocationsRef.current) {
-      AllLocationsRef.current.scrollIntoView({ behavior: "smooth" });
+      // Get the position of the contact form
+      const topPosition =
+        AllLocationsRef.current.getBoundingClientRect().top + window.scrollY;
+
+      // Calculate offset to center it on the page (half of viewport height minus half of element height)
+      const offset =
+        window.innerHeight / 2 - AllLocationsRef.current.clientHeight / 2;
+
+      // Scroll to the calculated position
+      window.scrollTo({ top: topPosition - offset, behavior: "smooth" });
     }
   }, [location]);
 

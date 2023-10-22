@@ -11,9 +11,11 @@ import { useNavigate } from "react-router-dom";
 import { useScroll } from "./ScrollContext";
 import { useState, useEffect } from "react";
 
+import ServiceBoxGrid from "./ServiceBoxGrid";
+
 import Box from "@mui/material/Box";
 
-function ImageCard() {
+function ImageCard({ onButtonClick }) {
   const [isImageLoaded, setImageLoaded] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -96,7 +98,6 @@ function ImageCard() {
             }}
           />
         </Box>
-
         <CardContent
           sx={{
             flex: "1",
@@ -106,24 +107,26 @@ function ImageCard() {
         >
           <Paper
             elevation={12}
-            sx={{ p: isSmallScreen ? 2 : 4 }}
+            sx={{ p: isSmallScreen ? 2 : 4, borderRadius: "12px" }}
           >
             <Typography
               variant="h3"
               gutterBottom
+              sx={{ fontWeight: 600, color: "#283891" }} // Made it bold
             >
               IV Specialists
             </Typography>
             <Typography
-              variant="h5"
+              variant="h4"
               color="textSecondary"
               gutterBottom
+              sx={{ fontWeight: 500 }} // Semi-bold for better contrast
             >
               Hydration Specialists
             </Typography>
             <Typography
               variant="body1"
-              sx={{ whiteSpace: "pre-line", my: 2 }}
+              sx={{ whiteSpace: "pre-line", my: 2, fontWeight: 400 }}
             >
               At IV Direct, we are fervently dedicated to extolling the
               advantages of intravenous nutrient delivery over oral ingestion.
@@ -135,7 +138,7 @@ function ImageCard() {
             </Typography>
             <Typography
               variant="body1"
-              sx={{ whiteSpace: "pre-line", my: 2 }}
+              sx={{ whiteSpace: "pre-line", my: 2, fontWeight: 400 }}
             >
               Consequently, you're likely to experience more immediate and
               sustained effects. Our skilled and patient-focused Hydration
@@ -145,7 +148,7 @@ function ImageCard() {
               confidentiality of your chosen location, whether it be your home,
               workplace, or any other place of your preference.
             </Typography>
-            <Button
+            {/* <Button
               variant="contained"
               sx={{
                 mt: 3,
@@ -160,7 +163,9 @@ function ImageCard() {
               onClick={() => handleTypographyClick("/")}
             >
               Find Out More
-            </Button>
+            </Button> */}
+
+            <ServiceBoxGrid onButtonClick={onButtonClick} />
           </Paper>
         </CardContent>
       </Box>

@@ -20,8 +20,11 @@ import "./App.css";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import ImageCard from "./components/ImageCard";
+import ServiceBoxGrid from "./components/ServiceBoxGrid";
 
 import { ScrollProvider } from "./components/ScrollContext";
+
+import Supplemental from "./pages/Supplemental";
 
 import NewYork from "./pages/locations/NewYork";
 import California from "./pages/locations/California";
@@ -389,7 +392,6 @@ export default function App({ children }) {
           <ThemeProviderWrapper>
             <CssBaseline />
             <div
-              onClick={markImageCardAsSeen}
               style={{
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: "cover",
@@ -413,17 +415,23 @@ export default function App({ children }) {
                       justifyContent: "center",
                     }}
                   ></Container>
-
                   {!hasSeenImageCard && (
-                    <ImageCard hydrationMenuRef={hydrationMenuRef} />
+                    <>
+                      <ImageCard
+                        hydrationMenuRef={hydrationMenuRef}
+                        onButtonClick={markImageCardAsSeen}
+                      />
+                    </>
                   )}
-
                   <Routes>
                     <Route
                       path="/"
                       element={<Menu dataArray={data} />}
                     />
-
+                    <Route
+                      path="/supplemental"
+                      element={<Supplemental />}
+                    />
                     <Route
                       path="/about"
                       element={<About />}
@@ -462,7 +470,6 @@ export default function App({ children }) {
                       element={<DetailsPage dataArray={data} />}
                     />
                   </Routes>
-
                   {/* other routes if any */}
                 </div>
                 <Footer />

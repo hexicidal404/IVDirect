@@ -200,9 +200,9 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
                 color="inherit"
                 sx={{ ...typographyStyle, color: typographyColor }}
                 style={{ textAlign: "left" }}
-                onClick={() => handleTypographyClick("/")}
+                onClick={() => handleTypographyClick("/Supplemental")}
               >
-                IV Specialists
+                Supplemental Shots
               </Typography>
               <Typography
                 variant="body1"

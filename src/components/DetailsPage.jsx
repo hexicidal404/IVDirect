@@ -53,8 +53,9 @@ function DetailsPage({ dataArray }) {
 
   return (
     <Container
-      maxWidth="lg"
+      maxWidth="md"
       ref={DetailsRef}
+      sx={{ my: 5 }}
     >
       <Grid
         container
