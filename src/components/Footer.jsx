@@ -175,9 +175,9 @@ export default function Footer() {
                       color="inherit"
                       sx={typographyStyle}
                       style={{ textAlign: "left" }}
-                      onClick={() => handleTypographyClick("/")}
+                      onClick={() => handleTypographyClick("/Supplemental")}
                     >
-                      IV Specialists
+                      Supplemental Shots
                     </Typography>
                     <Typography
                       variant="body1"
