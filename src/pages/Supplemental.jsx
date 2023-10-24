@@ -1,9 +1,17 @@
 import React from "react";
-import { Grid, Typography, Paper, Box } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
+import {
+  Grid,
+  Typography,
+  Paper,
+  Box,
+  Container,
+  Divider,
+} from "@mui/material";
+// import FavoriteIcon from "@mui/icons-material/Favorite";
+// import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import { useState } from "react";
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/";
 import VitaminBox from "./VitaminBox";
 
 const data = [
@@ -43,104 +51,152 @@ const data = [
     description:
       "Magnesium is vital for many physiological functions, including energy production, muscle contractions, nerve function, and the regulation of blood pressure. It also supports bone health and aids in protein synthesis.",
   },
-  {
-    text: "MIC",
-    color: "#FF8A65",
-    description:
-      "MIC (Methionine Inositol Choline) is a lipotropic blend that assists in the breakdown of fats, supports liver health, and aids in metabolism. It's often used for weight management.",
-  },
-  {
-    text: "NAD+",
-    color: "#A1887F",
-    description:
-      "NAD+ (Nicotinamide Adenine Dinucleotide) is essential for energy production and maintaining proper cell functions. It also plays a key role in aging and DNA repair.",
-  },
-  {
-    text: "L-Carnitine",
-    color: "#4DB6AC",
-    description:
-      "L-Carnitine is an amino acid that transports fatty acids into the mitochondria to be used as energy. It may improve exercise performance and support weight management.",
-  },
+  // {
+  //   text: "MIC",
+  //   color: "#FF8A65",
+  //   description:
+  //     "MIC (Methionine Inositol Choline) is a lipotropic blend that assists in the breakdown of fats, supports liver health, and aids in metabolism. It's often used for weight management.",
+  // },
+  // {
+  //   text: "NAD+",
+  //   color: "#A1887F",
+  //   description:
+  //     "NAD+ (Nicotinamide Adenine Dinucleotide) is essential for energy production and maintaining proper cell functions. It also plays a key role in aging and DNA repair.",
+  // },
+  // {
+  //   text: "L-Carnitine",
+  //   color: "#4DB6AC",
+  //   description:
+  //     "L-Carnitine is an amino acid that transports fatty acids into the mitochondria to be used as energy. It may improve exercise performance and support weight management.",
+  // },
 ];
 
 const imgLink =
-  "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697959002/syringe_c8fdfk.png";
+  // "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697959002/syringe_c8fdfk.png";
+  "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698133525/oranges_d7e3xd.jpg";
 
 const Supplemental = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const theme = useTheme();
 
   const boxStyle = {
-    display: "flex",
-    alignItems: "center",
-    padding: "20px",
-    borderRadius: "8px",
-    boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
-    marginBottom: "10px", // space between boxes
-    cursor: "pointer",
-    transition: "0.3s", // <-- Moved transition property here
+    height: "200px",
+    padding: theme.spacing(2),
+    borderRadius: "12px",
+    boxShadow: theme.shadows[1],
+    transition: "transform 0.3s, box-shadow 0.3s",
   };
 
   const hoverStyle = {
-    transform: "scale(1)", // subtle grow effect on hover
-    boxShadow: theme.shadows[5], // a bit more shadow to give an elevated effect
-  };
-
-  const combinedStyle = {
-    ...boxStyle,
-    ...(isHovered ? hoverStyle : {}),
+    transform: "scale(1.05)",
+    boxShadow: theme.shadows[5],
   };
 
   return (
-    <Box
-      mt={4}
-      mb={4}
-      p={5}
-      bgcolor="background.paper"
-      boxShadow={3}
-      borderRadius={3}
-    >
-      <Typography
-        variant="h2"
-        align="center"
-        gutterBottom
-        color="primary"
+    <Container>
+      <Box
+        mt={4}
+        mb={4}
+        p={theme.spacing(2)}
+        bgcolor="background.paper"
+        boxShadow={3}
+        borderRadius={theme.shape.borderRadius}
       >
-        Supplemental Shots
-      </Typography>
-      <Typography
-        variant="h5"
-        align="center"
-        gutterBottom
-        color="textSecondary"
-      >
-        Elevate your health with our premium selections.
-      </Typography>
-      <Typography
-        variant="h6"
-        align="justify"
-        gutterBottom
-      >
-        At IV Direct, we offer a wide selection of specially crafted IV
-        treatment packages tailored to rejuvenate your body and mind. Whether
-        you're battling dehydration, recovering from overexertion, or trying to
-        shake off a hangover, our treatments are the perfect antidote. Enjoy the
-        convenience of pre-made treatments delivered to your doorstep or let
-        your creativity shine by customizing with our range of add-ons.
-      </Typography>
-      <Grid
-        container
-        spacing={3}
-      >
-        {data.map((item, index) => (
-          <VitaminBox
-            key={index}
-            item={item}
-            imgLink={imgLink}
-          />
-        ))}
-      </Grid>
-    </Box>
+        <Typography
+          variant="h3"
+          gutterBottom
+          sx={{ fontWeight: 600, color: "#283891", textAlign: "center" }}
+        >
+          Supplemental Shots
+        </Typography>
+        <Typography
+          variant="h5"
+          align="center"
+          gutterBottom
+          color="textSecondary"
+        >
+          Elevate your health with our premium selections.
+        </Typography>
+        <Typography
+          variant="body1"
+          align="justify"
+          gutterBottom
+        >
+          At IV Direct, we offer a wide selection of specially crafted IV
+          treatment packages tailored to rejuvenate your body and mind. Whether
+          you're battling dehydration, recovering from overexertion, or trying
+          to shake off a hangover, our treatments are the perfect antidote.
+          Enjoy the convenience of pre-made treatments delivered to your
+          doorstep or let your creativity shine by customizing with our range of
+          add-ons.
+        </Typography>
+        <Divider sx={{ my: 2 }} />
+
+        <Grid
+          container
+          spacing={3}
+        >
+          <Grid
+            item
+            xs={12}
+            md={8}
+          >
+            <Grid
+              container
+              spacing={3}
+            >
+              {data.map((item, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={6}
+                  key={index}
+                >
+                  <Box
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    style={{
+                      ...boxStyle,
+                      ...(hoveredIndex === index ? hoverStyle : {}),
+                    }}
+                  >
+                    <HealthAndSafetyIcon style={{ color: item.color }} />
+                    <Typography
+                      variant="h6"
+                      color="textPrimary"
+                      gutterBottom
+                    >
+                      {item.text}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                    >
+                      {item.description}
+                    </Typography>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+
+          <Grid
+            item
+            xs={12}
+            md={4}
+          >
+            <Box sx={{ width: "100%", overflow: "hidden", borderRadius: 2 }}>
+              <img
+                src={imgLink}
+                alt="Supplemental image"
+                style={{ width: "100%", borderRadius: "12px" }}
+              />
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
+    </Container>
   );
 };
 

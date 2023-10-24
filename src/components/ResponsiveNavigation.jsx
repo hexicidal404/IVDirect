@@ -119,14 +119,14 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
               </Paper>
             </Collapse>
             <Link
-              to="/IVSpecialists"
+              to="/Supplemental"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <ListItemButton
                 onClick={onClose}
                 style={listItemStyle}
               >
-                <ListItemText primary="IV Specialists" />
+                <ListItemText primary="Supplemental Shots" />
               </ListItemButton>
             </Link>
             <Link
@@ -151,7 +151,18 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
                 <ListItemText primary="Contact" />
               </ListItemButton>
             </Link>
-            <ListItemButton
+            <Link
+              to="/locations/AllLocations"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <ListItemButton
+                onClick={onClose}
+                style={listItemStyle}
+              >
+                <ListItemText primary="Locations" />
+              </ListItemButton>
+            </Link>
+            {/* <ListItemButton
               onClick={() => setLocationsOpen(!locationsOpen)}
               style={listItemStyle}
             >
@@ -159,8 +170,8 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
               <ListItemIcon>
                 {locationsOpen ? <ArrowDropDownIcon /> : <ArrowRightIcon />}
               </ListItemIcon>
-            </ListItemButton>
-            <Collapse
+            </ListItemButton> */}
+            {/* <Collapse
               in={locationsOpen}
               timeout="auto"
               unmountOnExit
@@ -183,10 +194,9 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
                       <ListItemText primary="All Locations" />
                     </ListItemButton>
                   </Link>
-                  {/* ... other location links ... */}
                 </Box>
               </Paper>
-            </Collapse>
+            </Collapse> */}
           </Box>
         </List>
       </Drawer>
