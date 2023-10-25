@@ -208,6 +208,15 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
                 variant="body1"
                 color="inherit"
                 sx={{ ...typographyStyle, color: typographyColor }}
+                style={{ textAlign: "left" }}
+                onClick={() => handleTypographyClick("/Ownership")}
+              >
+                Ownership Opprotunities
+              </Typography>
+              <Typography
+                variant="body1"
+                color="inherit"
+                sx={{ ...typographyStyle, color: typographyColor }}
                 style={{
                   textAlign: "left",
                   cursor: "pointer",

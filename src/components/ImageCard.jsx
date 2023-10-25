@@ -128,25 +128,21 @@ function ImageCard({ onButtonClick }) {
               variant="body1"
               sx={{ whiteSpace: "pre-line", my: 2, fontWeight: 400 }}
             >
-              At IV Direct, we are fervently dedicated to extolling the
+              At IV Direct, we are fervently dedicated to cultivating the
               advantages of intravenous nutrient delivery over oral ingestion.
               When vitamins and other essential nutrients undergo the digestive
-              process, their potency diminishes before they can enter the
-              bloodstream. Opting for intravenous administration ensures that
-              you receive the full impact of each dose precisely where it's
-              required.
+              process, their potency diminishes before entering the bloodstream.
+              Opting for intravenous administration, you're likely to experience
+              more immediate and sustained effects.
             </Typography>
             <Typography
               variant="body1"
               sx={{ whiteSpace: "pre-line", my: 2, fontWeight: 400 }}
             >
-              Consequently, you're likely to experience more immediate and
-              sustained effects. Our skilled and patient-focused Hydration
-              Specialists will collaborate with you to understand and address
-              your specific needs. They will then tailor and provide
-              personalized IV therapy directly to you in the convenience and
-              confidentiality of your chosen location, whether it be your home,
-              workplace, or any other place of your preference.
+              Our skilled and patient-focused Hydration Specialists will
+              collaborate with you to understand and address your specific
+              needs. They will provide personalized IV therapy directly to you
+              in the convenience and confidentiality of your chosen location.
             </Typography>
             {/* <Button
               variant="contained"

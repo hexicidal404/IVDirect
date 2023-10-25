@@ -65,18 +65,18 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: <PhoneIcon />,
-      text: "(123) 456-7890",
-      link: "tel:(123) 456-7890",
+      text: "(800) 123-5678",
+      link: "tel:(800) 123-5678",
     },
     {
       icon: <MailOutlineIcon />,
-      text: "info@example.com",
-      link: "mailto:info@example.com",
+      text: "info@IV.Direct",
+      link: "mailto:info@IV.Direct",
     },
     {
       icon: <LocationOnIcon />,
-      text: "Address: 123 IV St, Hydration City, 12345",
-      link: "https://www.google.com/maps/search/?api=1&query=123+IV+St,+Hydration+City,+12345",
+      text: "Address: 444 Madison Ave, 18th Fl, New York, NY, 10025",
+      link: "https://www.google.com/maps/search/?api=1&query=444+Madison+Ave+18th+Fl,+New+York,+10025",
     },
   ];
 

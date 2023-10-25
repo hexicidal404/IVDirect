@@ -26,6 +26,7 @@ import { ScrollProvider } from "./components/ScrollContext";
 
 import Supplemental from "./pages/Supplemental";
 
+import Ownership from "./pages/Ownership";
 import NewYork from "./pages/locations/NewYork";
 import California from "./pages/locations/California";
 import Florida from "./pages/locations/Florida";
@@ -435,6 +436,10 @@ export default function App({ children }) {
                     <Route
                       path="/about"
                       element={<About />}
+                    />
+                    <Route
+                      path="/ownership"
+                      element={<Ownership />}
                     />
                     <Route
                       path="/contact"
