@@ -39,7 +39,7 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
   const listContainerStyle = {
     flexGrow: 1,
     overflowY: "auto",
-    backgroundColor: "white",
+    backgroundColor: "#001f3f",
     position: "static",
     paddingRight: "25px",
     maxHeight: "calc(100vh - 88px)",
@@ -51,6 +51,11 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
     borderRadius: "8px",
     margin: "5px 10px", // reduce side margin for better space usage
     padding: "10px",
+  };
+
+  const textStyle = {
+    fontSize: "1.2rem", // Larger font size
+    color: "white", // Text color set to white
   };
 
   return (
@@ -76,9 +81,16 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
               onClick={() => setHydrationOpen(!hydrationOpen)}
               style={listItemStyle}
             >
-              <ListItemText primary="Hydration Menu" />
+              <ListItemText
+                primary="Hydration Menu"
+                style={textStyle}
+              />
               <ListItemIcon>
-                {hydrationOpen ? <ArrowDropDownIcon /> : <ArrowRightIcon />}
+                {hydrationOpen ? (
+                  <ArrowDropDownIcon sx={{ color: "white" }} />
+                ) : (
+                  <ArrowRightIcon sx={{ color: "white" }} />
+                )}
               </ListItemIcon>
             </ListItemButton>
             <Collapse
@@ -120,7 +132,7 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
             </Collapse>
             <Link
               to="/Supplemental"
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
                 onClick={onClose}
@@ -131,7 +143,7 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
             </Link>
             <Link
               to="/About"
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
                 onClick={onClose}
@@ -142,7 +154,7 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
             </Link>
             <Link
               to="/Contact"
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
                 onClick={onClose}
@@ -153,7 +165,7 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
             </Link>
             <Link
               to="/locations/AllLocations"
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
                 onClick={onClose}
