@@ -157,7 +157,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Combat dehydration and detoxify after food poisoning.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/FOOD_POISONING_uwotkv.jpg",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698259221/FOOD_POISONINGremake_ryuw6r.png",
 
       benefits: [
         "Eliminate toxins",
