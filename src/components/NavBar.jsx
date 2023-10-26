@@ -279,7 +279,7 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
             </MenuItem>
           ))}
 
-          <MenuItem onClick={navigateToHydrationMenu}>See all IVs </MenuItem>
+          <MenuItem onClick={navigateToHydrationMenu}>Hydration Bags</MenuItem>
         </Menu>
 
         <Menu

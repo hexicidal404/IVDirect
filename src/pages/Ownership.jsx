@@ -1,31 +1,69 @@
-import React from "react";
-import { Paper, Typography, Box } from "@mui/material";
+import React, { useState } from "react";
+
+import {
+  Paper,
+  Typography,
+  Box,
+  Button,
+  Container,
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Alert,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import ImageComponent from "../components/Logo";
 
 const backgroundImage =
-  "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698223569/daniel-sinoca-7BLc53z03rM-unsplash_zq221v.jpg";
+  "https://images.unsplash.com/photo-1609079332148-ce057e967197?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 function OwnershipOpportunities() {
+  const theme = useTheme();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+    // Here, you'd send the formData to your backend or desired endpoint
+  };
+
   return (
     <Box
       display="flex"
-      justifyContent="center"
+      flexDirection="column"
       alignItems="center"
+      justifyContent="center"
       minHeight="90vh"
       style={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover 110%",
-        backgroundPosition: "center 100%",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
+      p={theme.spacing(2)}
     >
       <Paper
         elevation={3}
         style={{
-          padding: "2rem",
-          maxWidth: "800px",
+          padding: theme.spacing(4),
           width: "100%",
-          backgroundColor: "rgba(255, 255, 255, 0)",
+          maxWidth: "900px",
+          borderRadius: "12px",
         }}
       >
+        {" "}
+        <ImageComponent style={{ maxWidth: "100%" }} />
         <Typography
           variant="h4"
           gutterBottom
@@ -37,25 +75,93 @@ function OwnershipOpportunities() {
           paragraph
         >
           As the IV Hydration industry continues to grow, we're excited to offer
-          unique ownership opportunities for interested investors and
-          entrepreneurs. Join us in our mission to provide top-tier hydration
-          services and wellness solutions to a wider audience.
+          the following benefits:
         </Typography>
+        <Box
+          pl={theme.spacing(3)}
+          mb={theme.spacing(3)}
+        >
+          <Typography variant="body1">
+            ✓ Unique ownership opportunities for investors and entrepreneurs.
+          </Typography>
+          <Typography variant="body1">
+            ✓ Comprehensive ownership packages with support and resources.
+          </Typography>
+          <Typography variant="body1">
+            ✓ Proven business model and dedicated support teams.
+          </Typography>
+          <Typography variant="body1">
+            ✓ Growing market demand with high potential for profitability.
+          </Typography>
+        </Box>
         <Typography
           variant="body1"
           paragraph
         >
-          Our comprehensive ownership packages ensure that franchisees have the
-          support, training, and resources they need to succeed. With a proven
-          business model, dedicated support teams, and a growing market demand,
-          there's never been a better time to explore ownership opportunities
-          with us.
-        </Typography>
-        <Typography variant="body1">
           Reach out today to learn more about how you can be a part of this
-          thriving industry and make a tangible impact on health and wellness in
-          your community.
+          thriving industry.
         </Typography>
+        <Box mt={3}>
+          {isSubmitted ? (
+            <Alert severity="success">
+              Thank you for your interest! We'll get back to you shortly.
+            </Alert>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <TextField
+                fullWidth
+                margin="normal"
+                label="Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                variant="outlined"
+              />
+              <TextField
+                fullWidth
+                margin="normal"
+                label="Email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                variant="outlined"
+              />
+              <TextField
+                fullWidth
+                margin="normal"
+                label="Phone Number"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                variant="outlined"
+              />
+              <TextField
+                fullWidth
+                margin="normal"
+                label="Message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                multiline
+                rows={4}
+                variant="outlined"
+              />
+              <Box
+                mt={2}
+                display="flex"
+                justifyContent="center"
+              >
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                >
+                  Submit
+                </Button>
+              </Box>
+            </form>
+          )}
+        </Box>
       </Paper>
     </Box>
   );

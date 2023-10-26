@@ -103,14 +103,6 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
                 style={{ margin: "10px", borderRadius: "8px" }}
               >
                 <Box>
-                  <Link
-                    to="/"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <ListItemButton onClick={onClose}>
-                      <ListItemText primary="See all" />
-                    </ListItemButton>
-                  </Link>
                   {data.map((item) => (
                     <Link
                       key={item.key}
@@ -127,6 +119,14 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
                       </ListItemButton>
                     </Link>
                   ))}
+                  <Link
+                    to="/"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <ListItemButton onClick={onClose}>
+                      <ListItemText primary="Hydration Bags" />
+                    </ListItemButton>
+                  </Link>
                 </Box>
               </Paper>
             </Collapse>
@@ -139,6 +139,28 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
                 style={listItemStyle}
               >
                 <ListItemText primary="Supplemental Shots" />
+              </ListItemButton>
+            </Link>{" "}
+            <Link
+              to="/Ownership"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <ListItemButton
+                onClick={onClose}
+                style={listItemStyle}
+              >
+                <ListItemText primary="Ownership Opportunities" />
+              </ListItemButton>
+            </Link>{" "}
+            <Link
+              to="/locations/AllLocations"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <ListItemButton
+                onClick={onClose}
+                style={listItemStyle}
+              >
+                <ListItemText primary="Locations" />
               </ListItemButton>
             </Link>
             <Link
@@ -161,17 +183,6 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
                 style={listItemStyle}
               >
                 <ListItemText primary="Contact" />
-              </ListItemButton>
-            </Link>
-            <Link
-              to="/locations/AllLocations"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              <ListItemButton
-                onClick={onClose}
-                style={listItemStyle}
-              >
-                <ListItemText primary="Locations" />
               </ListItemButton>
             </Link>
             {/* <ListItemButton

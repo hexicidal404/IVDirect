@@ -73,14 +73,14 @@ const data = [
 
 const imgLink =
   // "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697959002/syringe_c8fdfk.png";
-  "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698133525/oranges_d7e3xd.jpg";
-
+  // "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698133525/oranges_d7e3xd.jpg";
+  // "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698303248/1_hhprhu.png";
+  "https://res.cloudinary.com/dcgh3ljwk/image/upload/c_scale,w_681/v1698303678/jamie-street-qpN5MLx1uwk-unsplash_kydsfq.jpg";
 const Supplemental = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const theme = useTheme();
 
   const boxStyle = {
-    height: "200px",
     padding: theme.spacing(2),
     borderRadius: "12px",
     boxShadow: theme.shadows[1],
@@ -131,7 +131,6 @@ const Supplemental = () => {
           add-ons.
         </Typography>
         <Divider sx={{ my: 2 }} />
-
         <Grid
           container
           spacing={3}
@@ -161,7 +160,10 @@ const Supplemental = () => {
                       ...(hoveredIndex === index ? hoverStyle : {}),
                     }}
                   >
-                    <HealthAndSafetyIcon style={{ color: item.color }} />
+                    <img
+                      src="https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698303248/1_hhprhu.png"
+                      style={{ width: "20%" }}
+                    />
                     <Typography
                       variant="h6"
                       color="textPrimary"
@@ -169,24 +171,18 @@ const Supplemental = () => {
                     >
                       {item.text}
                     </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                    >
-                      {item.description}
-                    </Typography>
+                    <Typography variant="body2">{item.description}</Typography>
                   </Box>
                 </Grid>
               ))}
             </Grid>
           </Grid>
-
           <Grid
             item
             xs={12}
             md={4}
           >
-            <Box sx={{ width: "100%", overflow: "hidden", borderRadius: 2 }}>
+            <Box sx={{ width: "100%", borderRadius: 2 }}>
               <img
                 src={imgLink}
                 alt="Supplemental image"

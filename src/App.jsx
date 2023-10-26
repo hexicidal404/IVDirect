@@ -97,7 +97,7 @@ export default function App({ children }) {
       price: "$250",
       content: "A comprehensive boost for overall health and vitality.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335409/IV_DELUXE_nmgsfi.jpg",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299133/ivdirect/iv_deluxe_lgnyhl.png",
       benefits: [
         "Improve mental sharpness",
         "Enhance energy levels",
@@ -128,7 +128,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Boosts immunity and aids chronic conditions.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/MYERS_COCKTAIL_uisxga.jpg",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299135/ivdirect/myers_cocktail_ckoz8d.png",
       benefits: [
         "Combat fatigue",
         "Reduce stress and depression",
@@ -157,7 +157,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Combat dehydration and detoxify after food poisoning.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698259221/FOOD_POISONINGremake_ryuw6r.png",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299132/ivdirect/food_poisoning_t5veoo.png",
 
       benefits: [
         "Eliminate toxins",
@@ -182,7 +182,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Bolster the immune system against infections.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/COLD_FLU_COVID_tpkchw.jpg",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299132/ivdirect/COLD_FLU_COVID_pxrk8g.png",
       benefits: [
         "Symptom Relief: pain, inflammation, headaches, body aches, nausea, vomiting, fatigue",
         "Rehydration",
@@ -205,11 +205,11 @@ export default function App({ children }) {
     },
     {
       key: 5,
-      title: "IV Hangover",
+      title: "Hangover IV",
       price: "$250",
       content: "Recovery treatment for post-alcohol fatigue and dehydration.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/HANGOVER_IV_viwrlv.jpg",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299133/ivdirect/hangover_iv_dgzmbz.png",
 
       benefits: [
         "Alleviate headaches, nausea, and vomiting",
@@ -239,7 +239,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Rejuvenate skin from within for a youthful glow.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335409/IV_BEAUTY_qlmnse.jpg",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299133/ivdirect/iv_beauty_bldy3h.png",
 
       benefits: [
         "Enhance collagen",
@@ -266,7 +266,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Supports weight management goals and boosts metabolism.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335407/IV_WEIGHT_LOSS_quhewr.jpg",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299134/ivdirect/iv_weight_loss_flslhw.png",
 
       benefits: [
         "Shed excess weight",
@@ -295,7 +295,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Optimizes workout performance and accelerates recovery.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335407/IV_FITNESS_RECOVERY_euceug.jpg",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299134/ivdirect/iv_fitness_recovery_au7oqw.png",
 
       benefits: [
         "Increase energy",
@@ -359,7 +359,7 @@ export default function App({ children }) {
       content:
         "NAD+ IV treatment stands at the forefront of cellular rejuvenation therapies.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697335408/NAD_PLUS_xm5uqr.jpg",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299135/ivdirect/nad_lwxwoz.png",
 
       benefits: [
         "Prevent age-related and neurodegenerative disorders",

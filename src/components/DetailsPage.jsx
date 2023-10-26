@@ -53,9 +53,9 @@ function DetailsPage({ dataArray }) {
 
   return (
     <Container
-      maxWidth="md"
+      maxWidth="lg" // Increase container width for desktop
       ref={DetailsRef}
-      sx={{ my: 5 }}
+      sx={{ p: 5 }}
     >
       <Grid
         container
@@ -65,6 +65,7 @@ function DetailsPage({ dataArray }) {
         <Grid
           item
           md={6}
+          lg={5} // adjust for large screens
           sx={{ display: "flex", flexDirection: "column" }}
         >
           {item.imgLink && (
@@ -93,12 +94,13 @@ function DetailsPage({ dataArray }) {
         <Grid
           item
           md={6}
+          lg={7} // adjust for large screens
           sx={{ display: "flex", flexDirection: "column" }}
         >
           <Paper
             elevation={3}
             sx={{
-              p: 4,
+              p: 2,
               borderRadius: "12px",
               height: "100%",
               display: "flex",

@@ -18,6 +18,7 @@ import { useLocation } from "react-router-dom";
 import { useScroll } from "../../components/ScrollContext";
 import { Link as RouterLink } from "react-router-dom"; // Rename to avoid conflict with MUI Link
 import { useTheme } from "@mui/material/styles";
+import ImageComponent from "../../components/Logo";
 
 function AllLocations() {
   const { AllLocationsRef } = useScroll();
@@ -83,7 +84,17 @@ function AllLocations() {
         maxWidth="lg"
         sx={{ padding: { xs: 1, sm: theme.spacing(3) } }}
       >
-        <Paper style={{ padding: "16px", borderRadius: "12px" }}>
+        <Paper
+          style={{
+            padding: "16px",
+            borderRadius: "12px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+          elevation={5}
+        >
+          <ImageComponent style={{ maxWidth: "100%" }} />
           <Typography
             variant="h4"
             gutterBottom
@@ -124,9 +135,7 @@ function AllLocations() {
               </Grid>
             ))}
           </Grid>
-
           <Divider sx={{ my: 5 }} />
-
           <Typography
             variant="h5"
             gutterBottom
@@ -154,6 +163,7 @@ function AllLocations() {
                     flexDirection: "column",
                     justifyContent: "center",
                     transition: "0.3s",
+                    borderRadius: "12px",
                     "&:hover": {
                       transform: "scale(1.03)", // subtle grow effect on hover
                       boxShadow: theme.shadows[5],
@@ -171,16 +181,13 @@ function AllLocations() {
               </Grid>
             ))}
           </Grid>
-
           <Divider sx={{ my: 5 }} />
-
           <Typography
             variant="h5"
             gutterBottom
           >
             Get in Touch
           </Typography>
-
           <Box
             display="flex"
             alignItems="center"
@@ -190,21 +197,20 @@ function AllLocations() {
             <MailOutlineIcon color="primary" />
             <Typography variant="body1">
               <Link
-                href="mailto:info@ivspecialists.com"
+                href="mailto:info@IV.Direct"
                 color="primary"
               >
-                info@iv.direct
+                info@IV.Direct
               </Link>
             </Typography>
           </Box>
-
           <Box
             display="flex"
             alignItems="center"
             gap={2}
           >
             <PhoneIcon color="primary" />
-            <Typography variant="body1">(XXX) XXX-XXXX</Typography>
+            <Typography variant="body1">(800) 123-5678</Typography>
           </Box>
         </Paper>
       </Container>
