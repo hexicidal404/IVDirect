@@ -15,11 +15,12 @@ import { useScroll } from "./ScrollContext";
 // Styles
 import styles from "./Footer.module.css";
 
-export default function Footer() {
+export default function Footer({ onButtonClick }) {
   const navigate = useNavigate();
 
   const handleTypographyClick = (route) => {
     navigate(route, { state: { shouldScroll: true } });
+    onButtonClick && onButtonClick();
   };
 
   function scrollTop() {
@@ -55,6 +56,12 @@ export default function Footer() {
     borderRadius: "20px",
     padding: "5px 10px",
   };
+  const contactUsStyles = {
+    color: "white",
+    textDecoration: "none",
+    borderRadius: "20px",
+    paddingLeft: 2,
+  };
 
   const hoverStyles = {
     "&:hover": {
@@ -70,7 +77,7 @@ export default function Footer() {
     },
     {
       icon: <MailOutlineIcon />,
-      text: "info@IV.Direct",
+      text: "Info@IV.Direct",
       link: "mailto:info@IV.Direct",
     },
     {
@@ -119,12 +126,22 @@ export default function Footer() {
                       marginBottom: "10px",
                     }}
                   >
-                    <div style={{ marginRight: "10px" }}>{info.icon}</div>
+                    <div>{info.icon}</div>
                     <Box
                       component="span"
-                      sx={{ ...contactStyles, ...hoverStyles }}
+                      sx={{
+                        ...contactUsStyles,
+                        ...hoverStyles,
+                      }}
                     >
-                      <Typography variant="body1">{info.text}</Typography>
+                      <Typography variant="body1">
+                        <a
+                          href={info.link}
+                          style={contactStyles}
+                        >
+                          {info.text}
+                        </a>
+                      </Typography>
                     </Box>
                   </div>
                 ))}
@@ -166,7 +183,7 @@ export default function Footer() {
                       color="inherit"
                       sx={typographyStyle}
                       style={{ textAlign: "left" }}
-                      onClick={() => handleTypographyClick("/menu")}
+                      onClick={() => handleTypographyClick("/")}
                     >
                       Hydration Menu
                     </Typography>
@@ -178,6 +195,15 @@ export default function Footer() {
                       onClick={() => handleTypographyClick("/Supplemental")}
                     >
                       Supplemental Shots
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                      onClick={() => handleTypographyClick("/Ownership")}
+                    >
+                      Ownership Opprotunities
                     </Typography>
                     <Typography
                       variant="body1"

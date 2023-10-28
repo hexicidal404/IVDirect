@@ -20,9 +20,12 @@ export default function California() {
     <div>
       <Container
         maxWidth="lg"
-        sx={{ padding: { xs: 1, sm: theme.spacing(3) } }}
+        sx={{ padding: { xs: 1, sm: theme.spacing(3) }, mt: 6, mb: 6 }}
       >
-        <Paper style={{ padding: "16px", borderRadius: "12px" }}>
+        <Paper
+          elevation={10}
+          style={{ padding: "16px", borderRadius: "12px" }}
+        >
           <Typography
             variant="h4"
             gutterBottom

@@ -13,6 +13,7 @@ import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import { useState } from "react";
 import { useTheme } from "@mui/material/";
 import VitaminBox from "./VitaminBox";
+import ImageComponent from "../components/Logo.jsx";
 
 const data = [
   {
@@ -80,118 +81,95 @@ const Supplemental = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const theme = useTheme();
 
-  const boxStyle = {
-    padding: theme.spacing(2),
-    borderRadius: "12px",
-    boxShadow: theme.shadows[1],
+  const paperStyle = {
+    padding: theme.spacing(3),
     transition: "transform 0.3s, box-shadow 0.3s",
+    backgroundColor: "#FFFFFF",
+    elevation: 2,
   };
 
   const hoverStyle = {
-    transform: "scale(1.05)",
-    boxShadow: theme.shadows[5],
+    transform: "scale(1.07)",
+    elevation: 6,
   };
 
   return (
-    <Container>
-      <Box
-        mt={4}
-        mb={4}
-        p={theme.spacing(2)}
-        bgcolor="background.paper"
-        boxShadow={3}
-        borderRadius={theme.shape.borderRadius}
-      >
-        <Typography
-          variant="h3"
-          gutterBottom
-          sx={{ fontWeight: 600, color: "#283891", textAlign: "center" }}
+    <Container
+      sx={{
+        minHeight: "100vh", // to ensure it covers the full viewport height
+        minWidth: "100%", // to ensure it covers the full viewport height
+        background: `url("https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698524744/daniel-sinoca-7BLc53z03rM-unsplash_1_xfro20.jpg")`,
+        backgroundSize: "cover",
+      }}
+    >
+      <Container>
+        <Paper
+          elevation={15}
+          sx={{
+            mt: 6,
+            mb: 6,
+            p: theme.spacing(4),
+            borderRadius: theme.shape.borderRadius,
+          }}
         >
-          Supplemental Shots
-        </Typography>
-        <Typography
-          variant="h5"
-          align="center"
-          gutterBottom
-          color="textSecondary"
-        >
-          Elevate your health with our premium selections.
-        </Typography>
-        <Typography
-          variant="body1"
-          align="justify"
-          gutterBottom
-        >
-          At IV Direct, we offer a wide selection of specially crafted IV
-          treatment packages tailored to rejuvenate your body and mind. Whether
-          you're battling dehydration, recovering from overexertion, or trying
-          to shake off a hangover, our treatments are the perfect antidote.
-          Enjoy the convenience of pre-made treatments delivered to your
-          doorstep or let your creativity shine by customizing with our range of
-          add-ons.
-        </Typography>
-        <Divider sx={{ my: 2 }} />
-        <Grid
-          container
-          spacing={3}
-        >
-          <Grid
-            item
-            xs={12}
-            md={8}
+          {" "}
+          <ImageComponent
+            style={{
+              display: "block",
+              margin: "0px auto ",
+              maxWidth: "65%",
+            }}
+          />
+          <Typography
+            variant="h2"
+            align="center"
+            gutterBottom
+            color="textSecondary"
+            sx={{ marginBottom: "20px" }}
           >
-            <Grid
-              container
-              spacing={3}
-            >
-              {data.map((item, index) => (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  md={6}
-                  key={index}
+            Elevate your health with our premium selections.
+          </Typography>
+          <Divider sx={{ my: 3 }} />
+          <Grid
+            container
+            spacing={4}
+          >
+            {data.map((item, index) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                key={index}
+              >
+                <Paper
+                  elevation={5}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  sx={{
+                    ...paperStyle,
+                    ...(hoveredIndex === index ? hoverStyle : {}),
+                  }}
                 >
-                  <Box
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    style={{
-                      ...boxStyle,
-                      ...(hoveredIndex === index ? hoverStyle : {}),
-                    }}
+                  <img
+                    src="https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698303248/1_hhprhu.png"
+                    style={{ width: "25%", marginBottom: "15px" }}
+                  />
+                  <Typography
+                    variant="h6"
+                    color="textPrimary"
+                    gutterBottom
+                    sx={{ fontWeight: 600 }}
                   >
-                    <img
-                      src="https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698303248/1_hhprhu.png"
-                      style={{ width: "20%" }}
-                    />
-                    <Typography
-                      variant="h6"
-                      color="textPrimary"
-                      gutterBottom
-                    >
-                      {item.text}
-                    </Typography>
-                    <Typography variant="body2">{item.description}</Typography>
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
+                    {item.text}
+                  </Typography>
+                  <Typography variant="body2">{item.description}</Typography>
+                </Paper>
+              </Grid>
+            ))}
           </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-          >
-            <Box sx={{ width: "100%", borderRadius: 2 }}>
-              <img
-                src={imgLink}
-                alt="Supplemental image"
-                style={{ width: "100%", borderRadius: "12px" }}
-              />
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
+        </Paper>{" "}
+      </Container>
     </Container>
   );
 };

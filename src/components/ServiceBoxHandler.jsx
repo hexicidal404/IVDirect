@@ -14,19 +14,28 @@ function ServiceBoxHandler({ onButtonClick }) {
       <ServiceBox
         Icon={HealthAndSafetyIcon}
         title="IV Direct Therapy Locations"
-        onClick={() =>
-          navigate("/locations/AllLocations", { state: { shouldScroll: true } })
-        }
+        onClick={() => {
+          navigate("/locations/AllLocations", {
+            state: { shouldScroll: true },
+          });
+          onButtonClick && onButtonClick();
+        }}
       />
       <ServiceBox
         Icon={MenuBookIcon}
         title="Mobile IV Treatment Menu"
-        onClick={() => navigate("/", { state: { shouldScroll: true } })}
+        onClick={() => {
+          navigate("/", { state: { shouldScroll: true } });
+          onButtonClick && onButtonClick();
+        }}
       />
       <ServiceBox
         Icon={EventAvailableIcon}
         title="Book Mobile IV Therapy Now"
-        onClick={() => navigate("/contact", { state: { shouldScroll: true } })}
+        onClick={() => {
+          navigate("/contact", { state: { shouldScroll: true } });
+          onButtonClick && onButtonClick();
+        }}
       />
     </div>
   );

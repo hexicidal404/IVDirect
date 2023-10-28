@@ -20,7 +20,14 @@ import InfoIcon from "@mui/icons-material/Info";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import { useTheme } from "@mui/material/styles";
 
-function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
+function NavBar({
+  DetailsRef,
+  allLocationsRef,
+  isOpen,
+  onClose,
+  data,
+  onButtonClick,
+}) {
   const [anchorElLocations, setAnchorElLocations] = useState(null);
   const [anchorElHydration, setAnchorElHydration] = useState(null);
 
@@ -77,6 +84,7 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
 
   const handleTypographyClick = (route) => {
     navigate(route, { state: { shouldScroll: true } });
+    onButtonClick && onButtonClick();
   };
 
   const handleHover = (event) => {
@@ -90,6 +98,7 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
   const handleLocationClick = (path) => {
     if (path === "/locations/AllLocations") {
       navigate(path, { state: { shouldScroll: true } });
+      onButtonClick && onButtonClick();
     } else {
       navigate(path);
     }
@@ -273,6 +282,7 @@ function NavBar({ DetailsRef, allLocationsRef, isOpen, onClose, data }) {
                 navigate(`/details/${item.key}`, {
                   state: { shouldScrollToHydration: true },
                 });
+                onButtonClick && onButtonClick();
               }}
             >
               {item.title}

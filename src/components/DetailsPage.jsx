@@ -84,7 +84,7 @@ function DetailsPage({ dataArray }) {
                 alt={item.title}
                 style={{
                   maxWidth: "100%",
-                  height: "100%", // Optional: Consider removing this if you don't want to stretch the image.
+                  height: "88%", // Optional: Consider removing this if you don't want to stretch the image.
                   objectFit: "contain",
                 }}
               />
@@ -95,7 +95,7 @@ function DetailsPage({ dataArray }) {
           item
           md={6}
           lg={7} // adjust for large screens
-          sx={{ display: "flex", flexDirection: "column" }}
+          sx={{ display: "flex", flexDirection: "column", height: "80%" }}
         >
           <Paper
             elevation={3}

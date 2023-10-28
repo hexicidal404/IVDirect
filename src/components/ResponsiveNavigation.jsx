@@ -21,7 +21,6 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
   const listItemStyle = {
     justifyContent: "flex-start",
     textAlign: "left",
-    margin: "5px 0", // reduce margin
     padding: "10px 20px 10px 10px",
   };
 
@@ -60,7 +59,6 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
 
   return (
     <>
-      <ArrowDropDownIcon onClick={onClose} />
       <Drawer
         anchor="right"
         open={isOpen}

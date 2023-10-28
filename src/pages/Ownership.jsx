@@ -17,7 +17,7 @@ import { useTheme } from "@mui/material/styles";
 import ImageComponent from "../components/Logo";
 
 const backgroundImage =
-  "https://images.unsplash.com/photo-1609079332148-ce057e967197?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698524582/tim-marshall-dYO_5KOMEkA-unsplash_xwjvos.jpg";
 
 function OwnershipOpportunities() {
   const theme = useTheme();
@@ -45,124 +45,126 @@ function OwnershipOpportunities() {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      minHeight="90vh"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      p={theme.spacing(2)}
+      padding={2}
     >
-      <Paper
-        elevation={3}
-        style={{
-          padding: theme.spacing(4),
-          width: "100%",
-          maxWidth: "900px",
-          borderRadius: "12px",
-        }}
+      <Container
+        maxWidth="md"
+        sx={{ maxHeight: "60%", mt: 6, mb: 6 }}
       >
-        {" "}
-        <ImageComponent style={{ maxWidth: "100%" }} />
-        <Typography
-          variant="h4"
-          gutterBottom
+        <Paper
+          elevation={3}
+          style={{
+            padding: theme.spacing(2),
+
+            borderRadius: "12px",
+          }}
         >
-          Ownership Opportunities for IV Hydration
-        </Typography>
-        <Typography
-          variant="body1"
-          paragraph
-        >
-          As the IV Hydration industry continues to grow, we're excited to offer
-          the following benefits:
-        </Typography>
-        <Box
-          pl={theme.spacing(3)}
-          mb={theme.spacing(3)}
-        >
-          <Typography variant="body1">
-            ✓ Unique ownership opportunities for investors and entrepreneurs.
+          <ImageComponent style={{ maxWidth: "100%" }} />
+          <Typography
+            variant="h4"
+            gutterBottom
+          >
+            Ownership Opportunities for IV Hydration
           </Typography>
-          <Typography variant="body1">
-            ✓ Comprehensive ownership packages with support and resources.
+          <Typography
+            variant="body1"
+            paragraph
+          >
+            As the IV Hydration industry continues to grow, we're excited to
+            offer the following benefits:
           </Typography>
-          <Typography variant="body1">
-            ✓ Proven business model and dedicated support teams.
+          <Box
+            pl={theme.spacing(3)}
+            mb={theme.spacing(3)}
+          >
+            <Typography variant="body1">
+              ✓ Unique ownership opportunities for investors and entrepreneurs.
+            </Typography>
+            <Typography variant="body1">
+              ✓ Comprehensive ownership packages with support and resources.
+            </Typography>
+            <Typography variant="body1">
+              ✓ Proven business model and dedicated support teams.
+            </Typography>
+            <Typography variant="body1">
+              ✓ Growing market demand with high potential for profitability.
+            </Typography>
+          </Box>
+          <Typography
+            variant="body1"
+            paragraph
+          >
+            Reach out today to learn more about how you can be a part of this
+            thriving industry.
           </Typography>
-          <Typography variant="body1">
-            ✓ Growing market demand with high potential for profitability.
-          </Typography>
-        </Box>
-        <Typography
-          variant="body1"
-          paragraph
-        >
-          Reach out today to learn more about how you can be a part of this
-          thriving industry.
-        </Typography>
-        <Box mt={3}>
-          {isSubmitted ? (
-            <Alert severity="success">
-              Thank you for your interest! We'll get back to you shortly.
-            </Alert>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                variant="outlined"
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                variant="outlined"
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Phone Number"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                variant="outlined"
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                multiline
-                rows={4}
-                variant="outlined"
-              />
-              <Box
-                mt={2}
-                display="flex"
-                justifyContent="center"
-              >
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
+          <Box mt={3}>
+            {isSubmitted ? (
+              <Alert severity="success">
+                Thank you for your interest! We'll get back to you shortly.
+              </Alert>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  label="Name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  variant="outlined"
+                />
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  label="Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  variant="outlined"
+                />
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  label="Phone Number"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  variant="outlined"
+                />
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  label="Message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  multiline
+                  rows={4}
+                  variant="outlined"
+                />
+                <Box
+                  mt={2}
+                  display="flex"
+                  justifyContent="center"
                 >
-                  Submit
-                </Button>
-              </Box>
-            </form>
-          )}
-        </Box>
-      </Paper>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                  >
+                    Submit
+                  </Button>
+                </Box>
+              </form>
+            )}
+          </Box>
+        </Paper>
+      </Container>
     </Box>
   );
 }

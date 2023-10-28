@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -48,7 +49,9 @@ export default function App({ children }) {
 
   function useHasSeenImageCard() {
     const [hasSeen, setHasSeen] = useState(() => {
-      return localStorage.getItem("hasSeenImageCard") === "true";
+      return localStorage.getItem("hasSeenImageCard")
+        ? localStorage.getItem("hasSeenImageCard") === "true"
+        : false;
     });
 
     const markAsSeen = () => {
@@ -72,16 +75,7 @@ export default function App({ children }) {
     };
   }, []);
 
-  useEffect(() => {
-    if (hasSeenImageCard) {
-      setBackgroundImage(
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697703863/jeremy-bishop-1braZySlEKA-unsplash_humwju.jpg"
-
-        // "https://images.unsplash.com/photo-1511933801659-156d99ebea3e?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        // "https://res.cloudinary.com/dcgh3ljwk/image/upload/water_pwid1l.jpg"
-      );
-    }
-  }, [hasSeenImageCard]);
+  // ... existing useHasSeenImageCard function ...
 
   const data = [
     // {
@@ -405,12 +399,12 @@ export default function App({ children }) {
                   hydrationMenuRef={hydrationMenuRef}
                   isOpen={isNavOpen}
                   onClose={toggleNav}
+                  onButtonClick={markImageCardAsSeen}
                 />
                 <div className="main-content">
                   <Container
                     className="divlogo"
                     sx={{
-                      p: 10,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -477,7 +471,7 @@ export default function App({ children }) {
                   </Routes>
                   {/* other routes if any */}
                 </div>
-                <Footer />
+                <Footer onButtonClick={markImageCardAsSeen} />
               </div>
             </div>
           </ThemeProviderWrapper>

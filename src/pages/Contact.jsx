@@ -123,135 +123,151 @@ function Contact({ dataArray }) {
 
   const theme = useTheme();
 
+  const backgroundImage =
+    "https://images.unsplash.com/photo-1460501501851-d5946a18e552?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
   return (
     <div ref={contactMenuRef}>
-      <Container
-        maxWidth="sm"
-        sx={{ padding: { xs: 2, sm: theme.spacing(3) } }}
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        padding={2}
       >
-        <Paper
-          elevation={3}
-          sx={{ padding: theme.spacing(2), borderRadius: "12px" }}
+        <Container
+          maxWidth="sm"
+          sx={{ padding: { xs: 2, sm: theme.spacing(3) } }}
         >
-          <ImageComponent style={{ maxWidth: "100%" }} />
+          <Paper
+            elevation={3}
+            sx={{ padding: theme.spacing(2), borderRadius: "12px" }}
+          >
+            <ImageComponent style={{ maxWidth: "100%" }} />
 
-          <form onSubmit={onSubmit}>
-            <input
-              type="hidden"
-              name="subject"
-              value="Contact Form"
-            />
-            <input
-              type="hidden"
-              name="from_name"
-              value="IV Direct"
-            />
-            <Box
-              mb={2}
-              name="date"
-              sx={{
-                display: "flex",
-                justifyContent: "space-between", // Updated to space-between
-              }}
-            >
-              <DatePicker
-                sx={{ flexGrow: 1 }}
-                label="Month/Date/Year"
-                value={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                /* other props here */
-              ></DatePicker>
-
-              <TimePicker
-                label="Requested Time"
-                value={selectedTime}
-                onChange={(time) => setSelectedTime(time)}
-                format="hh:mm a"
+            <form onSubmit={onSubmit}>
+              <input
+                type="hidden"
+                name="subject"
+                value="Contact Form"
+              />
+              <input
+                type="hidden"
+                name="from_name"
+                value="IV Direct"
+              />
+              <Box
+                mb={2}
+                name="date"
                 sx={{
-                  flexGrow: 1,
-                  marginLeft: "16px", // Adjust this value based on your design preference
+                  display: "flex",
+                  justifyContent: "space-between", // Updated to space-between
                 }}
-                minutesStep={30}
-              />
-            </Box>
-            <Box mb={2}>
-              <TextField
-                fullWidth
-                label="Your Name"
-                variant="outlined"
-                type="text"
-                name="name"
-              />
-            </Box>
-
-            <Box mb={2}>
-              <TextField
-                fullWidth
-                label="Your Email"
-                variant="outlined"
-                type="email"
-                name="email"
-              />
-            </Box>
-
-            <Box mb={2}>
-              <FormControl
-                fullWidth
-                variant="outlined"
               >
-                <InputLabel>Vitamin Package</InputLabel>
-                <Select
-                  name="role" // Adjusted to a singular form
-                  label="Vitamin Package"
-                  value={selectedRole}
-                  onChange={handleRoleChange}
+                <DatePicker
+                  sx={{ flexGrow: 1 }}
+                  label="Month/Date/Year"
+                  value={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  /* other props here */
+                ></DatePicker>
+
+                <TimePicker
+                  label="Requested Time"
+                  value={selectedTime}
+                  onChange={(time) => setSelectedTime(time)}
+                  format="hh:mm a"
+                  sx={{
+                    flexGrow: 1,
+                    marginLeft: "16px", // Adjust this value based on your design preference
+                  }}
+                  minutesStep={30}
+                />
+              </Box>
+              <Box mb={2}>
+                <TextField
+                  fullWidth
+                  label="Your Name"
+                  variant="outlined"
+                  type="text"
+                  name="name"
+                />
+              </Box>
+
+              <Box mb={2}>
+                <TextField
+                  fullWidth
+                  label="Your Email"
+                  variant="outlined"
+                  type="email"
+                  name="email"
+                />
+              </Box>
+
+              <Box mb={2}>
+                <FormControl
+                  fullWidth
+                  variant="outlined"
                 >
-                  {dataArray.map((data) => (
-                    <MenuItem
-                      key={data.title}
-                      value={data.title}
-                    >
-                      {data.title}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
+                  <InputLabel>Vitamin Package</InputLabel>
+                  <Select
+                    name="role" // Adjusted to a singular form
+                    label="Vitamin Package"
+                    value={selectedRole}
+                    onChange={handleRoleChange}
+                  >
+                    {dataArray.map((data) => (
+                      <MenuItem
+                        key={data.title}
+                        value={data.title}
+                      >
+                        {data.title}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
 
-            <Box mb={2}>
-              <TextField
-                fullWidth
-                label="Additional Messages or Comments"
-                variant="outlined"
-                multiline
-                rows={4}
-                name="message"
-              />
-            </Box>
+              <Box mb={2}>
+                <TextField
+                  fullWidth
+                  label="Additional Messages or Comments"
+                  variant="outlined"
+                  multiline
+                  rows={4}
+                  name="message"
+                />
+              </Box>
 
-            <Button
-              variant="contained"
-              color="primary"
-              type="submit"
-              sx={{
-                backgroundColor: theme.palette.primary[800],
-                ":hover": {
-                  backgroundColor: theme.palette.primary[900],
-                },
-              }}
-            >
-              Send
-            </Button>
-          </form>
-          {status && (
-            <Box mt={2}>
-              <Alert severity={status === "success" ? "success" : "error"}>
-                {result}
-              </Alert>
-            </Box>
-          )}
-        </Paper>
-      </Container>
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                sx={{
+                  backgroundColor: theme.palette.primary[800],
+                  ":hover": {
+                    backgroundColor: theme.palette.primary[900],
+                  },
+                }}
+              >
+                Send
+              </Button>
+            </form>
+            {status && (
+              <Box mt={2}>
+                <Alert severity={status === "success" ? "success" : "error"}>
+                  {result}
+                </Alert>
+              </Box>
+            )}
+          </Paper>
+        </Container>
+      </Box>
     </div>
   );
 }

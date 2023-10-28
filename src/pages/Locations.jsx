@@ -176,10 +176,18 @@ function Locations() {
     }
   }, [location]);
 
+  const backgroundImage =
+    "https://images.unsplash.com/photo-1609079332148-ce057e967197?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
   return (
     <div
       ref={locationsRef}
-      style={{ padding: "12px" }}
+      style={{
+        padding: "12px",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
       <Outlet />
       {!location.pathname.includes("/locations/") && (

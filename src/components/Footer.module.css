@@ -1,6 +1,4 @@
-/* Default styles for the footer */
 footer {
-  /* background-color: #056fbc; */
   background-color: #0a0f43;
   color: white;
   padding: 20px;
@@ -9,46 +7,25 @@ footer {
   bottom: 0;
 }
 
-/* Styles for the logo container */
-/* Adjust the logo styles as needed */
-footer .logo-container {
-  /* Your logo styles here */
-}
-
-/* Styles for the links container */
-/* Adjust the link styles as needed */
-footer .links-container {
-  /* Your link styles here */
-}
-
-/* Styles for the warning container */
-/* Adjust the warning box styles as needed */
 footer .warning-container {
   background: #d5c9df;
   padding: 10px;
   border-radius: 10px;
 }
 
-/* Media query for screens smaller than 600px (example value) */
 @media (max-width: 600px) {
-  /* Adjust the layout for smaller screens */
-
-  /* Set the footer to take full width */
   footer {
-    position: static; /* Remove fixed positioning */
+    position: static;
   }
 
-  /* Set the logo container to full width */
   footer .logo-container {
     width: 100%;
   }
 
-  /* Set the links container to full width */
   footer .links-container {
     width: 100%;
   }
 
-  /* Set the warning container to full width */
   footer .warning-container {
     width: 100%;
   }
@@ -71,12 +48,10 @@ footer .warning-container {
     color: #a1a3c1;
   }
 }
-/* Default: Hide icon */
 .scrollTopIcon {
   display: none;
 }
 
-/* Show icon on devices with width less than or equal to 768px */
 @media (max-width: 768px) {
   .scrollTopIcon {
     display: block;

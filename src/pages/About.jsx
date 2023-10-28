@@ -35,12 +35,21 @@ function About() {
   const handleButtonClick = () => {
     navigate("/");
   };
+  const backgroundImage =
+    "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698524579/lionello-delpiccolo-qEswHvOmi1c-unsplash_tjm7bd.jpg";
 
   return (
-    <div ref={aboutUsRef}>
+    <div
+      ref={aboutUsRef}
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <Container
         maxWidth="lg"
-        sx={{ padding: { xs: 2, sm: theme.spacing(3) } }}
+        sx={{ padding: { xs: 2, sm: theme.spacing(3) }, mt: 6, mb: 6 }}
       >
         <Paper
           elevation={3}
@@ -205,6 +214,7 @@ function About() {
                   borderRadius: "12px",
                   padding: theme.spacing(2),
                   transition: "0.3s",
+                  maxWidth: "80%",
                   "&:hover": {
                     transform: "scale(1.03)", // subtle grow effect on hover
                     boxShadow: theme.shadows[5],

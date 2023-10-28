@@ -82,7 +82,7 @@ function AllLocations() {
     <div ref={AllLocationsRef}>
       <Container
         maxWidth="lg"
-        sx={{ padding: { xs: 1, sm: theme.spacing(3) } }}
+        sx={{ padding: { xs: 1, sm: theme.spacing(3) }, mt: 6, mb: 6 }}
       >
         <Paper
           style={{
@@ -92,7 +92,7 @@ function AllLocations() {
             flexDirection: "column",
             alignItems: "center",
           }}
-          elevation={5}
+          elevation={10}
         >
           <ImageComponent style={{ maxWidth: "100%" }} />
           <Typography
