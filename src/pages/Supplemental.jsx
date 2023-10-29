@@ -72,11 +72,6 @@ const data = [
   // },
 ];
 
-const imgLink =
-  // "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1697959002/syringe_c8fdfk.png";
-  // "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698133525/oranges_d7e3xd.jpg";
-  // "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698303248/1_hhprhu.png";
-  "https://res.cloudinary.com/dcgh3ljwk/image/upload/c_scale,w_681/v1698303678/jamie-street-qpN5MLx1uwk-unsplash_kydsfq.jpg";
 const Supplemental = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const theme = useTheme();
@@ -98,7 +93,7 @@ const Supplemental = () => {
       sx={{
         minHeight: "100vh", // to ensure it covers the full viewport height
         minWidth: "100%", // to ensure it covers the full viewport height
-        background: `url("https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698524744/daniel-sinoca-7BLc53z03rM-unsplash_1_xfro20.jpg")`,
+        background: `url("https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698524744/daniel-sinoca-7BLc53z03rM-unsplash_1_xfro20.webp")`,
         backgroundSize: "cover",
       }}
     >
@@ -152,7 +147,7 @@ const Supplemental = () => {
                   }}
                 >
                   <img
-                    src="https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698303248/1_hhprhu.png"
+                    src="https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698303248/1_hhprhu.webp"
                     style={{ width: "25%", marginBottom: "15px" }}
                   />
                   <Typography
@@ -168,7 +163,7 @@ const Supplemental = () => {
               </Grid>
             ))}
           </Grid>
-        </Paper>{" "}
+        </Paper>
       </Container>
     </Container>
   );

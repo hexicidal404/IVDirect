@@ -80,6 +80,7 @@ function DetailsPage({ dataArray }) {
               }}
             >
               <img
+                loading="lazy"
                 src={item.imgLink}
                 alt={item.title}
                 style={{

@@ -47,7 +47,7 @@ function ImageCard({ onButtonClick }) {
 
   // Construct the final URL
   // const imageUrl = `${baseURL}${transformations}water_pwid1l.jpg`;
-  const imageUrl = `${baseURL}${transformations}water_pwid1l.jpg`;
+  const imageUrl = `${baseURL}${transformations}water_pwid1l.webp`;
 
   return (
     <Container
@@ -86,7 +86,8 @@ function ImageCard({ onButtonClick }) {
           mb={isSmallScreen ? "50px" : "0"}
         >
           <img
-            src="https://iv.direct/wp-content/uploads/sites/12/2023/08/IVDirect_Logo_PNG.png"
+            loading="preload"
+            src="https://res.cloudinary.com/dcgh3ljwk/image/upload/v1694161553/IVDirect_oed1qg.webp"
             alt="Your Image"
             onLoad={() => setImageLoaded(true)} // set image as loaded once it's loaded
             style={{
