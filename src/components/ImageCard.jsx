@@ -33,7 +33,7 @@ function ImageCard({ onButtonClick }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); // 'sm' is for screen widths up to 768px
 
-  const baseURL = "https://res.cloudinary.com/dcgh3ljwk/image/upload/";
+  const baseURL = "https://res.cloudinary.com/dcgh3ljwk/image/upload/q_auto/";
 
   // Define transformations based on screen size
   let transformations = "";

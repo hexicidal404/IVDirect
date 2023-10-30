@@ -36,7 +36,7 @@ function About() {
     navigate("/");
   };
   const backgroundImage =
-    "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698524579/lionello-delpiccolo-qEswHvOmi1c-unsplash_tjm7bd.webp";
+    "https://res.cloudinary.com/dcgh3ljwk/image/upload/q_auto/v1698524579/lionello-delpiccolo-qEswHvOmi1c-unsplash_tjm7bd.webp";
 
   return (
     <div

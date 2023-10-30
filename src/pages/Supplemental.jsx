@@ -93,7 +93,7 @@ const Supplemental = () => {
       sx={{
         minHeight: "100vh", // to ensure it covers the full viewport height
         minWidth: "100%", // to ensure it covers the full viewport height
-        background: `url("https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698524744/daniel-sinoca-7BLc53z03rM-unsplash_1_xfro20.webp")`,
+        background: `url("https://res.cloudinary.com/dcgh3ljwk/image/upload/q_auto/v1698524744/daniel-sinoca-7BLc53z03rM-unsplash_1_xfro20.webp")`,
         backgroundSize: "cover",
       }}
     >
@@ -147,7 +147,7 @@ const Supplemental = () => {
                   }}
                 >
                   <img
-                    src="https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698303248/1_hhprhu.webp"
+                    src="https://res.cloudinary.com/dcgh3ljwk/image/upload/q_auto/v1698303248/1_hhprhu.webp"
                     style={{ width: "25%", marginBottom: "15px" }}
                   />
                   <Typography

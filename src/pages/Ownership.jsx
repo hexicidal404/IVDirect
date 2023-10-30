@@ -17,7 +17,7 @@ import { useTheme } from "@mui/material/styles";
 import ImageComponent from "../components/Logo";
 
 const backgroundImage =
-  "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698524582/tim-marshall-dYO_5KOMEkA-unsplash_xwjvos.webp";
+  "https://res.cloudinary.com/dcgh3ljwk/image/upload/q_auto/v1698524582/tim-marshall-dYO_5KOMEkA-unsplash_xwjvos.webp";
 
 function OwnershipOpportunities() {
   const theme = useTheme();
