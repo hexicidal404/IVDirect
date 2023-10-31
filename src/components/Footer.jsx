@@ -113,7 +113,7 @@ export default function Footer({ onButtonClick }) {
                 <Typography
                   variant="h6"
                   gutterBottom
-                  style={{ ...contactStyles, paddingLeft: "45px" }}
+                  style={{ ...contactStyles }}
                 >
                   Contact Us
                 </Typography>
@@ -130,14 +130,14 @@ export default function Footer({ onButtonClick }) {
                     <Box
                       component="span"
                       sx={{
-                        ...contactUsStyles,
+                        ...contactStyles,
                         ...hoverStyles,
                       }}
                     >
                       <Typography variant="body1">
                         <a
                           href={info.link}
-                          style={contactStyles}
+                          style={contactUsStyles}
                         >
                           {info.text}
                         </a>

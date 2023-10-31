@@ -31,7 +31,7 @@ function ImageCard({ onButtonClick }) {
   };
 
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); // 'sm' is for screen widths up to 768px
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md")); // 'sm' is for screen widths up to 768px
 
   const baseURL = "https://res.cloudinary.com/dcgh3ljwk/image/upload/q_auto/";
 
@@ -81,10 +81,7 @@ function ImageCard({ onButtonClick }) {
         px={isSmallScreen ? 0 : undefined} // Removed horizontal padding for small screens
         py={0}
       >
-        <Box
-          flex={0.7}
-          mb={isSmallScreen ? "50px" : "0"}
-        >
+        <Box flex={0.7}>
           <img
             loading="preload"
             src="https://res.cloudinary.com/dcgh3ljwk/image/upload/v1694161553/IVDirect_oed1qg.webp"

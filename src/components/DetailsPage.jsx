@@ -8,11 +8,13 @@ import {
   List,
   ListItem,
   Grid,
+  Hidden,
 } from "@mui/material";
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useScroll } from "./ScrollContext";
 import { useTheme } from "@mui/material/styles";
+import ImageComponent from "./Logo";
 
 function DetailsPage({ dataArray }) {
   const navigate = useNavigate();
@@ -55,19 +57,37 @@ function DetailsPage({ dataArray }) {
     <Container
       maxWidth="lg" // Increase container width for desktop
       ref={DetailsRef}
-      sx={{ p: 5 }}
+      sx={{ py: 5 }}
     >
       <Grid
         container
-        spacing={4}
+        spacing={theme.breakpoints.down("sm") ? 0 : 4}
         sx={{ display: "flex" }}
       >
         <Grid
           item
           md={6}
           lg={5} // adjust for large screens
-          sx={{ display: "flex", flexDirection: "column" }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            marginBottom: "-64px",
+          }}
         >
+          <Hidden mdUp>
+            <Box
+              display="flex"
+              justifyContent="center" // Horizontal centering
+              alignItems="center" // Vertical centering
+            >
+              <ImageComponent
+                style={{
+                  maxWidth: "80%",
+                }}
+              />
+            </Box>
+          </Hidden>
+
           {item.imgLink && (
             <Box
               sx={{
@@ -95,11 +115,11 @@ function DetailsPage({ dataArray }) {
         <Grid
           item
           md={6}
-          lg={7} // adjust for large screens
+          lg={7}
           sx={{ display: "flex", flexDirection: "column", height: "80%" }}
         >
           <Paper
-            elevation={3}
+            elevation={10}
             sx={{
               p: 2,
               borderRadius: "12px",
@@ -109,6 +129,19 @@ function DetailsPage({ dataArray }) {
               justifyContent: "space-between",
             }}
           >
+            <Hidden smDown>
+              <Box
+                display="flex"
+                justifyContent="center" // Horizontal centering
+                alignItems="center" // Vertical centering
+              >
+                <ImageComponent
+                  style={{
+                    maxWidth: "80%",
+                  }}
+                />
+              </Box>
+            </Hidden>
             <Typography
               variant="h4"
               gutterBottom
