@@ -91,7 +91,7 @@ export default function App({ children }) {
       price: "$250",
       content: "A comprehensive boost for overall health and vitality.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299133/ivdirect/iv_deluxe_lgnyhl.webp",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/f_webp,q_auto/v1698789344/Deluxe_v1298d.webp",
       benefits: [
         "Improve mental sharpness",
         "Enhance energy levels",
@@ -122,7 +122,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Boosts immunity and aids chronic conditions.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299135/ivdirect/myers_cocktail_ckoz8d.webp",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/f_webp,q_44/v1698789275/Myers_f19160.webp",
       benefits: [
         "Combat fatigue",
         "Reduce stress and depression",
@@ -151,7 +151,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Combat dehydration and detoxify after food poisoning.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299132/ivdirect/food_poisoning_t5veoo.webp",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/f_webp,q_auto/v1698789134/Food_Poisoning_kerw4r.webp",
 
       benefits: [
         "Eliminate toxins",

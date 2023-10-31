@@ -236,7 +236,7 @@ function NavBar({
               >
                 Locations
                 <ArrowDropDownIcon
-                  style={{ fontSize: "1rem", marginLeft: "5px" }}
+                  style={{ fontSize: "1rem", paddingLeft: "5px" }}
                 />
               </Typography>
               <Typography
