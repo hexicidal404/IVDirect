@@ -151,8 +151,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Combat dehydration and detoxify after food poisoning.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/f_webp,q_auto/v1698789134/Food_Poisoning_kerw4r.webp",
-
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/f_webp,q_auto/v1698911602/Food_Poisoning_Bag_p20kuc.webp",
       benefits: [
         "Eliminate toxins",
         "Rebalance vitamin levels in your body",
@@ -233,7 +232,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Rejuvenate skin from within for a youthful glow.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299133/ivdirect/iv_beauty_bldy3h.webp",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698911603/beauty_bag_omk7vs.webp",
 
       benefits: [
         "Enhance collagen",
@@ -260,7 +259,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Supports weight management goals and boosts metabolism.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299134/ivdirect/iv_weight_loss_flslhw.webp",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/q_auto/v1698911525/weight_loss_lxgwz1.webp",
 
       benefits: [
         "Shed excess weight",
@@ -289,7 +288,7 @@ export default function App({ children }) {
       price: "$250",
       content: "Optimizes workout performance and accelerates recovery.",
       imgLink:
-        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698299134/ivdirect/iv_fitness_recovery_au7oqw.webp",
+        "https://res.cloudinary.com/dcgh3ljwk/image/upload/v1698911607/fitness_bag_ozegx5.webp",
 
       benefits: [
         "Increase energy",
