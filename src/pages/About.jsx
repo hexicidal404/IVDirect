@@ -183,17 +183,17 @@ function About() {
                 {
                   name: "Dr. Shakira Fulkerson",
                   imageUrl: "doctorImageURL1",
-                  detailPageLink: "/doctor/jane-smith",
+                  detailPageLink: "/locations/SanFran",
                 },
                 {
                   name: "Dr. Brandon Centeno",
                   imageUrl: "doctorImageURL2",
-                  detailPageLink: "/doctor/john-doe",
+                  detailPageLink: "/locations/Miami",
                 },
                 {
                   name: "Dr. Alberto Rivera",
                   imageUrl: "doctorImageURL3",
-                  detailPageLink: "/doctor/alex-johnson",
+                  detailPageLink: "/locations/Orlando",
                 },
               ].map((doctor, index) => (
                 <Card
@@ -225,7 +225,7 @@ function About() {
                       color="primary"
                       sx={{ mt: 2 }}
                       // Implement navigation logic accordingly
-                      // onClick={() => navigate(doctor.detailPageLink)}
+                      onClick={() => navigate(doctor.detailPageLink)}
                     >
                       More Details
                     </Button>

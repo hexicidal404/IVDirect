@@ -15,6 +15,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useScroll } from "./ScrollContext";
 import { useTheme } from "@mui/material/styles";
 import ImageComponent from "./Logo";
+import { red } from "@mui/material/colors";
 
 function DetailsPage({ dataArray }) {
   const navigate = useNavigate();
@@ -206,7 +207,14 @@ function DetailsPage({ dataArray }) {
             >
               <Button
                 variant="outlined"
-                color="primary"
+                sx={{
+                  backgroundColor: "#283891",
+                  color: "white",
+                  "&:hover": {
+                    backgroundColor: "#172155 ", // Use the darker blue shade on hover
+                    // If 'dark' is not available, manually specify a darker blue like '#001970'
+                  },
+                }}
                 onClick={() => navigate("/")}
               >
                 See Other Menu Items
