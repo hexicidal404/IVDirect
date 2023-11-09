@@ -75,6 +75,17 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
         <List style={listContainerStyle}>
           {/* this box controls the padding */}
           <Box style={boxStyle}>
+            <Link
+              to="/about"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <ListItemButton
+                onClick={onClose}
+                style={listItemStyle}
+              >
+                <ListItemText primary="Home" />
+              </ListItemButton>
+            </Link>
             <ListItemButton
               onClick={() => setHydrationOpen(!hydrationOpen)}
               style={listItemStyle}
@@ -138,7 +149,7 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
               >
                 <ListItemText primary="Supplemental Shots" />
               </ListItemButton>
-            </Link>{" "}
+            </Link>
             <Link
               to="/Ownership"
               style={{ textDecoration: "none", color: "white" }}

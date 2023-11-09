@@ -185,6 +185,15 @@ export default function Footer({ onButtonClick }) {
                       style={{ textAlign: "left" }}
                       onClick={() => handleTypographyClick("/")}
                     >
+                      Home
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                      onClick={() => handleTypographyClick("/")}
+                    >
                       Hydration Menu
                     </Typography>
                     <Typography

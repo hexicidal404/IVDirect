@@ -28,13 +28,15 @@ import { ScrollProvider } from "./components/ScrollContext";
 import Supplemental from "./pages/Supplemental";
 
 import Ownership from "./pages/Ownership";
-import NewYork from "./pages/locations/NewYork";
-import California from "./pages/locations/California";
-import Florida from "./pages/locations/Florida";
+import Orlando from "./pages/locations/Orlando";
+import SanFran from "./pages/locations/SanFran";
+import Miami from "./pages/locations/Miami";
 import AllLocations from "./pages/locations/AllLocations";
 
+import useHasSeenImageCard from "./components/useHasSeenImageHook";
+
 export default function App({ children }) {
-  const [hasSeenImageCard, markImageCardAsSeen] = useHasSeenImageCard();
+  const [hasSeenImageCard, setHasSeenImageCardState] = useHasSeenImageCard();
 
   const [backgroundImage, setBackgroundImage] = useState("");
 
@@ -46,21 +48,6 @@ export default function App({ children }) {
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
-
-  function useHasSeenImageCard() {
-    const [hasSeen, setHasSeen] = useState(() => {
-      return localStorage.getItem("hasSeenImageCard")
-        ? localStorage.getItem("hasSeenImageCard") === "true"
-        : false;
-    });
-
-    const markAsSeen = () => {
-      localStorage.setItem("hasSeenImageCard", "true");
-      setHasSeen(true);
-    };
-
-    return [hasSeen, markAsSeen];
-  }
 
   useEffect(() => {
     function handleBeforeUnload() {
@@ -398,7 +385,8 @@ export default function App({ children }) {
                   hydrationMenuRef={hydrationMenuRef}
                   isOpen={isNavOpen}
                   onClose={toggleNav}
-                  onButtonClick={markImageCardAsSeen}
+                  // onButtonClick={setHasSeenImageCardState}
+                  setHasSeenImageCardState={setHasSeenImageCardState}
                 />
                 <div className="main-content">
                   <Container
@@ -413,10 +401,11 @@ export default function App({ children }) {
                     <>
                       <ImageCard
                         hydrationMenuRef={hydrationMenuRef}
-                        onButtonClick={markImageCardAsSeen}
+                        onButtonClick={setHasSeenImageCardState}
                       />
                     </>
                   )}
+
                   <Routes>
                     <Route
                       path="/"
@@ -443,16 +432,16 @@ export default function App({ children }) {
                       element={<Locations />}
                     >
                       <Route
-                        path="newyork"
-                        element={<NewYork />}
+                        path="Miami"
+                        element={<Miami />}
                       />
                       <Route
-                        path="california"
-                        element={<California />}
+                        path="SanFran"
+                        element={<SanFran />}
                       />
                       <Route
-                        path="florida"
-                        element={<Florida />}
+                        path="Orlando"
+                        element={<Orlando />}
                       />
                       <Route
                         path="alllocations"
@@ -470,7 +459,7 @@ export default function App({ children }) {
                   </Routes>
                   {/* other routes if any */}
                 </div>
-                <Footer onButtonClick={markImageCardAsSeen} />
+                <Footer onButtonClick={setHasSeenImageCardState} />
               </div>
             </div>
           </ThemeProviderWrapper>

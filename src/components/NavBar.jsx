@@ -27,6 +27,7 @@ function NavBar({
   onClose,
   data,
   onButtonClick,
+  setHasSeenImageCardState,
 }) {
   const [anchorElLocations, setAnchorElLocations] = useState(null);
   const [anchorElHydration, setAnchorElHydration] = useState(null);
@@ -83,8 +84,10 @@ function NavBar({
   };
 
   const handleTypographyClick = (route) => {
-    navigate(route, { state: { shouldScroll: true } });
-    onButtonClick && onButtonClick();
+    if (route === "/about") {
+      setHasSeenImageCardState(false); // Use the function passed via props here
+    }
+    navigate(route);
   };
 
   const handleHover = (event) => {
@@ -172,6 +175,9 @@ function NavBar({
   };
   const typographyColor = isTop ? "black" : "white";
 
+  const home =
+    "https://res.cloudinary.com/dcgh3ljwk/image/upload/c_scale,w_80/v1699513715/6d9c555f-3862-4d03-a424-698d8bced6e2_w5x05g.webp";
+
   return (
     <>
       <CssBaseline />
@@ -185,7 +191,22 @@ function NavBar({
               style={{ display: "flex", alignItems: "center" }}
             >
               <IvIcon style={logoStyle} />
+              <Typography
+                variant="body1"
+                color="inherit"
+                sx={{ ...typographyStyle, color: typographyColor }}
+                style={{ textAlign: "left" }}
+                onClick={() => handleTypographyClick("/about")}
+              >
+                {!isMobile ? (
+                  <img
+                    src={home}
+                    alt="home button"
+                  />
+                ) : null}
+              </Typography>
             </div>
+
             <div style={navLinksStyle}>
               <Typography
                 variant="body1"
@@ -298,16 +319,14 @@ function NavBar({
           onClose={() => setAnchorElLocations(null)}
           onMouseLeave={() => setAnchorElLocations(null)}
         >
-          <MenuItem onClick={() => handleLocationClick("/locations/newyork")}>
-            New York
+          <MenuItem onClick={() => handleLocationClick("/locations/Miami")}>
+            Miami{" "}
           </MenuItem>
-          <MenuItem
-            onClick={() => handleLocationClick("/locations/california")}
-          >
-            California
+          <MenuItem onClick={() => handleLocationClick("/locations/Orlando")}>
+            Orlando
           </MenuItem>
-          <MenuItem onClick={() => handleLocationClick("/locations/florida")}>
-            Florida
+          <MenuItem onClick={() => handleLocationClick("/locations/SanFran")}>
+            San Francisco
           </MenuItem>
           <MenuItem
             onClick={() => handleLocationClick("/locations/AllLocations")}

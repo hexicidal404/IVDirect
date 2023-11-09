@@ -19,6 +19,7 @@ import { useScroll } from "../../components/ScrollContext";
 import { Link as RouterLink } from "react-router-dom"; // Rename to avoid conflict with MUI Link
 import { useTheme } from "@mui/material/styles";
 import ImageComponent from "../../components/Logo";
+import UpcomingLocations from "./UpcomingLocations";
 
 function AllLocations() {
   const { AllLocationsRef } = useScroll();
@@ -41,22 +42,22 @@ function AllLocations() {
 
   const locations = [
     {
-      name: "New York",
+      name: "Miami, Florida",
       description:
-        "Experience the epitome of wellness in the city that never sleeps. With New York's bustling lifestyle, ensure you're always on top of your game with our tailor-made IV hydration therapies.",
-      link: "/locations/NewYork",
+        "Soak up the sun and rejuvenate in Miami's tropical paradise. Our hydration therapies are perfect for the active beachgoer or the nightlife enthusiast looking to refresh and rehydrate. Our treatments help keep you hydrated and energized in the heat of Florida.",
+      link: "/locations/Miami",
     },
     {
-      name: "California",
+      name: "San Francisco, California",
       description:
         "Discover optimal well-being from the sun-drenched coasts to the vibrant tech valleys. With California's diverse lifestyle, our IV hydration therapies are designed to match your Californian spirit.",
-      link: "/locations/California",
+      link: "/locations/SanFran",
     },
     {
-      name: "Florida",
+      name: "Orlando, Florida",
       description:
         "Elevate your wellness amid Florida's sun, sea, and sand. As you soak up the sunshine, our bespoke IV hydration therapies ensure you feel revitalized and refreshed.",
-      link: "/locations/Florida",
+      link: "/locations/Orlando",
     },
   ];
 
@@ -102,12 +103,13 @@ function AllLocations() {
             IV Direct: Global Reach, Local Touch
           </Typography>
           <Typography
-            variant="h5"
+            variant="h4"
             gutterBottom
             mt={4}
           >
             Our Locations
           </Typography>
+
           <Grid
             container
             spacing={3}
@@ -119,23 +121,44 @@ function AllLocations() {
                 md={4}
                 key={index}
               >
-                <Typography variant="h6">{location.name}</Typography>
-                <Typography paragraph>{location.description}</Typography>
-                <RouterLink
-                  to={location.link}
-                  style={{ textDecoration: "none" }}
+                <Paper
+                  elevation={3}
+                  sx={{
+                    p: 3,
+                    minHeight: 275,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    transition: "0.3s",
+                    borderRadius: "12px",
+                    "&:hover": {
+                      transform: "scale(1.03)", // subtle grow effect on hover
+                      boxShadow: theme.shadows[5],
+                    },
+                  }}
                 >
-                  <Button
-                    variant="contained"
-                    color="primary"
+                  <Typography variant="h6">{location.name}</Typography>
+                  <Typography paragraph>{location.description}</Typography>
+                  <RouterLink
+                    to={location.link}
+                    style={{ textDecoration: "none" }}
                   >
-                    Learn More
-                  </Button>
-                </RouterLink>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                    >
+                      Learn More
+                    </Button>
+                  </RouterLink>
+                </Paper>
               </Grid>
             ))}
           </Grid>
           <Divider sx={{ my: 5 }} />
+
+          <UpcomingLocations></UpcomingLocations>
+          <Divider sx={{ my: 5 }} />
+
           <Typography
             variant="h5"
             gutterBottom

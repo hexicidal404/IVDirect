@@ -9,32 +9,29 @@ import { Link, useNavigate } from "react-router-dom";
 function ServiceBoxHandler({ onButtonClick }) {
   const navigate = useNavigate();
 
+  const handleBoxClick = (path) => {
+    navigate(path, { state: { shouldScroll: true } });
+    onButtonClick(true); // Assuming this function expects 'true' to hide the ImageCard
+  };
   return (
     <div>
       <ServiceBox
         Icon={HealthAndSafetyIcon}
         title="IV Direct Therapy Locations"
-        onClick={() => {
-          navigate("/locations/AllLocations", {
-            state: { shouldScroll: true },
-          });
-          onButtonClick && onButtonClick();
-        }}
+        onClick={() => handleBoxClick("/locations/AllLocations")}
       />
       <ServiceBox
         Icon={MenuBookIcon}
         title="Mobile IV Treatment Menu"
         onClick={() => {
-          navigate("/", { state: { shouldScroll: true } });
-          onButtonClick && onButtonClick();
+          handleBoxClick("/");
         }}
       />
       <ServiceBox
         Icon={EventAvailableIcon}
         title="Book Mobile IV Therapy Now"
         onClick={() => {
-          navigate("/contact", { state: { shouldScroll: true } });
-          onButtonClick && onButtonClick();
+          handleBoxClick("/contact");
         }}
       />
     </div>
