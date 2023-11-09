@@ -113,7 +113,7 @@ export default function Miami() {
               component="h6"
               gutterBottom
             >
-              ACNP-BC, DNP - EMT - Hydration Specialist
+              EMT - Hydration Specialist
             </Typography>
             <Typography
               variant="body1"
