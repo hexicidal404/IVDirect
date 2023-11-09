@@ -20,7 +20,7 @@ function ImageCard({ onButtonClick }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setImageLoaded(true);
-    }, 100); // a small delay to trigger the transition
+    }, 25); // a small delay to trigger the transition
 
     return () => clearTimeout(timer); // cleanup the timeout
   }, []);
@@ -85,7 +85,7 @@ function ImageCard({ onButtonClick }) {
           <img
             loading="preload"
             src="https://res.cloudinary.com/dcgh3ljwk/image/upload/v1694161553/IVDirect_oed1qg.webp"
-            alt="Your Image"
+            alt="IV Direct Logo"
             onLoad={() => setImageLoaded(true)} // set image as loaded once it's loaded
             style={{
               width: "100%",

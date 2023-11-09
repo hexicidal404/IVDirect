@@ -13,7 +13,12 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { Link, useNavigate } from "react-router-dom";
 
-function ResponsiveNavigation({ isOpen, onClose, data }) {
+function ResponsiveNavigation({
+  isOpen,
+  onClose,
+  data,
+  setHasSeenImageCardState,
+}) {
   const [locationsOpen, setLocationsOpen] = React.useState(false);
   const [hydrationOpen, setHydrationOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -57,6 +62,13 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
     color: "white", // Text color set to white
   };
 
+  const handleTypographyClick = (route) => {
+    if (route === "/about") {
+      setHasSeenImageCardState(false); // Use the function passed via props here
+    }
+    navigate(route);
+  };
+
   return (
     <>
       <Drawer
@@ -80,10 +92,24 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
               style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
-                onClick={onClose}
+                onClick={() => {
+                  onClose();
+                  handleTypographyClick("/about");
+                }}
                 style={listItemStyle}
               >
                 <ListItemText primary="Home" />
+              </ListItemButton>
+            </Link>
+            <Link
+              to="/About"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <ListItemButton
+                onClick={onClose}
+                style={listItemStyle}
+              >
+                <ListItemText primary="About Us" />
               </ListItemButton>
             </Link>
             <ListItemButton
@@ -111,6 +137,14 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
                 elevation={10}
                 style={{ margin: "10px", borderRadius: "8px" }}
               >
+                <Link
+                  to="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <ListItemButton onClick={onClose}>
+                    <ListItemText primary="Hydration Bags" />
+                  </ListItemButton>
+                </Link>
                 <Box>
                   {data.map((item) => (
                     <Link
@@ -128,14 +162,6 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
                       </ListItemButton>
                     </Link>
                   ))}
-                  <Link
-                    to="/"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <ListItemButton onClick={onClose}>
-                      <ListItemText primary="Hydration Bags" />
-                    </ListItemButton>
-                  </Link>
                 </Box>
               </Paper>
             </Collapse>
@@ -148,17 +174,6 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
                 style={listItemStyle}
               >
                 <ListItemText primary="Supplemental Shots" />
-              </ListItemButton>
-            </Link>
-            <Link
-              to="/Ownership"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              <ListItemButton
-                onClick={onClose}
-                style={listItemStyle}
-              >
-                <ListItemText primary="Ownership Opportunities" />
               </ListItemButton>
             </Link>{" "}
             <Link
@@ -173,14 +188,14 @@ function ResponsiveNavigation({ isOpen, onClose, data }) {
               </ListItemButton>
             </Link>
             <Link
-              to="/About"
+              to="/Ownership"
               style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
                 onClick={onClose}
                 style={listItemStyle}
               >
-                <ListItemText primary="About Us" />
+                <ListItemText primary="Ownership Opportunities" />
               </ListItemButton>
             </Link>
             <Link

@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
-import Logo from "../../components/Logo";
+import IvIcon from "../../components/IvIcon";
 
 export default function Miami() {
   const theme = useTheme();
@@ -46,12 +46,6 @@ export default function Miami() {
     textAlign: "left", // Align text to the left for the card content
   };
 
-  const avatarStyle = {
-    width: theme.spacing(15),
-    height: theme.spacing(15),
-    marginBottom: theme.spacing(2),
-  };
-
   return (
     <Container
       maxWidth="lg"
@@ -62,7 +56,7 @@ export default function Miami() {
         gutterBottom
         component="h1"
       >
-        Welcome to IV Direct Miami
+        Welcome to IV Direct Miami - Mobile Only
       </Typography>
 
       <Typography
@@ -74,26 +68,33 @@ export default function Miami() {
         lifestyle. Revitalize and rehydrate with our premium IV services,
         perfect for Miami's dynamic pace.
       </Typography>
-      <Paper sx={doctorCardStyle}>
+      <Paper
+        sx={{
+          ...doctorCardStyle,
+          display: "flex", // Make the Paper a flex container
+          flexDirection: "column", // Stack children vertically
+        }}
+      >
         <Grid
           container
           spacing={2}
+          alignItems="center"
+          style={{ height: "50%" }}
         >
+          {/* Set the height of the icon's grid to be 50% of its parent Paper component */}
           <Grid
             item
             xs={12}
             sm={4}
+            sx={{
+              display: "flex",
+              alignItems: "center", // This will center the icon vertically in its 50% height container
+              justifyContent: "center", // This will center the icon horizontally
+              height: "100%", // The height here refers to the height of this Grid item, which is 50% of the Paper due to the container's style
+            }}
           >
-            <Box
-              display="flex"
-              justifyContent="center"
-            >
-              <Avatar
-                alt="Doctor's Name"
-                src={Logo} // Replace with path to doctor's image
-                sx={avatarStyle}
-              />
-            </Box>
+            <IvIcon sx={{ transform: "translateY(-50%)" }} />{" "}
+            {/* Vertically center the icon */}
           </Grid>
           <Grid
             item
@@ -101,11 +102,18 @@ export default function Miami() {
             sm={8}
           >
             <Typography
-              variant="h5"
+              variant="h4"
               component="h2"
               gutterBottom
             >
-              Dr. Brandon Centeno, MD - Hydration Specialist
+              Dr. Brandon Centeno
+            </Typography>
+            <Typography
+              variant="h6"
+              component="h6"
+              gutterBottom
+            >
+              ACNP-BC, DNP - EMT - Hydration Specialist
             </Typography>
             <Typography
               variant="body1"
@@ -125,6 +133,35 @@ export default function Miami() {
               rejuvenation for those seeking to maintain their best health while
               taking on the city's myriad of activities.
             </Typography>
+            <Typography
+              variant="h6"
+              gutterBottom
+            >
+              Contact Our Miami Team
+            </Typography>
+            <Box
+              display="flex"
+              gap={2}
+              mb={2}
+            >
+              <MailOutlineIcon />
+              <Typography variant="body1">
+                <Link
+                  href="mailto:dralberto@iv.direct"
+                  underline="hover"
+                  color="inherit"
+                >
+                  DrAlberto@IV.Direct
+                </Link>
+              </Typography>
+            </Box>
+            <Box
+              display="flex"
+              gap={2}
+            >
+              <PhoneIcon />
+              <Typography variant="body1">407-960-2200</Typography>
+            </Box>
           </Grid>
         </Grid>
       </Paper>
@@ -191,45 +228,6 @@ export default function Miami() {
         "With Florida's Year-Round Sunshine, We Provide Year-Round Wellness. IV
         Specialists are here for you."
       </Typography>
-
-      <Divider style={{ margin: "20px 0" }} />
-
-      <Typography
-        variant="h6"
-        gutterBottom
-      >
-        Contact Our Florida Team
-      </Typography>
-      <Divider sx={{ my: 4 }} />
-
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        gap={2}
-        mb={2}
-      >
-        <MailOutlineIcon />
-        <Typography variant="body1">
-          <Link
-            href="mailto:miami@ivspecialists.com"
-            underline="hover"
-            color="inherit"
-          >
-            miami@ivspecialists.com
-          </Link>
-        </Typography>
-      </Box>
-
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        gap={2}
-      >
-        <PhoneIcon />
-        <Typography variant="body1">305-123-4567</Typography>
-      </Box>
     </Container>
   );
 }

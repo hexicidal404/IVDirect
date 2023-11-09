@@ -14,7 +14,7 @@ export default function UpcomingLocations() {
   const upcomingLocations = [
     {
       name: "New York City",
-      opening: "March, 2024",
+      opening: "February, 2024",
       description:
         "Recharge in the city that never sleeps. Our New York City location will offer customized IV hydration to support the high-energy lifestyle of the urban dwellers and the relentless hustle of the metropolis.",
       link: "/locations/newyorkcity",
@@ -42,7 +42,7 @@ export default function UpcomingLocations() {
     },
     {
       name: "Los Angeles",
-      opening: "May, 2024",
+      opening: "January, 2024",
       description:
         "Stay on top of your game in the City of Angels. Our Los Angeles location will provide hydration therapies designed for the stars, supporting the dynamic needs of LA's active and entertainment-focused community.",
       link: "/locations/losangeles",

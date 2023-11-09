@@ -238,15 +238,6 @@ function NavBar({
                 variant="body1"
                 color="inherit"
                 sx={{ ...typographyStyle, color: typographyColor }}
-                style={{ textAlign: "left" }}
-                onClick={() => handleTypographyClick("/Ownership")}
-              >
-                Ownership Opprotunities
-              </Typography>
-              <Typography
-                variant="body1"
-                color="inherit"
-                sx={{ ...typographyStyle, color: typographyColor }}
                 style={{
                   textAlign: "left",
                   cursor: "pointer",
@@ -259,6 +250,15 @@ function NavBar({
                 <ArrowDropDownIcon
                   style={{ fontSize: "1rem", paddingLeft: "5px" }}
                 />
+              </Typography>
+              <Typography
+                variant="body1"
+                color="inherit"
+                sx={{ ...typographyStyle, color: typographyColor }}
+                style={{ textAlign: "left" }}
+                onClick={() => handleTypographyClick("/Ownership")}
+              >
+                Ownership Opprotunities
               </Typography>
               <Typography
                 variant="body1"
@@ -296,6 +296,7 @@ function NavBar({
           onClose={() => setAnchorElHydration(null)}
           onMouseLeave={() => setAnchorElHydration(null)}
         >
+          <MenuItem onClick={navigateToHydrationMenu}>Hydration Bags</MenuItem>
           {data.map((item) => (
             <MenuItem
               key={item.key}
@@ -309,8 +310,6 @@ function NavBar({
               {item.title}
             </MenuItem>
           ))}
-
-          <MenuItem onClick={navigateToHydrationMenu}>Hydration Bags</MenuItem>
         </Menu>
 
         <Menu
@@ -340,6 +339,7 @@ function NavBar({
         isOpen={isNavOpen}
         onClose={toggleNav}
         data={data}
+        setHasSeenImageCardState={setHasSeenImageCardState}
       />
     </>
   );

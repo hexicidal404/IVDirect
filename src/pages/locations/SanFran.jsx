@@ -18,6 +18,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
 
 import Logo from "../../components/Logo";
+import IvIcon from "../../components/IvIcon";
 
 export default function SanFrancisco() {
   const theme = useTheme();
@@ -67,27 +68,33 @@ export default function SanFrancisco() {
         San Francisco. Our hydration therapies are perfect for the tech-savvy,
         the outdoor enthusiasts, and everyone in between.
       </Typography>
-
-      <Paper sx={doctorCardStyle}>
+      <Paper
+        sx={{
+          ...doctorCardStyle,
+          display: "flex", // Make the Paper a flex container
+          flexDirection: "column", // Stack children vertically
+        }}
+      >
         <Grid
           container
           spacing={2}
+          alignItems="center"
+          style={{ height: "50%" }}
         >
+          {/* Set the height of the icon's grid to be 50% of its parent Paper component */}
           <Grid
             item
             xs={12}
             sm={4}
+            sx={{
+              display: "flex",
+              alignItems: "center", // This will center the icon vertically in its 50% height container
+              justifyContent: "center", // This will center the icon horizontally
+              height: "100%", // The height here refers to the height of this Grid item, which is 50% of the Paper due to the container's style
+            }}
           >
-            <Box
-              display="flex"
-              justifyContent="center"
-            >
-              <Avatar
-                alt="Doctor's Name"
-                src={Logo} // Replace with path to doctor's image
-                sx={avatarStyle}
-              />
-            </Box>
+            <IvIcon sx={{ transform: "translateY(-50%)" }} />{" "}
+            {/* Vertically center the icon */}
           </Grid>
           <Grid
             item
@@ -95,11 +102,18 @@ export default function SanFrancisco() {
             sm={8}
           >
             <Typography
-              variant="h5"
+              variant="h4"
               component="h2"
               gutterBottom
             >
-              Dr. Shakira Fulkerson, MD - Hydration Specialist
+              Dr. Shakira Fulkerson
+            </Typography>
+            <Typography
+              variant="h6"
+              component="h6"
+              gutterBottom
+            >
+              ACNP-BC, DNP - Hydration Specialist, Nurse Practitioner
             </Typography>
             <Typography
               variant="body1"
@@ -118,7 +132,36 @@ export default function SanFrancisco() {
               Dr. Fulkerson is dedicated to providing swift and effective
               hydration solutions, enabling her patients to make the most of
               their time in the city, whether for work or play.
+            </Typography>{" "}
+            <Typography
+              variant="h6"
+              gutterBottom
+            >
+              Contact Our San Francisco Team
             </Typography>
+            <Box
+              display="flex"
+              gap={2}
+              mb={2}
+            >
+              <MailOutlineIcon />
+              <Typography variant="body1">
+                <Link
+                  href="mailto:Shakira@IV.Direct"
+                  underline="hover"
+                  color="inherit"
+                >
+                  Shakira@IV.Direct
+                </Link>
+              </Typography>
+            </Box>
+            <Box
+              display="flex"
+              gap={2}
+            >
+              <PhoneIcon />
+              <Typography variant="body1">925-463-1744</Typography>
+            </Box>
           </Grid>
         </Grid>
       </Paper>
@@ -158,44 +201,6 @@ export default function SanFrancisco() {
         "San Francisco's unique charm requires unique wellness solutions. We're
         here to provide them year-round."
       </Typography>
-
-      <Divider sx={{ my: 4 }} />
-
-      <Typography
-        variant="h6"
-        gutterBottom
-      >
-        Contact Our San Francisco Team
-      </Typography>
-
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        gap={2}
-        mb={2}
-      >
-        <MailOutlineIcon color="secondary" />
-        <Typography variant="body1">
-          <Link
-            href="mailto:sanfrancisco@ivspecialists.com"
-            underline="hover"
-            color="inherit"
-          >
-            sanfrancisco@ivspecialists.com
-          </Link>
-        </Typography>
-      </Box>
-
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        gap={2}
-      >
-        <PhoneIcon color="secondary" />
-        <Typography variant="body1">{sanFranciscoPhoneNumber}</Typography>
-      </Box>
     </Container>
   );
 }

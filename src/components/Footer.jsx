@@ -70,11 +70,11 @@ export default function Footer({ onButtonClick }) {
     },
   };
   const contactInfo = [
-    {
-      icon: <PhoneIcon />,
-      text: "(800) 123-5678",
-      link: "tel:(800) 123-5678",
-    },
+    // {
+    //   icon: <PhoneIcon />,
+    //   text: "(800) 123-5678",
+    //   link: "tel:(800) 123-5678",
+    // },
     {
       icon: <MailOutlineIcon />,
       text: "Info@IV.Direct",
@@ -82,7 +82,7 @@ export default function Footer({ onButtonClick }) {
     },
     {
       icon: <LocationOnIcon />,
-      text: "Address: 444 Madison Ave, 18th Fl, New York, NY, 10025",
+      text: "Corporate: 444 Madison Ave, 18th Fl, New York, NY, 10025",
       link: "https://www.google.com/maps/search/?api=1&query=444+Madison+Ave+18th+Fl,+New+York,+10025",
     },
   ];

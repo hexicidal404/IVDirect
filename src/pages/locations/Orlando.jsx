@@ -16,8 +16,10 @@ import {
 } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 import Logo from "../../components/Logo";
+import IvIcon from "../../components/IvIcon";
 
 export default function Orlando() {
   const theme = useTheme();
@@ -69,26 +71,33 @@ export default function Orlando() {
         those on the go.
       </Typography>
 
-      <Paper sx={doctorCardStyle}>
+      <Paper
+        sx={{
+          ...doctorCardStyle,
+          display: "flex", // Make the Paper a flex container
+          flexDirection: "column", // Stack children vertically
+        }}
+      >
         <Grid
           container
           spacing={2}
+          alignItems="center"
+          style={{ height: "50%" }}
         >
+          {/* Set the height of the icon's grid to be 50% of its parent Paper component */}
           <Grid
             item
             xs={12}
             sm={4}
+            sx={{
+              display: "flex",
+              alignItems: "center", // This will center the icon vertically in its 50% height container
+              justifyContent: "center", // This will center the icon horizontally
+              height: "100%", // The height here refers to the height of this Grid item, which is 50% of the Paper due to the container's style
+            }}
           >
-            <Box
-              display="flex"
-              justifyContent="center"
-            >
-              <Avatar
-                alt="Doctor's Name"
-                src={Logo} // Replace with path to doctor's image
-                sx={avatarStyle}
-              />
-            </Box>
+            <IvIcon sx={{ transform: "translateY(-50%)" }} />
+            {/* Vertically center the icon */}
           </Grid>
           <Grid
             item
@@ -96,11 +105,18 @@ export default function Orlando() {
             sm={8}
           >
             <Typography
-              variant="h5"
+              variant="h4"
               component="h2"
               gutterBottom
             >
-              Dr. Alberto Rivera, MD - Hydration Specialist
+              Dr. Alberto Rivera
+            </Typography>
+            <Typography
+              variant="h6"
+              component="h6"
+              gutterBottom
+            >
+              MD - Hydration Specialist
             </Typography>
             <Typography
               variant="body1"
@@ -118,7 +134,52 @@ export default function Orlando() {
               He provides fast and effective recovery solutions, perfect for
               those who've spent the day adventuring across Orlando or need a
               wellness boost after business meetings and conventions.
+            </Typography>{" "}
+            <Typography
+              variant="h6"
+              gutterBottom
+            >
+              Contact Our Orlando Team
             </Typography>
+            <Box
+              display="flex"
+              gap={2}
+              mb={2}
+            >
+              <MailOutlineIcon />
+              <Typography variant="body1">
+                <Link
+                  href="mailto:dralberto@iv.direct"
+                  underline="hover"
+                  color="inherit"
+                >
+                  DrAlberto@IV.Direct
+                </Link>
+              </Typography>
+            </Box>
+            <Box
+              display="flex"
+              gap={2}
+            >
+              <PhoneIcon />
+              <Typography variant="body1">407-960-2200</Typography>
+            </Box>
+            <Box
+              display="flex"
+              gap={2}
+              mt={2}
+            >
+              <LocationOnIcon />
+              <Typography variant="body1">
+                <Link
+                  href="https://www.google.com/maps/place/6236+Kingspointe+Pkwy+%2306,+Orlando,+FL+32819/@28.4525126,-81.4378589,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77e87c939aa9b:0x28b0e14fa4e3617!8m2!3d28.4525126!4d-81.4378589?entry=ttu"
+                  underline="hover"
+                  color="inherit"
+                >
+                  6236 Kingspointe Pkwy #06, Orlando, FL 32819
+                </Link>
+              </Typography>
+            </Box>
           </Grid>
         </Grid>
       </Paper>
@@ -158,44 +219,6 @@ export default function Orlando() {
         "Orlando's premier source for hydration and wellness, keeping the magic
         alive all year round."
       </Typography>
-
-      <Divider sx={{ my: 4 }} />
-
-      <Typography
-        variant="h6"
-        gutterBottom
-      >
-        Contact Our Orlando Team
-      </Typography>
-
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        gap={2}
-        mb={2}
-      >
-        <MailOutlineIcon color="secondary" />
-        <Typography variant="body1">
-          <Link
-            href="mailto:orlando@ivspecialists.com"
-            underline="hover"
-            color="inherit"
-          >
-            orlando@ivspecialists.com
-          </Link>
-        </Typography>
-      </Box>
-
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        gap={2}
-      >
-        <PhoneIcon color="secondary" />
-        <Typography variant="body1">{orlandoPhoneNumber}</Typography>
-      </Box>
     </Container>
   );
 }

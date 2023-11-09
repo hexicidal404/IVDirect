@@ -78,7 +78,7 @@ function About() {
             color="textSecondary"
             paragraph
           >
-            At IV Hydration, we're not just another medical service; we're
+            At IV Direct, we're not just another medical service; we're
             revolutionaries in the realm of natural health and wellness. Rooted
             in the belief that optimal health starts at the cellular level, we
             set out to change the way individuals receive crucial nutrients and
@@ -133,7 +133,7 @@ function About() {
               variant="h6"
               gutterBottom
             >
-              Why Choose IV Specialists?
+              Why Choose IV Direct?
             </Typography>
             <Typography paragraph>
               Expert Formulations: Our seasoned pharmacists design each IV drip,
@@ -147,92 +147,9 @@ function About() {
             </Typography>
             <Typography paragraph>
               Direct to Your Doorstep: Why step out when wellness can come to
-              you? Our exclusive mobile IV hydration units ensure you get
+              you? Our exclusive mobile IV Direct units ensure you get
               rejuvenated at home, the office, or even a hotel.
             </Typography>
-          </Box>
-          <Box
-            mt={5}
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-          >
-            <Typography
-              variant="h4"
-              gutterBottom
-            >
-              Meet Our Specialists
-            </Typography>
-            <Divider sx={{ width: "60%", bgcolor: "primary.main" }} />
-            {/* Grid Container */}
-            <Box
-              sx={{
-                display: "grid",
-                gridTemplateColumns: {
-                  xs: "1fr", // 1 column grid for extra-small screens
-                  sm: "1fr", // 1 column grid for small screens (you can adjust if needed for small but not extra-small devices)
-                  md: "repeat(3, 1fr)", // 3 column grid for medium screens and up
-                },
-                gap: theme.spacing(2),
-                width: "100%",
-                marginTop: theme.spacing(4),
-              }}
-            >
-              {[
-                // Replace with actual doctor data and import images accordingly
-                {
-                  name: "Dr. Shakira Fulkerson",
-                  imageUrl: "doctorImageURL1",
-                  detailPageLink: "/locations/SanFran",
-                },
-                {
-                  name: "Dr. Brandon Centeno",
-                  imageUrl: "doctorImageURL2",
-                  detailPageLink: "/locations/Miami",
-                },
-                {
-                  name: "Dr. Alberto Rivera",
-                  imageUrl: "doctorImageURL3",
-                  detailPageLink: "/locations/Orlando",
-                },
-              ].map((doctor, index) => (
-                <Card
-                  key={index}
-                  sx={{ minWidth: 350, mx: "auto" }}
-                >
-                  {/* Center the card */}
-                  <CardContent sx={{ textAlign: "center" }}>
-                    <Avatar
-                      src={doctor.imageUrl}
-                      sx={{
-                        width: theme.spacing(14),
-                        height: theme.spacing(14),
-                        margin: "auto",
-                        border: "3px solid",
-                        borderColor: theme.palette.primary.main,
-                        marginBottom: theme.spacing(2),
-                      }}
-                    />
-                    <Typography
-                      variant="h5"
-                      component="div"
-                    >
-                      {doctor.name}
-                    </Typography>
-                    {/* Add a button leading to the doctor's detail page */}
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      sx={{ mt: 2 }}
-                      // Implement navigation logic accordingly
-                      onClick={() => navigate(doctor.detailPageLink)}
-                    >
-                      More Details
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </Box>
           </Box>
 
           <Box
@@ -243,8 +160,8 @@ function About() {
           >
             <Divider
               sx={{
-                margin: theme.spacing(2, 0),
-                width: "80%",
+                my: 3,
+                width: "100%",
                 backgroundColor: theme.palette.primary.dark,
               }}
             />
@@ -255,7 +172,6 @@ function About() {
                 backgroundColor: theme.palette.primary.dark,
                 ":hover": { backgroundColor: theme.palette.primary.main },
                 py: 1,
-                px: 4,
                 fontSize: "1.1rem",
                 width: "80%",
                 transition: "all 0.3s",
@@ -265,17 +181,11 @@ function About() {
             >
               Learn More
             </Button>
-            <Divider
-              sx={{
-                margin: theme.spacing(2, 0),
-                width: "50%",
-                backgroundColor: theme.palette.primary.dark,
-              }}
-            />
 
             <Typography
               variant="h6"
               gutterBottom
+              sx={{ my: 4 }}
             >
               Testimonials
             </Typography>

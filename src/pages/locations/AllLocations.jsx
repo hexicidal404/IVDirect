@@ -48,16 +48,16 @@ function AllLocations() {
       link: "/locations/Miami",
     },
     {
-      name: "San Francisco, California",
-      description:
-        "Discover optimal well-being from the sun-drenched coasts to the vibrant tech valleys. With California's diverse lifestyle, our IV hydration therapies are designed to match your Californian spirit.",
-      link: "/locations/SanFran",
-    },
-    {
       name: "Orlando, Florida",
       description:
         "Elevate your wellness amid Florida's sun, sea, and sand. As you soak up the sunshine, our bespoke IV hydration therapies ensure you feel revitalized and refreshed.",
       link: "/locations/Orlando",
+    },
+    {
+      name: "San Francisco, California",
+      description:
+        "Discover optimal well-being from the sun-drenched coasts to the vibrant tech valleys. With California's diverse lifestyle, our IV hydration therapies are designed to match your Californian spirit.",
+      link: "/locations/SanFran",
     },
   ];
 
