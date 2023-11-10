@@ -133,23 +133,7 @@ export default function Orlando() {
             >
               MD - Hydration Specialist
             </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-            >
-              Dr. Rivera is renowned for his expertise in IV therapy, assisting
-              Orlando's locals and visitors. His hydration treatments are
-              tailored to combat the exhaustive heat and packed schedules
-              associated with Orlando's theme parks and event spaces.
-            </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-            >
-              He provides fast and effective recovery solutions, perfect for
-              those who've spent the day adventuring across Orlando or need a
-              wellness boost after business meetings and conventions.
-            </Typography>{" "}
+
             <Typography
               variant="h6"
               gutterBottom

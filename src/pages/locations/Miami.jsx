@@ -138,24 +138,7 @@ export default function Miami() {
             >
               EMT - Hydration Specialist
             </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-            >
-              Dr. Centeno is an expert in IV therapy, dedicated to helping both
-              visitors and locals in Orlando. Whether enjoying the theme parks
-              or participating in events, he ensures guests stay refreshed and
-              full of vigor.
-            </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-            >
-              With personalized care and an understanding of the demanding
-              Florida climate, Dr. Centeno provides therapies that promise
-              rejuvenation for those seeking to maintain their best health while
-              taking on the city's myriad of activities.
-            </Typography>
+
             <Typography
               variant="h6"
               gutterBottom

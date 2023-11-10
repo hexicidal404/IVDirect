@@ -138,24 +138,6 @@ export default function SanFrancisco() {
               ACNP-BC, DNP - Hydration Specialist, Nurse Practitioner
             </Typography>
             <Typography
-              variant="body1"
-              paragraph
-            >
-              As a seasoned expert in IV therapy, Dr. Fulkerson assists both
-              visitors and residents of Orlando with staying well-hydrated and
-              full of energy. Her practice is particularly valued by those
-              seeking to enjoy Orlando's world-renowned theme parks and by
-              professionals needing to stay sharp for conferences.
-            </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-            >
-              Dr. Fulkerson is dedicated to providing swift and effective
-              hydration solutions, enabling her patients to make the most of
-              their time in the city, whether for work or play.
-            </Typography>{" "}
-            <Typography
               variant="h6"
               gutterBottom
             >
