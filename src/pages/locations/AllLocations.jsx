@@ -77,6 +77,30 @@ function AllLocations() {
     // ... Add more services as needed
   ];
 
+  const upcomingLocations = [
+    {
+      name: "New York City",
+      opening: "February, 2024",
+      description:
+        "Recharge in the city that never sleeps. Our New York City location will offer customized IV hydration to support the high-energy lifestyle of the urban dwellers and the relentless hustle of the metropolis.",
+      link: "/locations/newyorkcity",
+    },
+    {
+      name: "Cleveland",
+      opening: "May, 2024",
+      description:
+        "Revitalize in the heart of the Midwest. Cleveland's upcoming IV Direct site aims to cater to the wellness needs of the Rock and Roll capital, ensuring you're concert-ready and resilient year-round.",
+      link: "/locations/cleveland",
+    },
+    {
+      name: "Jersey City",
+      opening: "March, 2024",
+      description:
+        "Embrace wellness across the Hudson with Jersey City's dedicated IV Direct center. Perfect for professionals and families seeking balance in a fast-paced environment.",
+      link: "/locations/jerseycity",
+    },
+  ];
+
   const theme = useTheme();
 
   return (
@@ -147,7 +171,7 @@ function AllLocations() {
                       variant="contained"
                       color="primary"
                     >
-                      Learn More
+                      Contact Information
                     </Button>
                   </RouterLink>
                 </Paper>
@@ -155,10 +179,9 @@ function AllLocations() {
             ))}
           </Grid>
           <Divider sx={{ my: 5 }} />
-
-          <UpcomingLocations></UpcomingLocations>
-          <Divider sx={{ my: 5 }} />
-
+          <UpcomingLocations
+            upcomingLocations={upcomingLocations}
+          ></UpcomingLocations>
           <Typography
             variant="h5"
             gutterBottom

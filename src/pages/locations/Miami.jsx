@@ -13,14 +13,21 @@ import {
   useTheme,
   useMediaQuery,
   Grid,
+  Button,
 } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
 import IvIcon from "../../components/IvIcon";
 
+import { useNavigate, useLocation } from "react-router-dom";
+
+import UpcomingLocations from "./UpcomingLocations";
+
 export default function Miami() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
+  const navigate = useNavigate();
 
   // Styles
   const containerStyle = {
@@ -40,11 +47,21 @@ export default function Miami() {
 
   const doctorCardStyle = {
     p: theme.spacing(3),
-    my: theme.spacing(4), // margin top for spacing from previous content
+    my: theme.spacing(4),
     borderRadius: theme.shape.borderRadius,
     boxShadow: theme.shadows[3],
     textAlign: "left", // Align text to the left for the card content
   };
+
+  const upcomingLocations = [
+    {
+      name: "West Palm Beach",
+      opening: "February, 2024",
+      description:
+        "Indulge in the ultimate relaxation and rehydration experience in West Palm Beach, where sun and sea meet health and hydration. Our services are tailored to enhance your seaside leisure with revitalizing IV therapy.",
+      link: "/locations/westpalmbeach",
+    },
+  ];
 
   return (
     <Container
@@ -56,9 +73,15 @@ export default function Miami() {
         gutterBottom
         component="h1"
       >
-        Welcome to IV Direct Miami - Mobile Only
+        Welcome to IV Direct Miami
       </Typography>
-
+      <Typography
+        variant="h6"
+        gutterBottom
+        component="h2"
+      >
+        Mobile Only
+      </Typography>
       <Typography
         variant="subtitle1"
         color="textSecondary"
@@ -106,7 +129,7 @@ export default function Miami() {
               component="h2"
               gutterBottom
             >
-              Dr. Brandon Centeno
+              Brandon Centeno
             </Typography>
             <Typography
               variant="h6"
@@ -147,24 +170,52 @@ export default function Miami() {
               <MailOutlineIcon />
               <Typography variant="body1">
                 <Link
-                  href="mailto:dralberto@iv.direct"
+                  href="mailto:Brandon@IV.Direct"
                   underline="hover"
                   color="inherit"
                 >
-                  DrAlberto@IV.Direct
+                  Brandon@IV.Direct
                 </Link>
               </Typography>
             </Box>
             <Box
               display="flex"
               gap={2}
+              alignItems="center"
             >
-              <PhoneIcon />
-              <Typography variant="body1">407-960-2200</Typography>
+              <Link
+                href="tel:+14079602200"
+                color="inherit"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+              >
+                <PhoneIcon />
+                <Typography
+                  variant="body1"
+                  style={{ marginLeft: theme.spacing(1.8) }}
+                >
+                  305-776-3001
+                </Typography>
+              </Link>
             </Box>
+            <Button
+              sx={{ mt: 2 }}
+              variant="contained"
+              color="primary"
+              onClick={() => navigate("/contact")}
+            >
+              Contact Us
+            </Button>
           </Grid>
         </Grid>
       </Paper>
+      <UpcomingLocations
+        upcomingLocations={upcomingLocations}
+      ></UpcomingLocations>
+
       <Typography
         variant="h6"
         gutterBottom

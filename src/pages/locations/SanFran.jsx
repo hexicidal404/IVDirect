@@ -13,16 +13,21 @@ import {
   useTheme,
   useMediaQuery,
   Grid,
+  Button,
 } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
 
 import Logo from "../../components/Logo";
 import IvIcon from "../../components/IvIcon";
+import { useNavigate, useLocation } from "react-router-dom";
+
+import UpcomingLocations from "./UpcomingLocations";
 
 export default function SanFrancisco() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
+  const navigate = useNavigate();
 
   // Define San Francisco-specific styles and data
   const avatarStyle = {
@@ -40,6 +45,23 @@ export default function SanFrancisco() {
   };
 
   const sanFranciscoPhoneNumber = "(415) 123-4567"; // Example phone number for San Francisco
+
+  const upcomingLocations = [
+    {
+      name: "Los Angeles",
+      opening: "January, 2024",
+      description:
+        "Stay on top of your game in the City of Angels. Our Los Angeles location will provide hydration therapies designed for the stars, supporting the dynamic needs of LA's active and entertainment-focused community.",
+      link: "/locations/losangeles",
+    },
+    {
+      name: "West Hollywood",
+      opening: "May, 2024",
+      description:
+        "Elevate your wellness routine in West Hollywood with our bespoke IV Direct treatments, crafted to suit the lifestyle of this iconic and trendsetting neighborhood.",
+      link: "/locations/westhollywood",
+    },
+  ];
 
   return (
     <Container
@@ -158,14 +180,40 @@ export default function SanFrancisco() {
             <Box
               display="flex"
               gap={2}
+              alignItems="center"
             >
-              <PhoneIcon />
-              <Typography variant="body1">925-463-1744</Typography>
-            </Box>
+              <Link
+                href="tel:+19254631744"
+                color="inherit"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+              >
+                <PhoneIcon />
+                <Typography
+                  variant="body1"
+                  style={{ marginLeft: theme.spacing(1.8) }}
+                >
+                  925-463-1744
+                </Typography>
+              </Link>
+            </Box>{" "}
+            <Button
+              sx={{ mt: 2 }}
+              variant="contained"
+              color="primary"
+              onClick={() => navigate("/contact")}
+            >
+              Contact Us
+            </Button>
           </Grid>
         </Grid>
       </Paper>
-
+      <UpcomingLocations
+        upcomingLocations={upcomingLocations}
+      ></UpcomingLocations>
       <Typography
         variant="h6"
         gutterBottom

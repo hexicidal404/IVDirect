@@ -13,6 +13,7 @@ import {
   useTheme,
   useMediaQuery,
   Grid,
+  Button,
 } from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -21,7 +22,11 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import Logo from "../../components/Logo";
 import IvIcon from "../../components/IvIcon";
 
+import UpcomingLocations from "./UpcomingLocations";
+import { useNavigate } from "react-router-dom";
+
 export default function Orlando() {
+  const navigate = useNavigate();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
@@ -41,6 +46,16 @@ export default function Orlando() {
   };
 
   const orlandoPhoneNumber = "(407) 123-4567"; // Example phone number for Orlando
+
+  const upcomingLocations = [
+    {
+      name: "West Palm Beach",
+      opening: "February, 2024",
+      description:
+        "Indulge in the ultimate relaxation and rehydration experience in West Palm Beach, where sun and sea meet health and hydration. Our services are tailored to enhance your seaside leisure with revitalizing IV therapy.",
+      link: "/locations/westpalmbeach",
+    },
+  ];
 
   return (
     <Container
@@ -160,9 +175,25 @@ export default function Orlando() {
             <Box
               display="flex"
               gap={2}
+              alignItems="center"
             >
-              <PhoneIcon />
-              <Typography variant="body1">407-960-2200</Typography>
+              <Link
+                href="tel:+14079602200"
+                color="inherit"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+              >
+                <PhoneIcon />
+                <Typography
+                  variant="body1"
+                  style={{ marginLeft: theme.spacing(1.8) }}
+                >
+                  407-960-2200
+                </Typography>
+              </Link>
             </Box>
             <Box
               display="flex"
@@ -180,10 +211,20 @@ export default function Orlando() {
                 </Link>
               </Typography>
             </Box>
+            <Button
+              sx={{ mt: 2 }}
+              variant="contained"
+              color="primary"
+              onClick={() => navigate("/contact")}
+            >
+              Contact Us
+            </Button>
           </Grid>
         </Grid>
       </Paper>
-
+      <UpcomingLocations
+        upcomingLocations={upcomingLocations}
+      ></UpcomingLocations>
       <Typography
         variant="h6"
         gutterBottom
