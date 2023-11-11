@@ -149,7 +149,7 @@ function AllLocations() {
                   elevation={3}
                   sx={{
                     p: 3,
-                    minHeight: 275,
+                    minHeight: "auto",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
@@ -162,7 +162,7 @@ function AllLocations() {
                   }}
                 >
                   <Typography variant="h6">{location.name}</Typography>
-                  <Typography paragraph>{location.description}</Typography>
+                  {/* <Typography paragraph>{location.description}</Typography> */}
                   <RouterLink
                     to={location.link}
                     style={{ textDecoration: "none" }}
@@ -170,6 +170,7 @@ function AllLocations() {
                     <Button
                       variant="contained"
                       color="primary"
+                      sx={{ mt: 2 }}
                     >
                       Contact Information
                     </Button>
@@ -178,7 +179,6 @@ function AllLocations() {
               </Grid>
             ))}
           </Grid>
-          <Divider sx={{ my: 5 }} />
           <UpcomingLocations
             upcomingLocations={upcomingLocations}
           ></UpcomingLocations>
@@ -227,37 +227,6 @@ function AllLocations() {
               </Grid>
             ))}
           </Grid>
-          <Divider sx={{ my: 5 }} />
-          <Typography
-            variant="h5"
-            gutterBottom
-          >
-            Get in Touch
-          </Typography>
-          <Box
-            display="flex"
-            alignItems="center"
-            gap={2}
-            mb={2}
-          >
-            <MailOutlineIcon color="primary" />
-            <Typography variant="body1">
-              <Link
-                href="mailto:info@IV.Direct"
-                color="primary"
-              >
-                info@IV.Direct
-              </Link>
-            </Typography>
-          </Box>
-          <Box
-            display="flex"
-            alignItems="center"
-            gap={2}
-          >
-            <PhoneIcon color="primary" />
-            <Typography variant="body1">(800) 123-5678</Typography>
-          </Box>
         </Paper>
       </Container>
     </div>

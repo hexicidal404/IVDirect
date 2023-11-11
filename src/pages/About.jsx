@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useScroll } from "../components/ScrollContext";
-import { useTheme } from "@mui/material/styles";
+import { useTheme, styled } from "@mui/material/styles";
 
 import {
   Typography,
@@ -39,6 +39,21 @@ function About() {
   const backgroundImage =
     "https://res.cloudinary.com/dcgh3ljwk/image/upload/q_auto/v1698524579/lionello-delpiccolo-qEswHvOmi1c-unsplash_tjm7bd.webp";
 
+  const StyledDivider = styled(Divider)(({ theme }) => ({
+    margin: theme.spacing(2, 0),
+    backgroundColor: theme.palette.primary.dark,
+  }));
+
+  const StyledCard = styled(Card)(({ theme }) => ({
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
+    transition: "0.3s",
+    "&:hover": {
+      transform: "scale(1.03)",
+      boxShadow: theme.shadows[5],
+    },
+  }));
+
   return (
     <div
       ref={aboutUsRef}
@@ -58,6 +73,8 @@ function About() {
             overflow: "hidden",
             borderRadius: "12px",
             padding: theme.spacing(2),
+            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            backdropFilter: "blur(5px)",
           }}
         >
           <Typography
@@ -73,21 +90,7 @@ function About() {
               backgroundColor: theme.palette.primary.dark,
             }}
           />
-          <Typography
-            variant="body1"
-            color="textSecondary"
-            paragraph
-          >
-            At IV Direct, we're not just another medical service; we're
-            revolutionaries in the realm of natural health and wellness. Rooted
-            in the belief that optimal health starts at the cellular level, we
-            set out to change the way individuals receive crucial nutrients and
-            vitamins. Our pioneering approach brings the much-needed
-            rejuvenation directly to your doorstep with our exclusive mobile IV
-            hydration units. No longer do you need to step out to a clinic;
-            instead, let the wellness come to you, whether you're at home, at
-            the office, or even at a hotel.
-          </Typography>
+
           <Typography
             variant="body1"
             color="textSecondary"
@@ -102,20 +105,7 @@ function About() {
             why we strive to make it as effortless and efficient as possible,
             ensuring you always perform at your peak, naturally.
           </Typography>
-          <Typography
-            variant="body1"
-            color="textSecondary"
-            paragraph
-          >
-            Our journey began from a simple vision: to fuse modern medical
-            science with ancient natural remedies. The brainchild of a dedicated
-            team of nutritionists, health enthusiasts, and medical
-            professionals, IV Direct's story is one of innovation, dedication,
-            and an unwavering commitment to holistic health. We pride ourselves
-            on our unique business model, always prioritizing the comfort and
-            health of our clients. Join us on this wellness journey and discover
-            a new dimension of health and vitality.
-          </Typography>
+
           <Box mt={5}>
             <Typography
               variant="h4"
@@ -158,13 +148,6 @@ function About() {
             flexDirection="column"
             alignItems="center"
           >
-            <Divider
-              sx={{
-                my: 3,
-                width: "100%",
-                backgroundColor: theme.palette.primary.dark,
-              }}
-            />
             <Button
               variant="contained"
               color="primary"
@@ -181,7 +164,6 @@ function About() {
             >
               Learn More
             </Button>
-
             <Typography
               variant="h6"
               gutterBottom

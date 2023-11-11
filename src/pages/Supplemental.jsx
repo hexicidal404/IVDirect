@@ -20,37 +20,37 @@ const data = [
     text: "Vitamin B Complex",
     color: "#E57373",
     description:
-      "Vitamin B Complex helps in energy production, DNA repair, and the formation of red blood cells. It also supports brain health and reduces symptoms of stress and depression.",
+      "Supports energy, red blood cell formation, brain health, and mood regulation.",
   },
   {
     text: "Vitamin B12",
     color: "#81C784",
     description:
-      "Vitamin B12 is essential for nerve function, the formation of red blood cells, and DNA synthesis. It also plays a vital role in the health of nerve cells and preventing megaloblastic anemia.",
+      "Crucial for healthy nerve cells, red blood cell formation, and anemia prevention.",
   },
   {
     text: "Zinc",
     color: "#64B5F6",
     description:
-      "Zinc is crucial for DNA synthesis, immune system function, and wound healing. It also supports growth and development during pregnancy, childhood, and adolescence.",
+      "Supports immune function, wound healing, and growth during key life stages.",
   },
   {
     text: "Taurine",
     color: "#FFD54F",
     description:
-      "Taurine is an amino acid that plays a key role in several essential body functions, including regulating calcium levels, supporting brain and eye health, and maintaining hydration and electrolyte balance.",
+      "Aids in calcium regulation, brain and eye health, and electrolyte balance.",
   },
   {
     text: "Glutathione",
     color: "#BA68C8",
     description:
-      "Glutathione is an antioxidant that prevents damage to cellular components caused by free radicals. It also helps in detoxification, supports the immune system, and can lighten skin complexion.",
+      "An antioxidant that helps with detoxification and may enhance skin complexion.",
   },
   {
     text: "Magnesium",
     color: "#4FC3F7",
     description:
-      "Magnesium is vital for many physiological functions, including energy production, muscle contractions, nerve function, and the regulation of blood pressure. It also supports bone health and aids in protein synthesis.",
+      "Essential for muscle, nerve function, and blood pressure regulation.",
   },
   // {
   //   text: "MIC",

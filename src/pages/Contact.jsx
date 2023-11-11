@@ -126,6 +126,17 @@ function Contact({ dataArray }) {
   const backgroundImage =
     "https://images.unsplash.com/photo-1460501501851-d5946a18e552?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
+  const data = [
+    { key: 1, location: "Miami", name: "Brandon Centeno", state: "FL" },
+    { key: 2, location: "Orlando", name: "Alberto Rivera", state: "FL" },
+    {
+      key: 3,
+      location: "San Franciso",
+      name: "Shakira Fulkerson",
+      state: "CA",
+    },
+  ];
+
   return (
     <div ref={contactMenuRef}>
       <Box
@@ -207,6 +218,30 @@ function Contact({ dataArray }) {
                   type="email"
                   name="email"
                 />
+              </Box>
+
+              <Box mb={2}>
+                <FormControl
+                  fullWidth
+                  variant="outlined"
+                >
+                  <InputLabel>Preferred Location</InputLabel>
+                  <Select
+                    name="location" // Adjusted to a singular form
+                    label="Vitamin Package"
+                    value={selectedRole}
+                    onChange={handleRoleChange}
+                  >
+                    {data.map((data) => (
+                      <MenuItem
+                        key={data.key}
+                        value={data.name}
+                      >
+                        {data.location}, {data.state} with {data.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Box>
 
               <Box mb={2}>

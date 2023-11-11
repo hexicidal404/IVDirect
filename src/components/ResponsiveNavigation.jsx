@@ -65,6 +65,8 @@ function ResponsiveNavigation({
   const handleTypographyClick = (route) => {
     if (route === "/about") {
       setHasSeenImageCardState(false); // Use the function passed via props here
+    } else {
+      setHasSeenImageCardState(true);
     }
     navigate(route);
   };
@@ -112,6 +114,20 @@ function ResponsiveNavigation({
                 <ListItemText primary="About Us" />
               </ListItemButton>
             </Link>
+            <Link
+              to="/"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <ListItemButton
+                onClick={() => {
+                  onClose();
+                  handleTypographyClick("/");
+                }}
+                style={listItemStyle}
+              >
+                <ListItemText primary="Hydration Bags" />
+              </ListItemButton>
+            </Link>
             <ListItemButton
               onClick={() => setHydrationOpen(!hydrationOpen)}
               style={listItemStyle}
@@ -141,10 +157,16 @@ function ResponsiveNavigation({
                   to="/"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <ListItemButton onClick={onClose}>
+                  <ListItemButton
+                    onClick={() => {
+                      onClose();
+                      handleTypographyClick("/");
+                    }}
+                  >
                     <ListItemText primary="Hydration Bags" />
                   </ListItemButton>
                 </Link>
+
                 <Box>
                   {data.map((item) => (
                     <Link
@@ -154,8 +176,10 @@ function ResponsiveNavigation({
                     >
                       <ListItemButton
                         onClick={() => {
+                          onClose();
+                          handleTypographyClick("/");
                           navigate(`/details/${item.key}`);
-                          onClose(); // Close the drawer
+                          // Close the drawer
                         }}
                       >
                         <ListItemText primary={item.title} />
@@ -175,7 +199,7 @@ function ResponsiveNavigation({
               >
                 <ListItemText primary="Supplemental Shots" />
               </ListItemButton>
-            </Link>{" "}
+            </Link>
             <Link
               to="/locations/AllLocations"
               style={{ textDecoration: "none", color: "white" }}

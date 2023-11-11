@@ -30,9 +30,9 @@ function CustomCard({
     <Card
       sx={{
         ":hover": {
-          boxShadow: "0px 4px 6px rgba(25, 31, 35, 0.5)",
+          boxShadow: "0px 4px 6px rgba(25, 31, 35, 0.6)",
         },
-        border: "1px solid #e1e9ef",
+        border: "2px solid #e1e9ef",
         margin: "0 auto",
         maxWidth: "432px",
         minWidth: "240px",

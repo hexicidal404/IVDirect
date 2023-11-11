@@ -191,7 +191,7 @@ export default function Orlando() {
                   underline="hover"
                   color="inherit"
                 >
-                  6236 Kingspointe Pkwy #06, Orlando, FL 32819
+                  6236 Kingspointe Pkwy Ste 6, Orlando, FL 32819
                 </Link>
               </Typography>
             </Box>

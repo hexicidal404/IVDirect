@@ -86,10 +86,11 @@ function NavBar({
   const handleTypographyClick = (route) => {
     if (route === "/about") {
       setHasSeenImageCardState(false); // Use the function passed via props here
+    } else {
+      setHasSeenImageCardState(true);
     }
     navigate(route);
   };
-
   const handleHover = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -210,6 +211,24 @@ function NavBar({
             <div style={navLinksStyle}>
               <Typography
                 variant="body1"
+                onClick={() => handleTypographyClick("/about")}
+                color="inherit"
+                sx={{ ...typographyStyle, color: typographyColor }}
+                style={{ textAlign: "left" }}
+              >
+                About Us
+              </Typography>
+              <Typography
+                variant="body1"
+                color="inherit"
+                sx={{ ...typographyStyle, color: typographyColor }}
+                style={{ textAlign: "left" }}
+                onClick={() => handleTypographyClick("/")}
+              >
+                Hydration Bags
+              </Typography>
+              <Typography
+                variant="body1"
                 color="inherit"
                 sx={{ ...typographyStyle, color: typographyColor }}
                 style={{
@@ -260,15 +279,7 @@ function NavBar({
               >
                 Ownership Opprotunities
               </Typography>
-              <Typography
-                variant="body1"
-                onClick={() => handleTypographyClick("/about")}
-                color="inherit"
-                sx={{ ...typographyStyle, color: typographyColor }}
-                style={{ textAlign: "left" }}
-              >
-                About Us
-              </Typography>
+
               <Typography
                 variant="body1"
                 onClick={() => handleTypographyClick("/contact")}
