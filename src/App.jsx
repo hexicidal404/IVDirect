@@ -176,7 +176,6 @@ export default function App({ children }) {
         "Glutathione",
         "Zinc",
         "Anti-inflammatory medication",
-        "Zinc",
       ],
       route: "ccf",
       buttonText: "Learn More",
