@@ -34,6 +34,7 @@ import Miami from "./pages/locations/Miami";
 import AllLocations from "./pages/locations/AllLocations";
 
 import useHasSeenImageCard from "./components/useHasSeenImageHook";
+import NewYork from "./pages/locations/NewYork";
 
 export default function App({ children }) {
   const [hasSeenImageCard, setHasSeenImageCardState] = useHasSeenImageCard();
@@ -441,6 +442,10 @@ export default function App({ children }) {
                       <Route
                         path="Orlando"
                         element={<Orlando />}
+                      />
+                      <Route
+                        path="NewYork"
+                        element={<NewYork />}
                       />
                       <Route
                         path="alllocations"

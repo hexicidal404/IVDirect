@@ -73,6 +73,7 @@ function NavBar({
 
   const navigateToHydrationMenu = () => {
     navigate("/");
+    setHasSeenImageCardState(true);
   };
 
   const scrollToTop = () => {
@@ -91,6 +92,34 @@ function NavBar({
     }
     navigate(route);
   };
+
+  const handleHomeClick = (route) => {
+    if (route === "/about") {
+      setHasSeenImageCardState(true); // Use the function passed via props here
+    } else {
+      setHasSeenImageCardState(false);
+    }
+    navigate(route);
+  };
+
+  const handleAboutUs = (route) => {
+    if (route === "/about") {
+      setHasSeenImageCardState(true); // Use the function passed via props here
+    } else {
+      setHasSeenImageCardState(false);
+    }
+    navigate(route);
+  };
+
+  const handleHydrationBag = (route) => {
+    if (route === "/") {
+      setHasSeenImageCardState(true); // Use the function passed via props here
+    } else {
+      setHasSeenImageCardState(false);
+    }
+    navigate(route);
+  };
+
   const handleHover = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -104,6 +133,7 @@ function NavBar({
       navigate(path, { state: { shouldScroll: true } });
       onButtonClick && onButtonClick();
     } else {
+      setHasSeenImageCardState(true);
       navigate(path);
     }
     handleClose();
@@ -197,7 +227,7 @@ function NavBar({
                 color="inherit"
                 sx={{ ...typographyStyle, color: typographyColor }}
                 style={{ textAlign: "left" }}
-                onClick={() => handleTypographyClick("/about")}
+                onClick={() => handleHomeClick("/")}
               >
                 {!isMobile ? (
                   <img
@@ -211,7 +241,7 @@ function NavBar({
             <div style={navLinksStyle}>
               <Typography
                 variant="body1"
-                onClick={() => handleTypographyClick("/about")}
+                onClick={() => handleAboutUs("/about")}
                 color="inherit"
                 sx={{ ...typographyStyle, color: typographyColor }}
                 style={{ textAlign: "left" }}
@@ -223,7 +253,7 @@ function NavBar({
                 color="inherit"
                 sx={{ ...typographyStyle, color: typographyColor }}
                 style={{ textAlign: "left" }}
-                onClick={() => handleTypographyClick("/")}
+                onClick={() => handleHydrationBag("/")}
               >
                 Hydration Bags
               </Typography>
@@ -330,7 +360,7 @@ function NavBar({
           onMouseLeave={() => setAnchorElLocations(null)}
         >
           <MenuItem onClick={() => handleLocationClick("/locations/Miami")}>
-            Miami{" "}
+            Miami
           </MenuItem>
           <MenuItem onClick={() => handleLocationClick("/locations/Orlando")}>
             Orlando

@@ -26,7 +26,6 @@ function ResponsiveNavigation({
   const listItemStyle = {
     justifyContent: "flex-start",
     textAlign: "left",
-    padding: "10px 20px 10px 10px",
   };
 
   const drawerStyle = {
@@ -71,6 +70,15 @@ function ResponsiveNavigation({
     navigate(route);
   };
 
+  const handleAboutUs = (route) => {
+    if (route === "/about") {
+      setHasSeenImageCardState(true); // Use the function passed via props here
+    } else {
+      setHasSeenImageCardState(false);
+    }
+    navigate(route);
+  };
+
   return (
     <>
       <Drawer
@@ -108,7 +116,10 @@ function ResponsiveNavigation({
               style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
-                onClick={onClose}
+                onClick={() => {
+                  onClose();
+                  handleTypographyClick("/");
+                }}
                 style={listItemStyle}
               >
                 <ListItemText primary="About Us" />
@@ -194,7 +205,10 @@ function ResponsiveNavigation({
               style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
-                onClick={onClose}
+                onClick={() => {
+                  onClose();
+                  handleTypographyClick("/Supplemental");
+                }}
                 style={listItemStyle}
               >
                 <ListItemText primary="Supplemental Shots" />
@@ -216,7 +230,10 @@ function ResponsiveNavigation({
               style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
-                onClick={onClose}
+                onClick={() => {
+                  onClose();
+                  handleTypographyClick("/Ownership");
+                }}
                 style={listItemStyle}
               >
                 <ListItemText primary="Ownership Opportunities" />
@@ -227,8 +244,10 @@ function ResponsiveNavigation({
               style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
-                onClick={onClose}
-                style={listItemStyle}
+                onClick={() => {
+                  onClose();
+                  handleTypographyClick("/Contact");
+                }}
               >
                 <ListItemText primary="Contact" />
               </ListItemButton>

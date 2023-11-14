@@ -19,7 +19,7 @@ function CardGrid({ cards, onButtonClick }) {
             {...item}
             style={{ minHeight: "300px" }} // or whatever height suits your design
             onButtonClick={() => onButtonClick(item.key)}
-          />
+          ></CustomCard>
         </Grid>
       ))}
     </Grid>

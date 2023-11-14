@@ -17,11 +17,24 @@ import styles from "./Footer.module.css";
 
 export default function Footer({ onButtonClick }) {
   const navigate = useNavigate();
-
-  const handleTypographyClick = (route) => {
-    navigate(route, { state: { shouldScroll: true } });
-    onButtonClick && onButtonClick();
+  const handleAboutUs = (route) => {
+    if (
+      route === "/about" ||
+      route === "/contact" ||
+      route === "/Ownership" ||
+      route === "/Supplemental"
+    ) {
+      onButtonClick(true); // Use the function passed via props here
+    } else {
+      onButtonClick(false);
+    }
+    navigate(route);
   };
+
+  // const handleTypographyClick = (route) => {
+  //   navigate(route, { state: { shouldScroll: true } });
+  //   onButtonClick && onButtonClick();
+  // };
 
   function scrollTop() {
     window.scrollTo({
@@ -183,51 +196,13 @@ export default function Footer({ onButtonClick }) {
                       color="inherit"
                       sx={typographyStyle}
                       style={{ textAlign: "left" }}
-                      onClick={() => handleTypographyClick("/")}
+                      onClick={() => handleAboutUs("/")}
                     >
                       Home
                     </Typography>
                     <Typography
                       variant="body1"
-                      color="inherit"
-                      sx={typographyStyle}
-                      style={{ textAlign: "left" }}
-                      onClick={() => handleTypographyClick("/")}
-                    >
-                      Hydration Menu
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="inherit"
-                      sx={typographyStyle}
-                      style={{ textAlign: "left" }}
-                      onClick={() => handleTypographyClick("/Supplemental")}
-                    >
-                      Supplemental Shots
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="inherit"
-                      sx={typographyStyle}
-                      style={{ textAlign: "left" }}
-                      onClick={() => handleTypographyClick("/Ownership")}
-                    >
-                      Ownership Opprotunities
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      onClick={() =>
-                        handleTypographyClick("/locations/AllLocations")
-                      }
-                      color="inherit"
-                      sx={typographyStyle}
-                      style={{ textAlign: "left" }}
-                    >
-                      Locations
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      onClick={() => handleTypographyClick("/about")}
+                      onClick={() => handleAboutUs("/about")}
                       color="inherit"
                       sx={typographyStyle}
                       style={{ textAlign: "left" }}
@@ -236,7 +211,43 @@ export default function Footer({ onButtonClick }) {
                     </Typography>
                     <Typography
                       variant="body1"
-                      onClick={() => handleTypographyClick("/contact")}
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                      onClick={() => handleAboutUs("/")}
+                    >
+                      Hydration Menu
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                      onClick={() => handleAboutUs("/Supplemental")}
+                    >
+                      Supplemental Shots
+                    </Typography>{" "}
+                    <Typography
+                      variant="body1"
+                      onClick={() => handleAboutUs("/locations/AllLocations")}
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                    >
+                      Locations
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                      onClick={() => handleAboutUs("/Ownership")}
+                    >
+                      Ownership Opprotunities
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      onClick={() => handleAboutUs("/contact")}
                       color="inherit"
                       sx={typographyStyle}
                       style={{ textAlign: "left" }}

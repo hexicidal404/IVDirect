@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
+import ImageComponent from "./Logo";
 
 function CustomCard({
   title,
@@ -42,9 +43,21 @@ function CustomCard({
         height: "800px",
       }}
     >
+      <ImageComponent
+        style={{
+          display: "block", // Added to ensure the element is treated as a block-level element
+          margin: "auto", // Added to automatically adjust the margin
+          margin: "auto", // Added to automatically adjust the margin
+          height: "10%", // Define a height for the component if not already defined
+          maxWidth: "80%",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      />
       <CardMedia
         sx={{
-          height: 540,
+          height: 475,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
@@ -88,7 +101,6 @@ function CustomCard({
           {content}
         </Typography>
       </CardContent>
-
       {buttonText && onButtonClick && (
         <CardActions sx={{ padding: "24px" }}>
           <Button

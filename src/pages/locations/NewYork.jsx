@@ -25,12 +25,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import UpcomingLocations from "./UpcomingLocations";
 
-export default function SanFrancisco() {
+export default function NewYork() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
   const navigate = useNavigate();
 
-  // Define San Francisco-specific styles and data
+  // Define New York-specific styles and data
   const avatarStyle = {
     width: theme.spacing(15),
     height: theme.spacing(15),
@@ -39,29 +39,17 @@ export default function SanFrancisco() {
 
   const doctorCardStyle = {
     p: theme.spacing(3),
-    my: theme.spacing(4), // margin top for spacing from previous content
+    my: theme.spacing(4),
     borderRadius: theme.shape.borderRadius,
     boxShadow: theme.shadows[3],
-    textAlign: "left", // Align text to the left for the card content
+    textAlign: "left",
   };
 
-  const sanFranciscoPhoneNumber = "(415) 123-4567"; // Example phone number for San Francisco
+  const newYorkPhoneNumber = "(212) 123-4567"; // Example phone number for New York
 
+  // Update upcoming locations as per New York context
   const upcomingLocations = [
-    {
-      name: "Los Angeles",
-      opening: "January, 2024",
-      description:
-        "Stay on top of your game in the City of Angels. Our Los Angeles location will provide hydration therapies designed for the stars, supporting the dynamic needs of LA's active and entertainment-focused community.",
-      link: "/locations/losangeles",
-    },
-    {
-      name: "West Hollywood",
-      opening: "May, 2024",
-      description:
-        "Elevate your wellness routine in West Hollywood with our bespoke IV Direct treatments, crafted to suit the lifestyle of this iconic and trendsetting neighborhood.",
-      link: "/locations/westhollywood",
-    },
+    // ... (Updated Locations)
   ];
 
   return (
@@ -79,7 +67,7 @@ export default function SanFrancisco() {
         gutterBottom
         component="h1"
       >
-        Welcome to IV Direct San Francisco
+        Welcome to IV Direct New York
       </Typography>
 
       <Typography
@@ -87,9 +75,8 @@ export default function SanFrancisco() {
         color="textSecondary"
         paragraph
       >
-        Elevate your wellness with our tailored IV treatments in the heart of
-        San Francisco. Our hydration therapies are perfect for the tech-savvy,
-        the outdoor enthusiasts, and everyone in between.
+        Experience premier IV treatments in the bustling heart of New York. Our
+        therapies are tailored for the city's diverse, fast-paced lifestyle.
       </Typography>
       <Paper
         sx={{
@@ -142,7 +129,7 @@ export default function SanFrancisco() {
               variant="h6"
               gutterBottom
             >
-              Contact Our San Francisco Team
+              Contact Our New York Team
             </Typography>
             <Box
               display="flex"
@@ -183,22 +170,7 @@ export default function SanFrancisco() {
                 </Typography>
               </Link>
             </Box>
-            <Box
-              display="flex"
-              gap={2}
-              mt={2}
-            >
-              <LocationOnIcon />
-              <Typography variant="body1">
-                <Link
-                  href="https://www.google.com/maps/place/1399+Ygnacio+Valley+Rd+Suite+5,+Walnut+Creek,+CA+94598/@37.9105007,-122.0488933,17z/data=!3m1!4b1!4m6!3m5!1s0x808561b12f7d5457:0x9debb2a88fa5201b!8m2!3d37.9104965!4d-122.0463184!16s%2Fg%2F11ll6v4d4w?entry=ttu"
-                  underline="hover"
-                  color="inherit"
-                >
-                  1399 Ygnacio Valley Road, Suite 5, Walnut Creek CA - 94598
-                </Link>
-              </Typography>
-            </Box>
+
             <Button
               sx={{ mt: 2 }}
               variant="contained"
@@ -213,30 +185,31 @@ export default function SanFrancisco() {
       <UpcomingLocations
         upcomingLocations={upcomingLocations}
       ></UpcomingLocations>
+
       <Typography
         variant="h6"
         gutterBottom
       >
-        Why San Franciscans Choose Us:
+        Why New Yorkers Choose Us:
       </Typography>
 
       <List>
         <ListItem>
           <ListItemText
-            primary="Tech Industry Boost"
-            secondary="Specially formulated IV therapies to support the rigorous demands of tech professionals."
+            primary="City Life Energizer"
+            secondary="IV treatments designed to keep up with the energy of the city that never sleeps."
           />
         </ListItem>
         <ListItem>
           <ListItemText
-            primary="Outdoor Adventure Recovery"
-            secondary="Recharge after biking the Golden Gate Bridge or hiking Twin Peaks."
+            primary="Arts and Culture Boost"
+            secondary="Stay refreshed and inspired, whether visiting galleries in Chelsea or Broadway shows."
           />
         </ListItem>
         <ListItem>
           <ListItemText
-            primary="Foggy Day Formula"
-            secondary="Our IV solutions can help you stay clear-headed during the infamous San Francisco fog."
+            primary="Wall Street Warrior"
+            secondary="Specialized IV solutions for the high-stakes, fast-paced finance professionals."
           />
         </ListItem>
       </List>
@@ -245,8 +218,8 @@ export default function SanFrancisco() {
         variant="subtitle1"
         gutterBottom
       >
-        "San Francisco's unique charm requires unique wellness solutions. We're
-        here to provide them year-round."
+        "New York's dynamic rhythm calls for unique wellness solutions. We're
+        here to deliver them all year round."
       </Typography>
     </Container>
   );

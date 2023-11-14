@@ -48,6 +48,12 @@ function AllLocations() {
       link: "/locations/Miami",
     },
     {
+      name: "New York City, New York",
+      description:
+        "Discover optimal well-being from the sun-drenched coasts to the vibrant tech valleys. With California's diverse lifestyle, our IV hydration therapies are designed to match your Californian spirit.",
+      link: "/locations/NewYork",
+    },
+    {
       name: "Orlando, Florida",
       description:
         "Elevate your wellness amid Florida's sun, sea, and sand. As you soak up the sunshine, our bespoke IV hydration therapies ensure you feel revitalized and refreshed.",
@@ -133,16 +139,17 @@ function AllLocations() {
           >
             Our Locations
           </Typography>
-
           <Grid
             container
-            spacing={3}
+            spacing={2}
+            sx={{ padding: "22px" }}
           >
             {locations.map((location, index) => (
               <Grid
                 item
                 xs={12}
-                md={4}
+                md={6} // Adjusts the size for medium screens
+                lg={3} // Ensures 4 items per row on large screens
                 key={index}
               >
                 <Paper
@@ -156,7 +163,7 @@ function AllLocations() {
                     transition: "0.3s",
                     borderRadius: "12px",
                     "&:hover": {
-                      transform: "scale(1.03)", // subtle grow effect on hover
+                      transform: "scale(1.03)",
                       boxShadow: theme.shadows[5],
                     },
                   }}
@@ -179,6 +186,7 @@ function AllLocations() {
               </Grid>
             ))}
           </Grid>
+
           <UpcomingLocations
             upcomingLocations={upcomingLocations}
           ></UpcomingLocations>
