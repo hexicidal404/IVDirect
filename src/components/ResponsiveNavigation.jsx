@@ -219,7 +219,10 @@ function ResponsiveNavigation({
               style={{ textDecoration: "none", color: "white" }}
             >
               <ListItemButton
-                onClick={onClose}
+                onClick={() => {
+                  onClose();
+                  handleTypographyClick("/Locations");
+                }}
                 style={listItemStyle}
               >
                 <ListItemText primary="Locations" />

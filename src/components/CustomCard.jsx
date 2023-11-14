@@ -47,7 +47,6 @@ function CustomCard({
         style={{
           display: "block", // Added to ensure the element is treated as a block-level element
           margin: "auto", // Added to automatically adjust the margin
-          margin: "auto", // Added to automatically adjust the margin
           height: "10%", // Define a height for the component if not already defined
           maxWidth: "80%",
           backgroundSize: "contain",

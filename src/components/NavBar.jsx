@@ -209,6 +209,8 @@ function NavBar({
   const home =
     "https://res.cloudinary.com/dcgh3ljwk/image/upload/c_scale,w_80/v1699513715/6d9c555f-3862-4d03-a424-698d8bced6e2_w5x05g.webp";
 
+  const home2 =
+    "https://res.cloudinary.com/dcgh3ljwk/image/upload/c_scale,w_80/v1699996749/6d9c555f-3862-4d03-a424-698d8bced6e2_w5x05g_3_ev0mog.webp";
   return (
     <>
       <CssBaseline />
@@ -231,7 +233,7 @@ function NavBar({
               >
                 {!isMobile ? (
                   <img
-                    src={home}
+                    src={isTop ? home : home2}
                     alt="home button"
                   />
                 ) : null}
@@ -361,6 +363,9 @@ function NavBar({
         >
           <MenuItem onClick={() => handleLocationClick("/locations/Miami")}>
             Miami
+          </MenuItem>
+          <MenuItem onClick={() => handleLocationClick("/locations/NewYork")}>
+            New York City
           </MenuItem>
           <MenuItem onClick={() => handleLocationClick("/locations/Orlando")}>
             Orlando

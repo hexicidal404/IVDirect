@@ -102,7 +102,6 @@ function DetailsPage({ dataArray }) {
                   flex: 1,
                   borderRadius: "12px",
                   overflow: "hidden",
-                  backgroundColor: "white",
                 }}
               >
                 <img
