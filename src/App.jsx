@@ -32,7 +32,7 @@ import Orlando from "./pages/locations/Orlando";
 import SanFran from "./pages/locations/SanFran";
 import Miami from "./pages/locations/Miami";
 import AllLocations from "./pages/locations/AllLocations";
-
+import NotFound from "./pages/NotFound";
 import useHasSeenImageCard from "./components/useHasSeenImageHook";
 import NewYork from "./pages/locations/NewYork";
 
@@ -426,6 +426,10 @@ export default function App({ children }) {
                     <Route
                       path="/contact"
                       element={<Contact dataArray={data} />}
+                    />
+                    <Route
+                      path="*"
+                      element={<NotFound />}
                     />
                     <Route
                       path="/locations"
