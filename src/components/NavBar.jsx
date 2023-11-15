@@ -34,7 +34,7 @@ function NavBar({
 
   const [isTop, setIsTop] = useState(true);
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Default value
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1075); // Default value
 
   const navigate = useNavigate();
 
@@ -60,7 +60,7 @@ function NavBar({
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 1075);
     };
 
     window.addEventListener("resize", handleResize);

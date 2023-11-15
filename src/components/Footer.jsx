@@ -196,7 +196,10 @@ export default function Footer({ onButtonClick }) {
                       color="inherit"
                       sx={typographyStyle}
                       style={{ textAlign: "left" }}
-                      onClick={() => handleAboutUs("/")}
+                      onClick={() => {
+                        handleAboutUs("/");
+                        scrollTop();
+                      }}
                     >
                       Home
                     </Typography>

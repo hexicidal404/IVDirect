@@ -45,8 +45,6 @@ export default function NewYork() {
     textAlign: "left",
   };
 
-  const newYorkPhoneNumber = "(212) 123-4567"; // Example phone number for New York
-
   // Update upcoming locations as per New York context
   const upcomingLocations = [
     // ... (Updated Locations)
@@ -153,7 +151,7 @@ export default function NewYork() {
               alignItems="center"
             >
               <Link
-                href="tel:+19254631744"
+                href="tel:+6462704824"
                 color="inherit"
                 style={{
                   display: "flex",
@@ -166,7 +164,7 @@ export default function NewYork() {
                   variant="body1"
                   style={{ marginLeft: theme.spacing(1.8) }}
                 >
-                  925-464-1744
+                  626-270-4824
                 </Typography>
               </Link>
             </Box>

@@ -48,6 +48,7 @@ function Contact({ dataArray }) {
     defaultSelectedRole = packageItem ? packageItem.title : defaultSelectedRole;
   }
   const [selectedRole, setSelectedRole] = useState(defaultSelectedRole);
+  const [selectedLocation, setSelectedLocation] = useState("");
 
   useEffect(() => {
     if (location.state?.shouldScroll && contactMenuRef.current) {
@@ -66,6 +67,9 @@ function Contact({ dataArray }) {
 
   const handleRoleChange = (event) => {
     setSelectedRole(event.target.value);
+  };
+  const handleLocationChange = (event) => {
+    setSelectedLocation(event.target.value);
   };
 
   const onSubmit = async (event) => {
@@ -104,6 +108,10 @@ function Contact({ dataArray }) {
       method: "POST",
       body: formData,
     })
+      // fetch("https://formsubmit.co/your@email.com", {
+      //   method: "POST",
+      //   body: formData,
+      // })
       .then((res) => res.json())
       .then((res) => {
         if (res.success) {
@@ -134,6 +142,12 @@ function Contact({ dataArray }) {
       location: "San Franciso",
       name: "Shakira Fulkerson",
       state: "CA",
+    },
+    {
+      key: 4,
+      location: "New York City",
+      name: "Shakira Fulkerson",
+      state: "FL",
     },
   ];
 
@@ -227,10 +241,10 @@ function Contact({ dataArray }) {
                 >
                   <InputLabel>Preferred Location</InputLabel>
                   <Select
-                    name="location" // Adjusted to a singular form
+                    name="Doctor Requested" // Adjusted to a singular form
                     label="Vitamin Package"
-                    value={selectedRole}
-                    onChange={handleRoleChange}
+                    value={selectedLocation}
+                    onChange={handleLocationChange}
                   >
                     {data.map((data) => (
                       <MenuItem
@@ -251,17 +265,17 @@ function Contact({ dataArray }) {
                 >
                   <InputLabel>Vitamin Package</InputLabel>
                   <Select
-                    name="role" // Adjusted to a singular form
+                    name="Hydration Bag" // Adjusted to a singular form
                     label="Vitamin Package"
                     value={selectedRole}
                     onChange={handleRoleChange}
                   >
-                    {dataArray.map((data) => (
+                    {dataArray.map((bag) => (
                       <MenuItem
-                        key={data.title}
-                        value={data.title}
+                        key={bag.title}
+                        value={bag.title}
                       >
-                        {data.title}
+                        {bag.title}
                       </MenuItem>
                     ))}
                   </Select>
@@ -275,7 +289,7 @@ function Contact({ dataArray }) {
                   variant="outlined"
                   multiline
                   rows={4}
-                  name="message"
+                  name="User Submitted Message:"
                 />
               </Box>
 
