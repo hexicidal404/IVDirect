@@ -76,7 +76,6 @@ function DetailsPage({ dataArray }) {
             sx={{
               display: "flex",
               flexDirection: "column",
-              marginBottom: "-64px",
             }}
           >
             <Hidden mdUp>
@@ -101,7 +100,6 @@ function DetailsPage({ dataArray }) {
                   flex: 1,
                   borderRadius: "12px",
                   overflow: "hidden",
-                  marginTop: "-30px",
                 }}
               >
                 <img
