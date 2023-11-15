@@ -101,7 +101,7 @@ function DetailsPage({ dataArray }) {
                   flex: 1,
                   borderRadius: "12px",
                   overflow: "hidden",
-                  marginTop: "30px",
+                  marginBottom: "60px",
                 }}
               >
                 <img
