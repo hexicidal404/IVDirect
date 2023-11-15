@@ -60,7 +60,6 @@ function DetailsPage({ dataArray }) {
       ref={DetailsRef}
       sx={{ py: 5 }}
     >
-      {" "}
       <Paper
         elevation={12}
         sx={{ p: theme.spacing(3), borderRadius: "12px" }}
@@ -102,6 +101,7 @@ function DetailsPage({ dataArray }) {
                   flex: 1,
                   borderRadius: "12px",
                   overflow: "hidden",
+                  marginTop: "-30px",
                 }}
               >
                 <img
