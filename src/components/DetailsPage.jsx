@@ -76,6 +76,7 @@ function DetailsPage({ dataArray }) {
             sx={{
               display: "flex",
               flexDirection: "column",
+              marginBottom: "-64px",
             }}
           >
             <Hidden mdUp>
@@ -100,6 +101,7 @@ function DetailsPage({ dataArray }) {
                   flex: 1,
                   borderRadius: "12px",
                   overflow: "hidden",
+                  marginTop: "30px",
                 }}
               >
                 <img
@@ -108,7 +110,6 @@ function DetailsPage({ dataArray }) {
                   alt={item.title}
                   style={{
                     maxWidth: "100%",
-                    height: "88%", // Optional: Consider removing this if you don't want to stretch the image.
                     objectFit: "contain",
                   }}
                 />
