@@ -163,7 +163,7 @@ function Contact({ dataArray }) {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        padding={2}
+        padding={5}
       >
         <Container
           maxWidth="sm"
