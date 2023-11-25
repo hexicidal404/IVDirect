@@ -35,6 +35,7 @@ import AllLocations from "./pages/locations/AllLocations";
 import NotFound from "./pages/NotFound";
 import useHasSeenImageCard from "./components/useHasSeenImageHook";
 import NewYork from "./pages/locations/NewYork";
+import Privacy from "./pages/Privacy";
 
 export default function App({ children }) {
   const [hasSeenImageCard, setHasSeenImageCardState] = useHasSeenImageCard();
@@ -426,6 +427,10 @@ export default function App({ children }) {
                     <Route
                       path="/contact"
                       element={<Contact dataArray={data} />}
+                    />
+                    <Route
+                      path="/privacy"
+                      element={<Privacy />}
                     />
                     <Route
                       path="*"

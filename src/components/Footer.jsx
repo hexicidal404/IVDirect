@@ -257,6 +257,15 @@ export default function Footer({ onButtonClick }) {
                     >
                       Contact
                     </Typography>
+                    <Typography
+                      variant="body1"
+                      onClick={() => handleAboutUs("/privacy")}
+                      color="inherit"
+                      sx={typographyStyle}
+                      style={{ textAlign: "left" }}
+                    >
+                      Privacy Policy
+                    </Typography>
                   </div>
                 </div>
               </Grid>
