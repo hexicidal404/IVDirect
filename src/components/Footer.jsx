@@ -305,7 +305,7 @@ export default function Footer({ onButtonClick }) {
                   qualified health provider.
                 </Typography>
               </Container>
-              <Copyright style={{ color: "white" }} />
+              <Copyright />
             </Grid>
           </Grid>
         </Container>
