@@ -14,6 +14,7 @@ import { useScroll } from "./ScrollContext";
 
 // Styles
 import styles from "./Footer.module.css";
+import Copyright from "./Copyright";
 
 export default function Footer({ onButtonClick }) {
   const navigate = useNavigate();
@@ -304,6 +305,7 @@ export default function Footer({ onButtonClick }) {
                   qualified health provider.
                 </Typography>
               </Container>
+              <Copyright style={{ color: "white" }} />
             </Grid>
           </Grid>
         </Container>
