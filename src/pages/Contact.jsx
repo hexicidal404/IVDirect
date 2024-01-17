@@ -74,6 +74,7 @@ function Contact({ dataArray }) {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    const myForm = event.target;
 
     setStatus("sending");
     setResult("Sending...");
@@ -104,29 +105,13 @@ function Contact({ dataArray }) {
     formData.append("date", formattedDate); // Appending the formatted date
     formData.append("time", formattedTime); // Appending the formatted time
 
-    fetch("https://api.web3forms.com/submit", {
+    fetch("/", {
       method: "POST",
-      body: formData,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
     })
-      // fetch("https://formsubmit.co/your@email.com", {
-      //   method: "POST",
-      //   body: formData,
-      // })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success) {
-          setStatus("success");
-          setResult(res.message);
-        } else {
-          setStatus("error");
-          setResult(res.message);
-        }
-      })
-      .catch((error) => {
-        setStatus("error");
-        setResult("An error occurred while sending the form.");
-        console.error("There was an error with the fetch operation:", error);
-      });
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
   };
 
   const theme = useTheme();
@@ -175,16 +160,15 @@ function Contact({ dataArray }) {
           >
             <ImageComponent style={{ maxWidth: "100%" }} />
 
-            <form onSubmit={onSubmit}>
+            <form
+              onSubmit={onSubmit}
+              name="contact-form"
+              data-netlify="true"
+            >
               <input
                 type="hidden"
-                name="subject"
-                value="Contact Form"
-              />
-              <input
-                type="hidden"
-                name="from_name"
-                value="IV Direct"
+                name="form-name"
+                value="contact-form"
               />
               <Box
                 mb={2}
