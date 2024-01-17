@@ -101,18 +101,31 @@ function Contact({ dataArray }) {
     const ampm = hours24 < 12 ? "AM" : "PM";
     const formattedTime = hours12 + ":" + minutes + " " + ampm;
     const formData = new FormData(event.target);
-    formData.append("access_key", "fb2016fc-aede-4b4b-abe4-7a2f1f08301e");
-    formData.append("date", formattedDate); // Appending the formatted date
-    formData.append("time", formattedTime); // Appending the formatted time
+    formData.append("date", formattedDate); // Ensure this key matches the name attribute of your DatePicker
+    formData.append("time", formattedTime); // Ensure this key matches the name attribute of your TimePicker
 
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
-    }).then(() => console.log("Form successfully submitted"));
-    setStatus("success").catch((error) => setStatus(error, "error"));
+    })
+      .then((response) => {
+        if (response.ok) {
+          setStatus("success");
+          setResult("Thank you! Your submission has been received.");
+        } else {
+          response.json().then((data) => {
+            setStatus("error");
+            setResult(data.message || "An error occurred.");
+          });
+        }
+      })
+      .catch((error) => {
+        setStatus("error");
+        setResult("An error occurred while sending the form.");
+        console.error("There was an error with the fetch operation:", error);
+      });
   };
-
   const theme = useTheme();
 
   const backgroundImage =
@@ -178,22 +191,27 @@ function Contact({ dataArray }) {
                 }}
               >
                 <DatePicker
-                  sx={{ flexGrow: 1 }}
                   label="Month/Date/Year"
                   value={selectedDate}
                   onChange={(date) => setSelectedDate(date)}
-                  /* other props here */
-                ></DatePicker>
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      name="date"
+                    />
+                  )} // Add name attribute here
+                />
 
                 <TimePicker
                   label="Requested Time"
                   value={selectedTime}
                   onChange={(time) => setSelectedTime(time)}
-                  format="hh:mm a"
-                  sx={{
-                    flexGrow: 1,
-                    marginLeft: "16px", // Adjust this value based on your design preference
-                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      name="time"
+                    />
+                  )} // Add name attribute here
                   minutesStep={30}
                 />
               </Box>
