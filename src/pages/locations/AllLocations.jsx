@@ -43,6 +43,7 @@ function AllLocations() {
   const locations = [
     {
       name: "Miami, Florida",
+      subtext: "24 hour service",
       description:
         "Soak up the sun and rejuvenate in Miami's tropical paradise. Our hydration therapies are perfect for the active beachgoer or the nightlife enthusiast looking to refresh and rehydrate. Our treatments help keep you hydrated and energized in the heat of Florida.",
       link: "/locations/Miami",
@@ -156,7 +157,7 @@ function AllLocations() {
                   elevation={3}
                   sx={{
                     p: 3,
-                    minHeight: "auto",
+                    minHeight: "150px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
@@ -169,6 +170,12 @@ function AllLocations() {
                   }}
                 >
                   <Typography variant="h6">{location.name}</Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ pt: 1 }}
+                  >
+                    {location.subtext}
+                  </Typography>
                   {/* <Typography paragraph>{location.description}</Typography> */}
                   <RouterLink
                     to={location.link}

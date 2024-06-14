@@ -129,14 +129,14 @@ export default function Miami() {
               component="h2"
               gutterBottom
             >
-              Shay Schwimmer
+              IV Direct Miami 24Hr Service
             </Typography>
             <Typography
               variant="h6"
               component="h6"
               gutterBottom
             >
-              Hydration Specialist
+              Hydration Specialists
             </Typography>
 
             <Typography
@@ -153,11 +153,11 @@ export default function Miami() {
               <MailOutlineIcon />
               <Typography variant="body1">
                 <Link
-                  href="mailto:Shay@IV.Direct"
+                  href="mailto:Brandon@IV.Direct"
                   underline="hover"
                   color="inherit"
                 >
-                  Shay@IV.Direct
+                  Brandon@IV.Direct
                 </Link>
               </Typography>
             </Box>
@@ -167,7 +167,7 @@ export default function Miami() {
               alignItems="center"
             >
               <Link
-                href="tel:+9172162232"
+                href="tel:+3057763001"
                 color="inherit"
                 style={{
                   display: "flex",
@@ -180,7 +180,7 @@ export default function Miami() {
                   variant="body1"
                   style={{ marginLeft: theme.spacing(1.8) }}
                 >
-                  917-216-2232
+                  305-776-3001
                 </Typography>
               </Link>
             </Box>
